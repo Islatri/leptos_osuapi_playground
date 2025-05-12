@@ -23,6 +23,14 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install step
+        run: "cargo binstall trunk"
+
       - name: Build step
         run: "trunk build"
 
@@ -32,5 +40,5 @@ jobs:
           project: "osuapi-playground-57"
           entrypoint: "dist/index.html"
           root: ""
-          include: dist
+          
           
