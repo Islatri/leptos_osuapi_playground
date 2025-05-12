@@ -1,5 +1,6 @@
 use leptos::*;
 use leptos::prelude::{GlobalAttributes,ClassAttribute,ElementChild};
+use lucide_leptos::{Music,UserCheck,Users,ChartBarBig,MessageCircleMore,Lock};
 
 #[component]
 pub fn ApiSection() -> impl IntoView {
@@ -13,10 +14,10 @@ pub fn ApiSection() -> impl IntoView {
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     // API 卡片 - Beatmaps
-                    <div class="card hover:shadow-lg transition duration-300">
+                    <div class="card hover:shadow-lg transition duration-300 p-4 rounded-md">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-pink-100 dark:bg-pink-900 flex items-center justify-center">
-                                <i class="lucide-music text-2xl text-pink-600"></i>
+                            <div class="w-12 h-12 rounded-full text-2xl text-pink-600 bg-pink-100 dark:bg-pink-900 flex items-center justify-center">
+                                <Music />
                             </div>
                             <h3 class="text-xl font-semibold ml-4">谱面 API</h3>
                         </div>
@@ -32,10 +33,10 @@ pub fn ApiSection() -> impl IntoView {
                     </div>
                     
                     // API 卡片 - Users
-                    <div class="card hover:shadow-lg transition duration-300">
+                    <div class="card hover:shadow-lg transition duration-300 p-4 rounded-md">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
-                                <i class="lucide-user text-2xl text-purple-600"></i>
+                            <div class="w-12 h-12 rounded-full text-2xl text-purple-600 bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                                <UserCheck />
                             </div>
                             <h3 class="text-xl font-semibold ml-4">用户 API</h3>
                         </div>
@@ -51,10 +52,10 @@ pub fn ApiSection() -> impl IntoView {
                     </div>
                     
                     // API 卡片 - Rankings
-                    <div class="card hover:shadow-lg transition duration-300">
+                    <div class="card hover:shadow-lg transition duration-300 p-4 rounded-md">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                                <i class="lucide-bar-chart-2 text-2xl text-blue-600"></i>
+                            <div class="w-12 h-12 rounded-full text-2xl text-blue-600 bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+                                <ChartBarBig />
                             </div>
                             <h3 class="text-xl font-semibold ml-4">排名 API</h3>
                         </div>
@@ -70,10 +71,10 @@ pub fn ApiSection() -> impl IntoView {
                     </div>
                     
                     // API 卡片 - Multiplayer
-                    <div class="card hover:shadow-lg transition duration-300">
+                    <div class="card hover:shadow-lg transition duration-300 p-4 rounded-md">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
-                                <i class="lucide-users text-2xl text-green-600"></i>
+                            <div class="w-12 h-12 rounded-full text-2xl text-green-600 bg-green-100 dark:bg-green-900 flex items-center justify-center">
+                                <Users />
                             </div>
                             <h3 class="text-xl font-semibold ml-4">多人游戏 API</h3>
                         </div>
@@ -89,10 +90,10 @@ pub fn ApiSection() -> impl IntoView {
                     </div>
                     
                     // API 卡片 - Events
-                    <div class="card hover:shadow-lg transition duration-300">
+                    <div class="card hover:shadow-lg transition duration-300 p-4 rounded-md">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center">
-                                <i class="lucide-calendar text-2xl text-yellow-600"></i>
+                            <div class="w-12 h-12 rounded-full text-2xl text-yellow-600 bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center">
+                                <MessageCircleMore />
                             </div>
                             <h3 class="text-xl font-semibold ml-4">事件 API</h3>
                         </div>
@@ -108,10 +109,10 @@ pub fn ApiSection() -> impl IntoView {
                     </div>
                     
                     // API 卡片 - OAuth
-                    <div class="card hover:shadow-lg transition duration-300">
+                    <div class="card hover:shadow-lg transition duration-300 p-4 rounded-md">
                         <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center">
-                                <i class="lucide-lock text-2xl text-red-600"></i>
+                            <div class="w-12 h-12 rounded-full text-2xl text-red-600 bg-red-100 dark:bg-red-900 flex items-center justify-center">
+                                <Lock />
                             </div>
                             <h3 class="text-xl font-semibold ml-4">OAuth API</h3>
                         </div>

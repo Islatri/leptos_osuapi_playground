@@ -18,9 +18,9 @@ pub fn HeroSection() -> impl IntoView {
             <div class="container mx-auto px-4 py-20 md:py-32 relative z-10">
                 <div class="max-w-3xl">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        <span class="text-pink-400">osynic_osuapi</span><br />
+                        <span class="text-pink-400 md:text-8xl inline-block mb-8">OsynicOsuapi</span><br />
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
-                            高性能 Rust osu! API 客户端
+                            高性能, 结构优良, 拓展性好的 Rust osu! API 客户端
                         </span>
                     </h1>
                     

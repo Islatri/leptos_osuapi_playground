@@ -1,5 +1,6 @@
 use leptos::*;
 use leptos::prelude::{ClassAttribute,ElementChild};
+use lucide_leptos::{Book,Layers,CodeXml,Sailboat};
 
 use crate::components::{
     hero_section::HeroSection,
@@ -43,8 +44,8 @@ fn HomePage() -> impl IntoView {
                     // 特性卡片 1
                     <div class="card">
                         <div class="flex items-center mb-4">
-                            <span class="text-osu-pink mr-3">
-                                <i class="lucide-bolt text-2xl"></i>
+                            <span class="text-osu-pink mr-3 text-2xl">
+                                <Sailboat />
                             </span>
                             <h3 class="text-xl font-semibold">高性能</h3>
                         </div>
@@ -56,8 +57,8 @@ fn HomePage() -> impl IntoView {
                     // 特性卡片 2
                     <div class="card">
                         <div class="flex items-center mb-4">
-                            <span class="text-osu-purple mr-3">
-                                <i class="lucide-code text-2xl"></i>
+                            <span class="text-osu-purple mr-3 text-2xl">
+                                <CodeXml />
                             </span>
                             <h3 class="text-xl font-semibold">类型安全</h3>
                         </div>
@@ -69,8 +70,8 @@ fn HomePage() -> impl IntoView {
                     // 特性卡片 3
                     <div class="card">
                         <div class="flex items-center mb-4">
-                            <span class="text-osu-blue mr-3">
-                                <i class="lucide-layers text-2xl"></i>
+                            <span class="text-osu-blue mr-3 text-2xl">
+                                <Layers />
                             </span>
                             <h3 class="text-xl font-semibold">多平台</h3>
                         </div>
@@ -154,8 +155,8 @@ fn main() {
                 </div>
                 
                 <div class="text-center mt-10">
-                    <a href="#" class="btn-primary inline-flex items-center">
-                        <i class="lucide-book mr-2"></i>
+                    <a href="https://github.com/osynicite/osynic_osuapi" class="btn-primary inline-flex items-center">
+                        <Book />
                         查看完整文档
                     </a>
                 </div>
