@@ -10,7 +10,7 @@ pub fn HeroSection() -> impl IntoView {
             <div class="absolute inset-0 z-0">
                 <div class="absolute inset-0 bg-gradient-to-r from-pink-600/70 to-purple-900/70 mix-blend-multiply"></div>
                 <img 
-                    src="/public/white.png" 
+                    src="/public/irena.jpg" 
                     alt="osu! background" 
                     class="w-full h-full object-cover opacity-30"
                 />
@@ -20,7 +20,7 @@ pub fn HeroSection() -> impl IntoView {
                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                     <div class="max-w-3xl">
                         <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                            <span class="text-pink-400 md:text-8xl inline-block mb-8 animate-pulse-subtle">OsynicOsuapi</span><br />
+                            <span class="text-pink-400 text-6xl md:text-8xl inline-block mb-8 animate-pulse-subtle">OsynicOsuapi</span><br />
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
                                 高性能, 结构优良, 拓展性好的 Rust osu! API 客户端
                             </span>
@@ -68,9 +68,9 @@ pub fn HeroSection() -> impl IntoView {
                         </div>
                     </div>
                     
-                    // 添加右侧的osu SVG图标
-                    <div class="hidden lg:block mt-10 lg:mt-0 transform hover:scale-105 transition-transform duration-500">
-                        <div class="relative w-80 h-80 animate-float">
+                    // 修改: 使SVG在移动端也能显示
+                    <div class="mt-16 lg:mt-0 flex justify-center lg:block transform hover:scale-105 transition-transform duration-500">
+                        <div class="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 animate-float">
                             // 添加一点装饰性的光效
                             <div class="absolute -inset-4 bg-gradient-to-r from-pink-500/30 to-purple-500/30 rounded-full blur-xl"></div>
                             
@@ -85,10 +85,6 @@ pub fn HeroSection() -> impl IntoView {
                 </div>
             </div>
             
-            // 添加装饰性元素
-            // <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-900 to-transparent"></div>
-            // <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl"></div>
-            // <div class="absolute -top-10 -left-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
         </section>
     }
 }

@@ -37,7 +37,7 @@ pub fn ApiDemo() -> impl IntoView {
         
         spawn_local(async move {
             let client = OsynicOsuApiV1GlooClient::new(key);
-            client.set_proxy_url("http://localhost:8000/".to_string());
+            client.set_proxy_url("https://osynic-cors.deno.dev/".to_string());
             let params = GetBeatmapsParams::default().sid(id);
             
             match client.beatmap.get_beatmaps(params).await {
@@ -89,7 +89,7 @@ pub fn ApiDemo() -> impl IntoView {
         
         spawn_local(async move {
             let client = OsynicOsuApiV1GlooClient::new(key);
-            client.set_proxy_url("http://localhost:8000/".to_string());
+            client.set_proxy_url("https://osynic-cors.deno.dev/".to_string());
             let params = GetUserParams::default().user(username);
             
             match client.user.get_user(params).await {
