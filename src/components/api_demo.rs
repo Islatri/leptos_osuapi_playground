@@ -143,8 +143,11 @@ pub fn ApiDemo() -> impl IntoView {
         <section id="demo" class="py-16 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-4 text-pink-600 dark:text-pink-400">osu! API V1 (WASM) 体验使用</h2>
-                <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
+                <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-2">
                     输入您的 osu! API 密钥, 尝试在浏览器中使用 OsynicOsuapi.
+                </p>
+                <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
+                    如果您没有 API 密钥, 直接去自己的 <a href="https://osu.ppy.sh/home/account/edit" target="_blank" class="text-pink-600 hover:text-pink-700 transition-all duration-200 font-medium">osu! 个人设置页</a> 翻到下面的 旧版本API 申请一个即可.
                 </p>
                 
                 <div class="max-w-6xl mx-auto">
@@ -175,7 +178,7 @@ pub fn ApiDemo() -> impl IntoView {
                                             let active_class = if active_tab.get() == "beatmaps" {
                                                 "border-pink-500 text-pink-600 dark:text-pink-400"
                                             } else {
-                                                "border-transparent hover:border-gray-300 hover:text-pink-500"
+                                                "border-transparent hover:border-gray-300 hover:text-pink-500 text-gray-800 dark:text-gray-200"
                                             };
 
                                             format!("{} {}", base_classes, active_class)
@@ -195,7 +198,7 @@ pub fn ApiDemo() -> impl IntoView {
                                             let active_class = if active_tab.get() == "users" {
                                                 "border-pink-500 text-pink-600 dark:text-pink-400"
                                             } else {
-                                                "border-transparent hover:border-gray-300 hover:text-pink-500"
+                                                "border-transparent hover:border-gray-300 hover:text-pink-500 text-gray-800 dark:text-gray-200"
                                             };
 
                                             format!("{} {}", base_classes, active_class)
@@ -288,7 +291,7 @@ pub fn ApiDemo() -> impl IntoView {
                                     <div class="p-2 bg-gray-200 dark:bg-gray-700 text-xs text-gray-600 dark:text-gray-300 rounded-t-lg">
                                         格式化结果
                                     </div>
-                                    <pre class="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4 overflow-x-auto text-sm h-[280px] font-mono border border-gray-200 dark:border-gray-700">
+                                    <pre class="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4 overflow-x-auto text-sm h-[280px] font-mono border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200">
                                         {result}
                                     </pre>
                                 </div>
@@ -298,7 +301,7 @@ pub fn ApiDemo() -> impl IntoView {
                                     <div class="p-2 bg-gray-200 dark:bg-gray-700 text-xs text-gray-600 dark:text-gray-300 rounded-t-lg">
                                         API 原始 JSON
                                     </div>
-                                    <pre class="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4 overflow-x-auto text-sm h-[280px] font-mono border border-gray-200 dark:border-gray-700">
+                                    <pre class="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4 overflow-x-auto text-sm h-[280px] font-mono border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200">
                                         {raw_json}
                                     </pre>
                                 </div>
@@ -311,7 +314,7 @@ pub fn ApiDemo() -> impl IntoView {
                             这个演示使用 OsynicOsuapi 通过 WASM 直接在您的浏览器中运行, 
                             无需后端服务器处理.
                         </p>
-                        <a href="https://github.com/osynicite/osynic_osuapi" class="text-pink-600 hover:text-pink-700 transition-all duration-200 font-medium inline-flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-900/20">
+                        <a href="https://github.com/islatri/leptos_osuapi_playground" target="_blank" class="text-pink-600 hover:text-pink-700 transition-all duration-200 font-medium inline-flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-900/20">
                             <Github />
                             查看 GitHub 项目
                         </a>

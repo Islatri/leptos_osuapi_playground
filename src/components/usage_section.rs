@@ -7,7 +7,7 @@ pub fn UsageSection() -> impl IntoView {
     view! {
         <section class="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-3">快速开始</h2>
+                <h2 class="text-4xl font-bold text-center mb-3 text-gray-800 dark:text-gray-200">快速开始</h2>
                 <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">简单几步配置, 快速接入 osu! API</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
@@ -17,7 +17,7 @@ pub fn UsageSection() -> impl IntoView {
                             <span class="inline-block p-1.5 rounded-full bg-blue-100 dark:bg-blue-900">
                                 <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
                             </span>
-                            Reqwest 客户端
+                            <span class="text-gray-800 dark:text-gray-200">Reqwest 客户端</span>
                         </h3>
                         
                         {/* Reqwest .env */}
@@ -124,7 +124,7 @@ async fn main() -> Result<()> {
                             <span class="inline-block p-1.5 rounded-full bg-purple-100 dark:bg-purple-900">
                                 <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
                             </span>
-                            WASM 客户端
+                            <span class="text-gray-800 dark:text-gray-200">WASM 客户端</span>
                         </h3>
                         
                         {/* WASM .env */}
@@ -234,10 +234,11 @@ pub fn start() {
                 </div>
                 
                 <div class="text-center mt-14">
-                    <a href="https://github.com/osynicite/osynic_osuapi" 
+                    <a href="https://github.com/Osynicite/osynic_osuapi/tree/master/examples" 
+                        target="_blank"
                        class="inline-flex items-center px-6 py-3 bg-pink-600 text-white font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300 gap-2 transform hover:-translate-y-0.5">
                         <Book />
-                        <span>查看Docs.rs完整文档</span>
+                        <span>查看示例代码</span>
                     </a>
                 </div>
             </div>

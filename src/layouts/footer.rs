@@ -26,7 +26,7 @@ pub fn Footer() -> impl IntoView {
                             支持 WASM 和 native 环境.
                         </p>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-xl text-gray-400 hover:text-white transition">
+                            <a href="https://discord.gg/JWyvc6M5" target="_blank" class="text-xl text-gray-400 hover:text-white transition">
                                 <Discord />
                             </a>
                         </div>
@@ -37,9 +37,8 @@ pub fn Footer() -> impl IntoView {
                         <h3 class="font-semibold text-lg mb-4">文档</h3>
                         <ul class="space-y-2">
                             <li><a href="#" class="text-gray-400 hover:text-white transition">入门指南</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">API 参考</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">示例</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">WASM 使用</a></li>
+                            <li><a href="#api" class="text-gray-400 hover:text-white transition">API 参考</a></li>
+                            <li><a href="#demo" class="text-gray-400 hover:text-white transition">示例</a></li>
                         </ul>
                     </div>
                     
@@ -47,11 +46,11 @@ pub fn Footer() -> impl IntoView {
                     <div>
                         <h3 class="font-semibold text-lg mb-4">资源</h3>
                         <ul class="space-y-2">
-                            <li><a href="https://github.com/ppy/osu-api/wiki" class="text-gray-400 hover:text-white transition">osu! API V1 文档</a></li>
-                            <li><a href="https://osu.ppy.sh/docs/index.html" class="text-gray-400 hover:text-white transition">osu! API V2 文档</a></li>
-                            <li><a href="https://leptos.dev" class="text-gray-400 hover:text-white transition">Leptos 框架</a></li>
-                            <li><a href="https://github.com/osynicite/osynic_osuapi/issues" class="text-gray-400 hover:text-white transition">问题反馈</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">更新日志</a></li>
+                            <li><a href="https://github.com/ppy/osu-api/wiki" target="_blank" class="text-gray-400 hover:text-white transition">osu! API V1 文档</a></li>
+                            <li><a href="https://osu.ppy.sh/docs/index.html" target="_blank" class="text-gray-400 hover:text-white transition">osu! API V2 文档</a></li>
+                            <li><a href="https://leptos.dev" target="_blank" class="text-gray-400 hover:text-white transition">Leptos 框架</a></li>
+                            <li><a href="https://github.com/osynicite/osynic_osuapi/issues" target="_blank" class="text-gray-400 hover:text-white transition">问题反馈</a></li>
+                            <li><a href="https://github.com/Osynicite/osynic_osuapi/commits/master" target="_blank" class="text-gray-400 hover:text-white transition">更新日志</a></li>
                         </ul>
                     </div>
                 </div>

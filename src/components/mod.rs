@@ -3,3 +3,4 @@ pub mod api_section;
 pub mod api_demo;
 pub mod features_section;
 pub mod usage_section;
+pub mod theme_toggle;

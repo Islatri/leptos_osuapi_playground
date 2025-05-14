@@ -14,18 +14,25 @@ use crate::layouts::{
     footer::Footer,
 };
 
+use crate::i18n::I18n;
+use crate::stores::settings_store::SettingsProvider;
+
 #[component]
 pub fn App() -> impl IntoView {
     view! {
-        <div class="min-h-screen flex flex-col">
-            <Header />
-            
-            <main class="flex-grow">
-                <HomePage />
-            </main>
-            
-            <Footer />
-        </div>
+        <SettingsProvider>
+            <I18n>
+                <div class="min-h-screen flex flex-col">
+                    <Header />
+                    
+                    <main class="flex-grow">
+                        <HomePage />
+                    </main>
+                    
+                    <Footer />
+                </div>
+            </I18n>
+        </SettingsProvider>
     }
 }
 

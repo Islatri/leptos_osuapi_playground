@@ -22,4 +22,7 @@ leptos-use = "0.15.7"
 uuid = { version = "1.16.0", features = ["v4","js"] }
 lucide-leptos = "1.2.0"
 
+leptos-fluent = "0.2"
+fluent-templates = "0.13"
+
 osynic_osuapi = { path="../osynic_osuapi",default-features = false,features = ["v1","wasm"] }
