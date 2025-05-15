@@ -62,7 +62,7 @@ pub fn LanguageSelector() -> impl IntoView {
 
             // 下拉菜单部分
             <div 
-                class="transition-all duration-200 ease-in-out origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 dark:divide-gray-700 z-10"
+                class="transition-all duration-200 ease-in-out origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 dark:divide-gray-700 z-30"
                 class:hidden=move || !is_open.get()
                 class:block=move || is_open.get()
             >

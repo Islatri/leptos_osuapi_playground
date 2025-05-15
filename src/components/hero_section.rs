@@ -1,6 +1,7 @@
 use leptos::*;
 use leptos::prelude::{ClassAttribute, ElementChild};
 use lucide_leptos::{BookOpen, Play, Package, ShieldCheck, Globe};
+use leptos_fluent::tr;
 
 #[component]
 pub fn HeroSection() -> impl IntoView {
@@ -27,39 +28,38 @@ pub fn HeroSection() -> impl IntoView {
                     <div class="max-w-3xl">
                         <div class="mb-2 inline-block">
                             <span class="px-3 py-1 text-xs font-semibold tracking-wider bg-pink-500/20 dark:bg-pink-500/30 backdrop-blur-sm rounded-full text-pink-300 dark:text-pink-200">
-                                RUST OSU! API 客户端
+                                {move || tr!("hero-badge")}
                             </span>
                         </div>
                         
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
                             <span class="text-pink-400 dark:text-pink-300 text-5xl md:text-7xl lg:text-8xl inline-block mb-4 animate-pulse-subtle drop-shadow-[0_0_8px_rgba(236,72,153,0.3)]">
-                                OsynicOsuapi
+                                {move || tr!("hero-title-highlight")}
                             </span>
                             <br />
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 dark:from-pink-300 dark:to-purple-300">
-                                高性能, 结构优良, 拓展性好的 Rust osu! API 客户端
+                                {move || tr!("hero-title-subtext")}
                             </span>
                         </h1>
                         
                         <p class="text-lg md:text-xl mb-8 text-gray-200 dark:text-gray-300 leading-relaxed max-w-2xl">
-                            类型安全, 异步友好, WASM 兼容的 API 客户端,
-                            让您的 Rust 项目与 osu! 无缝衔接.
+                            {move || tr!("hero-description")}
                         </p>
                         
                         <div class="flex flex-wrap gap-4 mb-10">
                             <a href="https://docs.rs/osynic_osuapi" target="_blank" 
-                               class="btn-primary inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium shadow-lg shadow-pink-500/20 dark:shadow-pink-700/30 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none cursor-pointer">
+                            class="btn-primary inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium shadow-lg shadow-pink-500/20 dark:shadow-pink-700/30 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none cursor-pointer">
                                 <div class="mr-2 group-hover:animate-bounce-subtle">
                                     <BookOpen size=20 />
                                 </div>
-                                <span>查看文档</span>
+                                <span>{move || tr!("hero-button-docs")}</span>
                             </a>
                             <a href="#demo" 
-                               class="btn-secondary inline-flex items-center px-6 py-3 rounded-lg bg-gray-800/80 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-700 dark:hover:bg-gray-700/70 text-white font-medium border border-gray-700 dark:border-gray-600 shadow-lg shadow-gray-900/20 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-gray-400 focus:outline-none cursor-pointer">
+                            class="btn-secondary inline-flex items-center px-6 py-3 rounded-lg bg-gray-800/80 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-gray-700 dark:hover:bg-gray-700/70 text-white font-medium border border-gray-700 dark:border-gray-600 shadow-lg shadow-gray-900/20 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-gray-400 focus:outline-none cursor-pointer">
                                 <div class="mr-2 group-hover:animate-bounce-subtle">
                                     <Play size=20 />
                                 </div>
-                                <span>使用尝鲜</span>
+                                <span>{move || tr!("hero-button-demo")}</span>
                             </a>
                         </div>
                         
@@ -68,19 +68,19 @@ pub fn HeroSection() -> impl IntoView {
                                 <div class="text-pink-400 dark:text-pink-300 mr-3 flex-shrink-0">
                                     <Package size=20 />
                                 </div>
-                                <span>支持 v1 和 v2 API</span>
+                                <span>{move || tr!("hero-feature-api")}</span>
                             </div>
                             <div class="flex items-center p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
                                 <div class="text-pink-400 dark:text-pink-300 mr-3 flex-shrink-0">
                                     <ShieldCheck size=20 />
                                 </div>
-                                <span>类型安全</span>
+                                <span>{move || tr!("hero-feature-type-safe")}</span>
                             </div>
                             <div class="flex items-center p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
                                 <div class="text-pink-400 dark:text-pink-300 mr-3 flex-shrink-0">
                                     <Globe size=20 />
                                 </div>
-                                <span>WASM 兼容</span>
+                                <span>{move || tr!("hero-feature-wasm")}</span>
                             </div>
                         </div>
                     </div>

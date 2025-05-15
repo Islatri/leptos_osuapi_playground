@@ -1,14 +1,15 @@
 use leptos::*;
 use leptos::prelude::{ClassAttribute, ElementChild};
 use lucide_leptos::Book;
+use leptos_fluent::tr;
 
 #[component]
 pub fn UsageSection() -> impl IntoView {
     view! {
         <section class="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-3 text-gray-800 dark:text-gray-200">快速开始</h2>
-                <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">简单几步配置, 快速接入 osu! API</p>
+                <h2 class="text-4xl font-bold text-center mb-3 text-gray-800 dark:text-gray-200">{move || tr!("quick-start-title")}</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">{move || tr!("quick-start-description")}</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
                     {/* Reqwest Client Side */}
@@ -17,7 +18,7 @@ pub fn UsageSection() -> impl IntoView {
                             <span class="inline-block p-1.5 rounded-full bg-blue-100 dark:bg-blue-900">
                                 <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
                             </span>
-                            <span class="text-gray-800 dark:text-gray-200">Reqwest 客户端</span>
+                            <span class="text-gray-800 dark:text-gray-200">{move || tr!("quick-start-reqwest-client")}</span>
                         </h3>
                         
                         {/* Reqwest .env */}
@@ -30,7 +31,7 @@ pub fn UsageSection() -> impl IntoView {
                                 </div>
                                 <p class="ml-4 text-gray-300 text-sm font-mono">.env</p>
                                 <div class="ml-auto">
-                                    <span class="text-xs px-2 py-1 bg-sky-700 rounded-md text-gray-300">环境变量</span>
+                                    <span class="text-xs px-2 py-1 bg-sky-700 rounded-md text-gray-300">{move || tr!("quick-start-env-var")}</span>
                                 </div>
                             </div>
                             
@@ -55,7 +56,7 @@ CODE="你的code" # Authorization Code Grant认证时需要"#}
                                 </div>
                                 <p class="ml-4 text-gray-300 text-sm font-mono">Cargo.toml</p>
                                 <div class="ml-auto">
-                                    <span class="text-xs px-2 py-1 bg-gray-700 rounded-md text-gray-300">配置文件</span>
+                                    <span class="text-xs px-2 py-1 bg-gray-700 rounded-md text-gray-300">{move || tr!("quick-start-config-file")}</span>
                                 </div>
                             </div>
                             
@@ -78,7 +79,7 @@ osynic_osuapi = "0.1.0"
                                 </div>
                                 <p class="ml-4 text-gray-300 text-sm font-mono">main.rs</p>
                                 <div class="ml-auto">
-                                    <span class="text-xs px-2 py-1 bg-blue-600 rounded-md text-white">示例代码</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-600 rounded-md text-white">{move || tr!("quick-start-example-code")}</span>
                                 </div>
                             </div>
                             
@@ -124,7 +125,7 @@ async fn main() -> Result<()> {
                             <span class="inline-block p-1.5 rounded-full bg-purple-100 dark:bg-purple-900">
                                 <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
                             </span>
-                            <span class="text-gray-800 dark:text-gray-200">WASM 客户端</span>
+                            <span class="text-gray-800 dark:text-gray-200">{move || tr!("quick-start-wasm-client")}</span>
                         </h3>
                         
                         {/* WASM .env */}
@@ -137,7 +138,7 @@ async fn main() -> Result<()> {
                                 </div>
                                 <p class="ml-4 text-gray-300 text-sm font-mono">.env</p>
                                 <div class="ml-auto">
-                                    <span class="text-xs px-2 py-1 bg-pink-700 rounded-md text-gray-300">环境变量</span>
+                                    <span class="text-xs px-2 py-1 bg-pink-700 rounded-md text-gray-300">{move || tr!("quick-start-env-var")}</span>
                                 </div>
                             </div>
                             
@@ -159,7 +160,7 @@ API_KEY="你的api_key""#}
                                 </div>
                                 <p class="ml-4 text-gray-300 text-sm font-mono">Cargo.toml</p>
                                 <div class="ml-auto">
-                                    <span class="text-xs px-2 py-1 bg-gray-700 rounded-md text-gray-300">配置文件</span>
+                                    <span class="text-xs px-2 py-1 bg-gray-700 rounded-md text-gray-300">{move || tr!("quick-start-config-file")}</span>
                                 </div>
                             </div>
                             
@@ -186,7 +187,7 @@ web-sys = { version = "0.3", features = ["console"] }"#}
                                 </div>
                                 <p class="ml-4 text-gray-300 text-sm font-mono">main.rs</p>
                                 <div class="ml-auto">
-                                    <span class="text-xs px-2 py-1 bg-purple-600 rounded-md text-white">示例代码</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-600 rounded-md text-white">{move || tr!("quick-start-example-code")}</span>
                                 </div>
                             </div>
                             
@@ -238,7 +239,7 @@ pub fn start() {
                         target="_blank"
                        class="inline-flex items-center px-6 py-3 bg-pink-600 text-white font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300 gap-2 transform hover:-translate-y-0.5">
                         <Book />
-                        <span>查看示例代码</span>
+                        <span>{move || tr!("quick-start-view-examples")}</span>
                     </a>
                 </div>
             </div>

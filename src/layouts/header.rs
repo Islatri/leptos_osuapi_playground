@@ -14,20 +14,18 @@ pub fn Header() -> impl IntoView {
     };
     
     view! {
-        <header class="bg-white dark:bg-gray-800 shadow-sm z-20">
+        <header class="bg-white dark:bg-gray-900 shadow-sm z-40">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center py-4">
                     // Logo 部分
                     <div class="flex items-center">
                         <img src="/public/osynic.png" alt="osynic Logo" class="h-10 w-10 mr-3" />
-                        <span class="font-bold text-xl text-pink-600">OsynicOsuapi</span>
-                        <span class="font-bold text-xl text-pink-600">{move || tr!("ciallo")}</span>
+                        <span class="font-bold text-xl lg:text-3xl text-pink-600">OsynicOsuapi</span>
                     </div>
                     <div class="flex justify-end items-center space-x-2">
                         // 导航链接 - 桌面版
                         <nav class="hidden md:flex items-center space-x-8 mr-2">
                             <a href="#api" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition flex items-center"><CodeXml size={20}/>API</a>
-                            <a href="#demo" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition flex items-center"><SquareMousePointer size={20}/>演示</a>
                             <a href="https://github.com/osynicite/osynic_osuapi" 
                                 target="_blank"
                             class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition flex items-center">
@@ -53,7 +51,7 @@ pub fn Header() -> impl IntoView {
                 // 移动版导航菜单
                 <div 
                     class=move || {
-                        let base_classes = "md:hidden bg-white dark:bg-gray-800 absolute z-10 /
+                        let base_classes = "md:hidden bg-white dark:bg-gray-800 absolute z-40 /
                                             left-0 right-0 shadow-md transition-transform duration-300 /
                                             transform origin-top";
 
@@ -69,7 +67,7 @@ pub fn Header() -> impl IntoView {
                     <div class="container mx-auto px-4 py-3">
                         <div class="flex flex-col space-y-3">
                             <a href="#api" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center"><CodeXml size={20}/>API</a>
-                            <a href="#demo" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center"><SquareMousePointer size={20}/>演示</a>
+                            <a href="#demo" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center"><SquareMousePointer size={20}/>{move || tr!("demo")}</a>
                             <a href="https://github.com/osynicite/osynic_osuapi" 
                             target="_blank"
                               class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center">

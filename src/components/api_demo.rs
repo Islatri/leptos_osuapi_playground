@@ -8,6 +8,7 @@ use osynic_osuapi::v1::model::user::GetUserParams;
 use osynic_osuapi::v1::interface::beatmap::IBeatmap;
 use osynic_osuapi::v1::interface::user::IUser;
 use lucide_leptos::{Github, Search, Music, User, Loader};
+use leptos_fluent::tr;
 
 #[component]
 pub fn ApiDemo() -> impl IntoView {
@@ -142,28 +143,30 @@ pub fn ApiDemo() -> impl IntoView {
     view! {
         <section id="demo" class="py-16 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-4 text-pink-600 dark:text-pink-400">osu! API V1 (WASM) 体验使用</h2>
+                <h2 class="text-3xl font-bold text-center mb-4 text-pink-600 dark:text-pink-400">
+                    {move || tr!("api-demo-title")}
+                </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-2">
-                    输入您的 osu! API 密钥, 尝试在浏览器中使用 OsynicOsuapi.
+                    {move || tr!("api-demo-description-1")}
                 </p>
                 <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
-                    如果您没有 API 密钥, 直接去自己的 <a href="https://osu.ppy.sh/home/account/edit" target="_blank" class="text-pink-600 hover:text-pink-700 transition-all duration-200 font-medium">osu! 个人设置页</a> 翻到下面的 旧版本API 申请一个即可.
+                    {move || tr!("api-demo-description-2")} <a href="https://osu.ppy.sh/home/account/edit" target="_blank" class="text-pink-600 hover:text-pink-700 transition-all duration-200 font-medium">{move || tr!("api-demo-account-settings")}</a> {move || tr!("api-demo-api-section")}
                 </p>
                 
                 <div class="max-w-6xl mx-auto">
                     <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
-                        // API 密钥输入
+                        {/* API 密钥输入 */}
                         <div class="mb-6">
-                            <label for="api_key" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">API 密钥</label>
+                            <label for="api_key" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">{move || tr!("api-demo-label-api-key")}</label>
                             <input 
                                 type="password" 
                                 id="api_key" 
                                 class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
-                                placeholder="输入您的 osu! API 密钥"
+                                placeholder={move || tr!("api-demo-input-placeholder")}
                                 on:input=handle_api_key_input
                             />
                             <p class="text-xs text-gray-500 mt-1 dark:text-gray-400">
-                                密钥只在您的浏览器中使用, 不会传输到其他地方.
+                                {move || tr!("api-demo-key-security")}
                             </p>
                         </div>
                         
@@ -186,7 +189,7 @@ pub fn ApiDemo() -> impl IntoView {
                                         on:click=move |_| set_active_tab.set("beatmaps")
                                     >
                                         <Music />
-                                        <span class="ml-2">谱面查询</span>
+                                        <span class="ml-2">{move || tr!("api-demo-beatmap-query")}</span>
 
                                     </button>
                                 </li>
@@ -206,7 +209,7 @@ pub fn ApiDemo() -> impl IntoView {
                                         on:click=move |_| set_active_tab.set("users")
                                     >
                                         <User />
-                                        <span class="ml-2">用户查询</span>
+                                        <span class="ml-2">{move || tr!("api-demo-user-query")}</span>
                                     </button>
                                 </li>
                             </ul>
@@ -220,7 +223,7 @@ pub fn ApiDemo() -> impl IntoView {
                                     type="text" 
                                     id="beatmap_id" 
                                     class="w-full px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="输入谱面或谱面集 ID"
+                                    placeholder={move || tr!("api-demo-input-beatmap-placeholder")}
                                     value=beatmap_id
                                     on:input=handle_beatmap_id_input
                                 />
@@ -233,11 +236,11 @@ pub fn ApiDemo() -> impl IntoView {
                                         when=move || !is_loading.get()
                                         fallback=|| view! { 
                                             <Loader />
-                                            <span class="mr-2">加载中</span>    
+                                            <span class="mr-2">{move || tr!("api-demo-loading")}</span>
                                         }
                                     >
                                         <Search />
-                                        <span class="mr-2 whitespace-nowrap inline-block w-full">查询</span>
+                                        <span class="mr-2 whitespace-nowrap inline-block w-full">{move || tr!("api-demo-search")}</span>
                                     </Show>
                                 </button>
                             </div>
@@ -251,7 +254,7 @@ pub fn ApiDemo() -> impl IntoView {
                                     type="text" 
                                     id="username" 
                                     class="w-full px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="输入用户名或用户 ID"
+                                    placeholder={move || tr!("api-demo-input-user-placeholder")}
                                     value=username
                                     on:input=handle_username_input
                                 />
@@ -263,13 +266,12 @@ pub fn ApiDemo() -> impl IntoView {
                                     <Show
                                         when=move || !is_loading.get()
                                         fallback=|| view! { 
-                                            
-                                        <Loader />
-                                        <span class="mr-2">加载中</span>
-                                     }
+                                            <Loader />
+                                            <span class="mr-2">{move || tr!("api-demo-loading")}</span>
+                                        }
                                     >
                                         <Search />
-                                        <span class="mr-2 whitespace-nowrap inline-block w-full">查询</span>
+                                        <span class="mr-2 whitespace-nowrap inline-block w-full">{move || tr!("api-demo-search")}</span>
                                     </Show>
                                 </button>
                             </div>
@@ -280,8 +282,8 @@ pub fn ApiDemo() -> impl IntoView {
                             <div class="flex flex-col md:flex-row gap-4 mb-2">
                                 <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">查询结果</h3>
                                 <div class="ml-auto text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                                    <span class="mr-2">左侧: 格式化结果</span>
-                                    <span>右侧: 原始 JSON 数据</span>
+                                    <span class="mr-2">{move || tr!("api-demo-left-formatted")}</span>
+                                    <span>{move || tr!("api-demo-right-raw")}</span>
                                 </div>
                             </div>
                             
@@ -289,7 +291,7 @@ pub fn ApiDemo() -> impl IntoView {
                                 // 左侧 - 格式化结果
                                 <div class="result-container">
                                     <div class="p-2 bg-gray-200 dark:bg-gray-700 text-xs text-gray-600 dark:text-gray-300 rounded-t-lg">
-                                        格式化结果
+                                        {move || tr!("api-demo-formatted-results")}
                                     </div>
                                     <pre class="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4 overflow-x-auto text-sm h-[280px] font-mono border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200">
                                         {result}
@@ -299,7 +301,7 @@ pub fn ApiDemo() -> impl IntoView {
                                 // 右侧 - 原始 JSON
                                 <div class="result-container">
                                     <div class="p-2 bg-gray-200 dark:bg-gray-700 text-xs text-gray-600 dark:text-gray-300 rounded-t-lg">
-                                        API 原始 JSON
+                                        {move || tr!("api-demo-formatted-results")}
                                     </div>
                                     <pre class="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4 overflow-x-auto text-sm h-[280px] font-mono border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200">
                                         {raw_json}
@@ -311,12 +313,11 @@ pub fn ApiDemo() -> impl IntoView {
                     
                     <div class="mt-8 text-center">
                         <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                            这个演示使用 OsynicOsuapi 通过 WASM 直接在您的浏览器中运行, 
-                            无需后端服务器处理.
+                            {move || tr!("api-demo-description-wasm")}
                         </p>
                         <a href="https://github.com/islatri/leptos_osuapi_playground" target="_blank" class="text-pink-600 hover:text-pink-700 transition-all duration-200 font-medium inline-flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-900/20">
                             <Github />
-                            查看 GitHub 项目
+                            {move || tr!("api-demo-view-github")}
                         </a>
                     </div>
                 </div>

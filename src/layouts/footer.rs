@@ -1,6 +1,7 @@
 use leptos::*;
 use leptos::prelude::{ClassAttribute,CustomAttribute,ElementChild};
 use lucide_leptos::Copyright;
+use leptos_fluent::{tr,move_tr};
 
 #[component]
 pub fn Discord() -> impl IntoView {
@@ -12,57 +13,56 @@ pub fn Discord() -> impl IntoView {
 #[component]
 pub fn Footer() -> impl IntoView {
     view! {
-        <footer class="bg-gray-800 text-white py-12 z-20">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    // 项目信息
-                    <div class="col-span-1 md:col-span-2">
-                        <div class="flex items-center mb-4">
-                            <img src="/public/osynic.png" alt="osynic Logo" class="h-8 w-8 mr-2" />
-                            <span class="font-bold text-xl text-pink-400">OsynicOsuapi</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">
-                            高性能, 结构优良, 拓展性好的 Rust osu! API 客户端
-                            支持 WASM 和 native 环境.
-                        </p>
-                        <div class="flex space-x-4">
-                            <a href="https://discord.gg/JWyvc6M5" target="_blank" class="text-xl text-gray-400 hover:text-white transition">
-                                <Discord />
-                            </a>
-                        </div>
-                    </div>
-                    
-                    // 链接列表 1
-                    <div>
-                        <h3 class="font-semibold text-lg mb-4">文档</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">入门指南</a></li>
-                            <li><a href="#api" class="text-gray-400 hover:text-white transition">API 参考</a></li>
-                            <li><a href="#demo" class="text-gray-400 hover:text-white transition">示例</a></li>
-                        </ul>
-                    </div>
-                    
-                    // 链接列表 2
-                    <div>
-                        <h3 class="font-semibold text-lg mb-4">资源</h3>
-                        <ul class="space-y-2">
-                            <li><a href="https://github.com/ppy/osu-api/wiki" target="_blank" class="text-gray-400 hover:text-white transition">osu! API V1 文档</a></li>
-                            <li><a href="https://osu.ppy.sh/docs/index.html" target="_blank" class="text-gray-400 hover:text-white transition">osu! API V2 文档</a></li>
-                            <li><a href="https://leptos.dev" target="_blank" class="text-gray-400 hover:text-white transition">Leptos 框架</a></li>
-                            <li><a href="https://github.com/osynicite/osynic_osuapi/issues" target="_blank" class="text-gray-400 hover:text-white transition">问题反馈</a></li>
-                            <li><a href="https://github.com/Osynicite/osynic_osuapi/commits/master" target="_blank" class="text-gray-400 hover:text-white transition">更新日志</a></li>
-                        </ul>
-                    </div>
+<footer class="bg-gray-800 text-white py-12 z-20">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* 项目信息 */}
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center mb-4">
+                    <img src="/public/osynic.png" alt="osynic Logo" class="h-8 w-8 mr-2" />
+                    <span class="font-bold text-xl text-pink-400">OsynicOsuapi</span>
                 </div>
-                
-                <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm flex"><Copyright /> {2025} Osynicite. OsynicOsuapi 是非官方项目, 与 osu! 官方无关.</p>
-                    <div class="mt-4 md:mt-0">
-                        <a href="#" class="text-gray-400 hover:text-white transition text-sm mr-4">使用条款</a>
-                        <a href="#" class="text-gray-400 hover:text-white transition text-sm">隐私政策</a>
-                    </div>
+                <p class="text-gray-400 mb-4">
+                    {move || tr!("footer-description")}
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://discord.gg/JWyvc6M5" target="_blank" class="text-xl text-gray-400 hover:text-white transition">
+                        <Discord />
+                    </a>
                 </div>
             </div>
-        </footer>
+            
+            {/* 链接列表 1 */}
+            <div>
+                <h3 class="font-semibold text-lg mb-4">{move || tr!("footer-docs-heading")}</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://crates.io/crates/osynic_osuapi" target="_blank" class="text-gray-400 hover:text-white transition">{move || tr!("footer-docs-getting-started")}</a></li>
+                    <li><a href="#api" class="text-gray-400 hover:text-white transition">{move || tr!("footer-docs-api-reference")}</a></li>
+                    <li><a href="#demo" class="text-gray-400 hover:text-white transition">{move || tr!("footer-docs-examples")}</a></li>
+                </ul>
+            </div>
+            
+            {/* 链接列表 2 */}
+            <div>
+                <h3 class="font-semibold text-lg mb-4">{move || tr!("footer-resources-heading")}</h3>
+                <ul class="space-y-2">
+                    <li><a href="https://github.com/ppy/osu-api/wiki" target="_blank" class="text-gray-400 hover:text-white transition">{move || tr!("footer-resources-api-v1")}</a></li>
+                    <li><a href="https://osu.ppy.sh/docs/index.html" target="_blank" class="text-gray-400 hover:text-white transition">{move || tr!("footer-resources-api-v2")}</a></li>
+                    <li><a href="https://leptos.dev" target="_blank" class="text-gray-400 hover:text-white transition">{move || tr!("footer-resources-leptos")}</a></li>
+                    <li><a href="https://github.com/osynicite/osynic_osuapi/issues" target="_blank" class="text-gray-400 hover:text-white transition">{move || tr!("footer-resources-issues")}</a></li>
+                    <li><a href="https://github.com/Osynicite/osynic_osuapi/commits/master" target="_blank" class="text-gray-400 hover:text-white transition">{move || tr!("footer-resources-changelog")}</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm flex"><Copyright /> {move_tr!("footer-copyright",{"year" => 2025})}</p>
+            <div class="mt-4 md:mt-0">
+                <a href="#" class="text-gray-400 hover:text-white transition text-sm mr-4">{move || tr!("footer-terms")}</a>
+                <a href="#" class="text-gray-400 hover:text-white transition text-sm">{move || tr!("footer-privacy")}</a>
+            </div>
+        </div>
+    </div>
+</footer>
     }
 }
