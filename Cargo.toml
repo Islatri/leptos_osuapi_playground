@@ -26,3 +26,4 @@ leptos-fluent = "0.2"
 fluent-templates = "0.13"
 
 osynic_osuapi = { path="../osynic_osuapi",default-features = false,features = ["v1","wasm"] }
+# osynic_osuapi = { version="0.1.0",default-features = false,features = ["v1","wasm"] }

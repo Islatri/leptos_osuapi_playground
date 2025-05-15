@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041 MD045 MD026 -->
 <p align="center" dir="auto">
-    <img style="height:240px;width:240px" src="https://s2.loli.net/2025/05/15/qlgvPVuZhM5Gcod.png" alt="Logo escaped~"/>
+    <img style="height:720px;width:581px" src="https://s2.loli.net/2025/05/15/qlgvPVuZhM5Gcod.png" alt="Logo escaped~"/>
 </p>
 
 <h1 align="center" tabindex="-1" class="heading-element" dir="auto">LeptosOsuapiPlayground</h1>
@@ -73,7 +73,7 @@ Then visit `http://localhost:1420` in your browser.
 ## 📂 Project Structure
 
 ```bash
-LeptosOsuapiPlayground/
+leptos_osuapi_playground/
 ├── src/                    # Source code directory
 │   ├── components/         # UI components
 │   ├── layouts/            # Layout components
@@ -116,7 +116,7 @@ Enter a username or user ID to get detailed information about that user, includi
 
 ### 📋 Prerequisites
 
-- Rust toolchain (1.70+)
+- Rust toolchain (1.85+)
 - trunk (for packaging WASM applications)
 - wasm32-unknown-unknown target
 

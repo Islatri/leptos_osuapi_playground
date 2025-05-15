@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041 MD045 MD026 -->
 <p align="center" dir="auto">
-    <img style="height:240px;width:240px" src="https://s2.loli.net/2025/05/15/Ww1hovEL4PmKdD6.png" alt="Logo逃走啦~"/>
+    <img style="height:720px;width:581px" src="https://s2.loli.net/2025/05/15/Ww1hovEL4PmKdD6.png" alt="Logo逃走啦~"/>
 </p>
 
 <h1 align="center" tabindex="-1" class="heading-element" dir="auto">LeptosOsuapiPlayground</h1>
@@ -73,7 +73,7 @@ trunk serve
 ## 📂 项目结构
 
 ```bash
-LeptosOsuapiPlayground/
+leptos_osuapi_playground/
 ├── src/                    # 源代码目录
 │   ├── components/         # UI 组件
 │   ├── layouts/            # 布局组件
@@ -116,7 +116,7 @@ LeptosOsuapiPlayground 提供了两种主要的 API 查询功能：
 
 ### 📋 前提条件
 
-- Rust 工具链 (1.70+)
+- Rust 工具链 (1.85+)
 - trunk (用于打包 WASM 应用)
 - wasm32-unknown-unknown 目标
 
