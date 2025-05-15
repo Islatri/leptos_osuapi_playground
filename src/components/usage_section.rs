@@ -38,10 +38,10 @@ pub fn UsageSection() -> impl IntoView {
                             <pre class="p-5 text-sm overflow-x-auto text-gray-300">
                                 <code>
 {r#"# V2 API
-CLIENT_ID="你的client_id"
-CLIENT_SECRET="你的client_secret"
-REDIRECT_URI="你的redirect_uri"
-CODE="你的code" # Authorization Code Grant认证时需要"#}
+CLIENT_ID="your client_id"
+CLIENT_SECRET="your client_secret"
+REDIRECT_URI="your redirect_uri"
+CODE="your code" # Authorization Code Grant"#}
                                 </code>
                             </pre>
                         </div>
@@ -64,7 +64,7 @@ CODE="你的code" # Authorization Code Grant认证时需要"#}
                                 <code>
 {r#"[dependencies]
 osynic_osuapi = "0.1.0"
-# 默认features是 ["v1", "v2", "not-wasm"]"#}
+# Default features are ["v1", "v2", "not-wasm"]"#}
                                 </code>
                             </pre>
                         </div>
@@ -145,7 +145,7 @@ async fn main() -> Result<()> {
                             <pre class="p-5 text-sm overflow-x-auto text-gray-300 min-h-[80px]">
                                 <code>
 {r#"# V1 API
-API_KEY="你的api_key""#}
+API_KEY="your api_key""#}
                                 </code>
                             </pre>
                         </div>
@@ -169,7 +169,7 @@ API_KEY="你的api_key""#}
 {r#"[dependencies]
 osynic_osuapi = { version = "0.1.0", default-features = false, features = ["v1", "v2", "wasm"] }
 
-# WASM 支持
+# WASM Related Dependencies
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 web-sys = { version = "0.3", features = ["console"] }"#}
@@ -197,33 +197,28 @@ web-sys = { version = "0.3", features = ["console"] }"#}
 use osynic_osuapi::v1::client::gloo::client::OsynicOsuApiV1GlooClient;
 use osynic_osuapi::v1::model::beatmap::GetBeatmapsParams;
 
-// 在 WASM 环境中使用
 #[wasm_bindgen::prelude::wasm_bindgen]
 pub fn start() {
-    // 初始化日志
     console_error_panic_hook::set_once();
     
     let client = OsynicOsuApiV1GlooClient::new("your_api_key".to_string());
     
-    // 创建查询参数
     let params = GetBeatmapsParams::default()
         .sid("114514".to_string());
     
-    // 在 WASM 中处理异步请求
     spawn_local(async move {
         match client.beatmap.get_beatmaps(params).await {
             Ok(beatmaps) => {
-                // 处理返回的数据
                 for beatmap in beatmaps {
                     web_sys::console::log_1(&format!(
-                        "谱面: {} - {}", 
+                        "Beatmap: {} - {}", 
                         beatmap.artist, 
                         beatmap.title
                     ).into());
                 }
             },
             Err(e) => {
-                web_sys::console::error_1(&format!("错误: {:?}", e).into());
+                web_sys::console::error_1(&format!("Error: {:?}", e).into());
             }
         }
     });

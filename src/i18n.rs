@@ -45,7 +45,7 @@ pub fn LanguageSelector() -> impl IntoView {
     };
 
     view! {
-        <div class="relative inline-block text-left w-24">
+        <div class="relative inline-block text-left w-32">
             // 点击展开/收起的按钮
             <div>
                 <button 

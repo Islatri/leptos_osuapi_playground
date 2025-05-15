@@ -29,7 +29,7 @@ impl Default for Settings {
 fn load_settings() -> Settings {
     if let Some(window) = window() {
         if let Ok(Some(storage)) = window.local_storage() {
-            if let Ok(Some(settings_str)) = storage.get_item("appSettings") {
+            if let Ok(Some(settings_str)) = storage.get_item("themeSettings") {
                 if let Ok(settings) = serde_json::from_str(&settings_str) {
                     return settings;
                 }
@@ -43,7 +43,7 @@ fn save_settings(settings: &Settings) {
     if let Some(window) = window() {
         if let Ok(Some(storage)) = window.local_storage() {
             if let Ok(settings_str) = serde_json::to_string(settings) {
-                let _ = storage.set_item("appSettings", &settings_str);
+                let _ = storage.set_item("themeSettings", &settings_str);
             }
         }
     }

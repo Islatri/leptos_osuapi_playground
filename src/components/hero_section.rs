@@ -7,6 +7,8 @@ use leptos_fluent::tr;
 pub fn HeroSection() -> impl IntoView {
     view! {
         <section class="relative bg-gray-900 dark:bg-gray-950 text-white overflow-hidden">
+            <div class="h-[72px]"></div>
+
             // 背景图片与渐变效果
             <div class="absolute inset-0 z-0">
                 <div class="absolute inset-0 bg-gradient-to-r from-pink-600/70 via-purple-800/70 to-purple-900/70 mix-blend-multiply dark:mix-blend-color-burn"></div>
@@ -64,19 +66,19 @@ pub fn HeroSection() -> impl IntoView {
                         </div>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm text-gray-300 dark:text-gray-200">
-                            <div class="flex items-center p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
+                            <div class="flex items-center max-w-48 p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
                                 <div class="text-pink-400 dark:text-pink-300 mr-3 flex-shrink-0">
                                     <Package size=20 />
                                 </div>
                                 <span>{move || tr!("hero-feature-api")}</span>
                             </div>
-                            <div class="flex items-center p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
+                            <div class="flex items-center max-w-48 p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
                                 <div class="text-pink-400 dark:text-pink-300 mr-3 flex-shrink-0">
                                     <ShieldCheck size=20 />
                                 </div>
                                 <span>{move || tr!("hero-feature-type-safe")}</span>
                             </div>
-                            <div class="flex items-center p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
+                            <div class="flex items-center max-w-48 p-3 bg-gray-800/40 dark:bg-gray-800/30 rounded-lg backdrop-blur-sm hover:bg-gray-700/50 dark:hover:bg-gray-700/40 transition-all border border-gray-700/40 dark:border-gray-600/30 shadow-sm">
                                 <div class="text-pink-400 dark:text-pink-300 mr-3 flex-shrink-0">
                                     <Globe size=20 />
                                 </div>

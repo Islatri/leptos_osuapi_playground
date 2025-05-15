@@ -39,6 +39,7 @@ pub fn App() -> impl IntoView {
 #[component]
 fn HomePage() -> impl IntoView {
     view! {
+        // <div class="h-[72px]"></div>
         <HeroSection />
         <ApiSection />
         <ApiDemo />
