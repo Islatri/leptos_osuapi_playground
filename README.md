@@ -1,24 +1,38 @@
 <!-- markdownlint-disable MD033 MD041 MD045 MD026 -->
+<p align="center" dir="auto">
+    <img style="height:240px;width:240px" src="https://s2.loli.net/2025/05/15/Ww1hovEL4PmKdD6.png" alt="Logo逃走啦~"/>
+</p>
+
+<h1 align="center" tabindex="-1" class="heading-element" dir="auto">LeptosOsuapiPlayground</h1>
+
+<p align="center">
+  <a href="https://www.rust-lang.org/" target="_blank"><img src="https://img.shields.io/badge/Rust-1.85%2B-blue"/></a>
+  <a href="https://crates.io/crates/osynic_osuapi" target="_blank"><img src="https://img.shields.io/crates/v/osynic_osuapi"/></a>
+  <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.0"/></a>
+  <a href="https://osynic-osuapi.deno.dev" target="_blank"><img src="https://img.shields.io/badge/Deno-white?logo=deno&logoColor=black"/></a>
+  <a href="https://github.com/islatri/leptos_osuapi_playground" target="_blank"><img src="https://img.shields.io/badge/License-MIT-green.svg"/></a>
+  <a href="https://discord.gg/DRnZSES3BC" target="_blank"><img src="https://img.shields.io/badge/chat-discord-7289da.svg"/></a>
+  <a href="https://github.com/osynicite" target="_blank"><img src="https://img.shields.io/badge/buy%20me-a%20coffee-orange.svg?style=flat-square"/></a>
+
+</p>
+
+<p align="center">
+    美观、现代化的 OsynicOsuapi 演示网站, 基于Leptos框架开发
+</p>
+
+<hr />
+
+[中文版本](README.md) | [English Version](README_EN.md)
+
 # 🎮 LeptosOsuapiPlayground
-
-<div align="center">
-
-<img src="https://github.com/Islatri/LeptosOsuapiPlayground/raw/main/public/logo.png" alt="LeptosOsuapiPlayground Logo" width="200"/>
-
-<h3>高性能、结构优良、拓展性好的 Rust osu! API 客户端演示网站</h3>
-
-[![Rust](https://img.shields.io/badge/Rust-1.70+-orange.svg)](https://www.rust-lang.org/)
-[![Leptos](https://img.shields.io/badge/Leptos-最新版-blue.svg)](https://github.com/leptos-rs/leptos)
-[![WASM](https://img.shields.io/badge/WASM-兼容-brightgreen.svg)](https://webassembly.org/)
-[![osu!api](https://img.shields.io/badge/osu!api-v1%20%26%20v2-ff69b4.svg)](https://osu.ppy.sh/docs/index.html)
-
-[🌐 体验演示](https://osuapi.osynic.com) | [📚 查看文档](https://docs.osuapi.osynic.com) | [🐛 报告问题](https://github.com/Islatri/LeptosOsuapiPlayground/issues)
-
-</div>
 
 ## 📋 项目简介
 
-LeptosOsuapiPlayground 是一个基于 Rust Leptos 框架开发的现代化 Web 应用，它展示了 OsynicOsuapi 库的功能和用法。通过 WebAssembly (WASM) 技术，该应用能够直接在浏览器中与 osu! API 进行交互，无需后端服务器处理请求。
+LeptosOsuapiPlayground 是一个基于 Rust Leptos 框架开发的现代化 Web 应用，它展示了 OsynicOsuapi 库的功能和用法。通过 WebAssembly (WASM) 技术，OsynicOsuapi 能够直接在浏览器中与 osu! API 进行交互，无需后端服务器处理请求。
+
+很显然，由于CORS的问题，不代理直接在浏览器中使用V1的API会遇到跨域问题（毕竟WASM部分是浏览器前端发的请求嘛），所以用[Deno](https://deno.dev)来搭建了一个中转服务器[osynic-cors.deno.dev](https://osynic-cors.deno.dev)，配合WASM客户端的`proxy_url`来实现代理请求；
+
+目前网站通过[Deno](https://deno.dev)部署在[osynic-osuapi.deno.dev](https://osynic-osuapi.deno.dev/)，支持中日韩德法俄英等多种语言；
 
 这个项目不仅是 OsynicOsuapi 库的一个实际应用示例，也是学习 Rust、Leptos 和 WASM 技术的绝佳资源。
 
@@ -35,7 +49,7 @@ LeptosOsuapiPlayground 是一个基于 Rust Leptos 框架开发的现代化 Web 
 
 ### 🌐 在线体验
 
-访问 [https://osuapi.osynic.com](https://osuapi.osynic.com) 立即体验 LeptosOsuapiPlayground。
+访问 [https://osynic-osuapi.deno.dev](https://osynic-osuapi.deno.dev) 立即体验 LeptosOsuapiPlayground。
 
 您需要自己的 osu! API 密钥才能使用演示功能。如果没有，可以在 [osu! 个人设置页](https://osu.ppy.sh/home/account/edit) 的"旧版本API"部分申请一个。
 
@@ -43,8 +57,8 @@ LeptosOsuapiPlayground 是一个基于 Rust Leptos 框架开发的现代化 Web 
 
 ```bash
 # 克隆仓库
-git clone https://github.com/Islatri/LeptosOsuapiPlayground.git
-cd LeptosOsuapiPlayground
+git clone https://github.com/Islatri/leptos_osuapi_playground.git
+cd leptos_osuapi_playground
 
 # 安装依赖（需要 Rust 和 Cargo）
 cargo install trunk
@@ -66,10 +80,14 @@ LeptosOsuapiPlayground/
 │   ├── stores/             # 状态管理
 │   ├── i18n.rs             # 国际化文件
 │   ├── main.rs             # 应用入口
+│   ├── index.css           # 全局样式
 │   └── app.rs              # 主应用组件
 ├── public/                 # 静态资源
-├── i18n/                   # 翻译文件 (.ftl)
+├── locales/                # 翻译文件 (.ftl)
+├── tailwind.config.js      # Tailwind CSS 配置
 ├── Cargo.toml              # 项目配置
+├── Trunk.toml              # Trunk 配置
+├── index.html              # HTML 入口
 └── README.md               # 项目说明
 ```
 
@@ -127,8 +145,8 @@ trunk build --release
 - [🦀 Rust](https://www.rust-lang.org/) - 系统编程语言
 - [🔄 Leptos](https://github.com/leptos-rs/leptos) - Rust 前端框架
 - [⚡ WebAssembly (WASM)](https://webassembly.org/) - 浏览器中运行的二进制格式
-- [🎮 OsynicOsuapi](https://github.com/Islatri/OsynicOsuapi) - Rust osu! API 客户端
-- [🌐 Fluent](https://projectfluent.org/) - 国际化框架
+- [🎮 OsynicOsuapi](https://github.com/osynicite/osynic_osuapi) - Rust osu! API 客户端
+- [🌐 LeptosFluent](https://github.com/mondeja/leptos-fluent) - 国际化框架
 
 ## 🤝 贡献指南
 
@@ -144,7 +162,7 @@ trunk build --release
 
 本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件
 
-## 🙏 致谢
+## ❤️ 致谢
 
 - [osu!](https://osu.ppy.sh/) 提供精彩的游戏和 API
 - Rust 和 Leptos 社区的持续支持
