@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "osynic-osuapi"
-          entrypoint: "dist/index.html"
-          root: ""
+          entrypoint: "index.html"
+          root: "dist"
           
           
