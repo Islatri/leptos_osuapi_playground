@@ -175,7 +175,7 @@ LeptosOsuapiPlayground 是非官方项目，与 osu! 官方无关。本项目仅
 ---
 
 <div align="center">
-  <sub>由 Osynicite 用 ❤️ 构建</sub>
+  <sub>由 Islatri 用 ❤️ 构建</sub>
   <br>
   <sub>© 2025 Osynicite. OsynicOsuapi 和 LeptosOsuapiPlayground 是非官方项目, 与 osu! 官方无关.</sub>
 </div>

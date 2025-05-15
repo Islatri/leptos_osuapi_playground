@@ -1,14 +1,14 @@
-use leptos::*;
 use leptos::prelude::*;
-use wasm_bindgen_futures::spawn_local;
-use web_sys::HtmlInputElement;
+use leptos::*;
+use leptos_fluent::tr;
+use lucide_leptos::{Github, Loader, Music, Search, User};
 use osynic_osuapi::v1::client::gloo::client::OsynicOsuApiV1GlooClient;
-use osynic_osuapi::v1::model::beatmap::GetBeatmapsParams;
-use osynic_osuapi::v1::model::user::GetUserParams;
 use osynic_osuapi::v1::interface::beatmap::IBeatmap;
 use osynic_osuapi::v1::interface::user::IUser;
-use lucide_leptos::{ Github, Search, Music, User, Loader };
-use leptos_fluent::tr;
+use osynic_osuapi::v1::model::beatmap::GetBeatmapsParams;
+use osynic_osuapi::v1::model::user::GetUserParams;
+use wasm_bindgen_futures::spawn_local;
+use web_sys::HtmlInputElement;
 
 #[component]
 pub fn ApiDemo() -> impl IntoView {
@@ -87,10 +87,8 @@ pub fn ApiDemo() -> impl IntoView {
                         let mut result_str = String::new();
                         for (i, beatmap) in beatmaps.iter().enumerate() {
                             // Replace the number placeholder with the actual number
-                            let beatmap_num = beatmap_number_template.replace(
-                                "0",
-                                &(i + 1).to_string()
-                            );
+                            let beatmap_num =
+                                beatmap_number_template.replace("0", &(i + 1).to_string());
                             result_str.push_str(&beatmap_num);
                             result_str.push_str("\n");
 
@@ -183,9 +181,8 @@ pub fn ApiDemo() -> impl IntoView {
 
                         result_str.push_str(&global_rank_template.replace("", &user.pp_rank));
                         result_str.push_str("\n");
-                        result_str.push_str(
-                            &country_rank_template.replace("", &user.pp_country_rank)
-                        );
+                        result_str
+                            .push_str(&country_rank_template.replace("", &user.pp_country_rank));
                         result_str.push_str("\n");
                         result_str.push_str(&playcount_template.replace("", &user.playcount));
 
@@ -230,15 +227,15 @@ pub fn ApiDemo() -> impl IntoView {
                 <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
                     {move || tr!("api-demo-description-2")} <a href="https://osu.ppy.sh/home/account/edit" target="_blank" class="text-pink-600 hover:text-pink-700 transition-all duration-200 font-medium">{move || tr!("api-demo-account-settings")}</a> {move || tr!("api-demo-api-section")}
                 </p>
-                
+
                 <div class="max-w-6xl mx-auto">
                     <div class="card bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl">
                         {/* API 密钥输入 */}
                         <div class="mb-6">
                             <label for="api_key" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">{move || tr!("api-demo-label-api-key")}</label>
-                            <input 
-                                type="password" 
-                                id="api_key" 
+                            <input
+                                type="password"
+                                id="api_key"
                                 class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
                                 placeholder={move || tr!("api-demo-input-placeholder")}
                                 on:input=handle_api_key_input
@@ -247,12 +244,12 @@ pub fn ApiDemo() -> impl IntoView {
                                 {move || tr!("api-demo-key-security")}
                             </p>
                         </div>
-                        
+
                         // 选项卡导航
                         <div class="border-b border-gray-200 dark:border-gray-700 mb-6">
                             <ul class="flex flex-wrap -mb-px">
                                 <li class="mr-2">
-                                    <button 
+                                    <button
                                         class=move || {
                                             let base_classes = "flex py-2 px-4 border-b-2 rounded-t-lg transition-all duration-200 items-center";
 
@@ -272,7 +269,7 @@ pub fn ApiDemo() -> impl IntoView {
                                     </button>
                                 </li>
                                 <li class="mr-2">
-                                    <button 
+                                    <button
                                         class=move || {
                                             let base_classes = "flex py-2 px-4 border-b-2 rounded-t-lg transition-all duration-200 items-center";
 
@@ -292,27 +289,27 @@ pub fn ApiDemo() -> impl IntoView {
                                 </li>
                             </ul>
                         </div>
-                        
+
                         // 谱面查询表单
                         <div class="mb-6" class:hidden=move || active_tab.get() != "beatmaps">
                             <label for="beatmap_id" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">{move || tr!("api-demo-input-beatmap-label")}</label>
                             <div class="flex">
-                                <input 
-                                    type="text" 
-                                    id="beatmap_id" 
+                                <input
+                                    type="text"
+                                    id="beatmap_id"
                                     class="w-full px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
                                     placeholder={move || tr!("api-demo-input-beatmap-placeholder")}
                                     value=beatmap_id
                                     on:input=handle_beatmap_id_input
                                 />
-                                <button 
+                                <button
                                     class="flex px-6 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-r-lg transition-all duration-200 items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                                     on:click=fetch_beatmap
                                     disabled=is_loading
                                 >
                                     <Show
                                         when=move || !is_loading.get()
-                                        fallback=|| view! { 
+                                        fallback=|| view! {
                                             <Loader />
                                             <span class="mr-2">{move || tr!("api-demo-loading")}</span>
                                         }
@@ -323,27 +320,27 @@ pub fn ApiDemo() -> impl IntoView {
                                 </button>
                             </div>
                         </div>
-                        
+
                         // 用户查询表单
                         <div class="mb-6" class:hidden=move || active_tab.get() != "users">
                             <label for="username" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">{move || tr!("api-demo-input-user-label")}</label>
                             <div class="flex">
-                                <input 
-                                    type="text" 
-                                    id="username" 
+                                <input
+                                    type="text"
+                                    id="username"
                                     class="w-full px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
                                     placeholder={move || tr!("api-demo-input-user-placeholder")}
                                     value=username
                                     on:input=handle_username_input
                                 />
-                                <button 
+                                <button
                                     class="px-6 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-r-lg transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                                     on:click=fetch_user
                                     disabled=is_loading
                                 >
                                     <Show
                                         when=move || !is_loading.get()
-                                        fallback=|| view! { 
+                                        fallback=|| view! {
                                             <Loader />
                                             <span class="mr-2">{move || tr!("api-demo-loading")}</span>
                                         }
@@ -354,7 +351,7 @@ pub fn ApiDemo() -> impl IntoView {
                                 </button>
                             </div>
                         </div>
-                        
+
                         // 双面板结果显示
                         <div>
                             <div class="flex flex-col md:flex-row gap-4 mb-2">
@@ -364,7 +361,7 @@ pub fn ApiDemo() -> impl IntoView {
                                     <span>{move || tr!("api-demo-right-raw")}</span>
                                 </div>
                             </div>
-                            
+
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 // 左侧 - 格式化结果
                                 <div class="result-container">
@@ -375,7 +372,7 @@ pub fn ApiDemo() -> impl IntoView {
                                         {result}
                                     </pre>
                                 </div>
-                                
+
                                 // 右侧 - 原始 JSON
                                 <div class="result-container">
                                     <div class="p-2 bg-gray-200 dark:bg-gray-700 text-xs text-gray-600 dark:text-gray-300 rounded-t-lg">
@@ -388,7 +385,7 @@ pub fn ApiDemo() -> impl IntoView {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="mt-8 text-center">
                         <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
                             {move || tr!("api-demo-description-wasm")}

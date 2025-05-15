@@ -175,7 +175,7 @@ LeptosOsuapiPlayground is an unofficial project not affiliated with osu! officia
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by Osynicite</sub>
+  <sub>Built with ❤️ by Islatri</sub>
   <br>
   <sub>© 2025 Osynicite. OsynicOsuapi and LeptosOsuapiPlayground are unofficial projects, not affiliated with osu! official.</sub>
 </div>

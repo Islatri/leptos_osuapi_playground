@@ -1,7 +1,7 @@
-use leptos::*;
 use leptos::prelude::{ClassAttribute, ElementChild};
-use lucide_leptos::{Layers, CodeXml, Sailboat, Globe, Server, BookOpen};
+use leptos::*;
 use leptos_fluent::tr;
+use lucide_leptos::{BookOpen, CodeXml, Globe, Layers, Sailboat, Server};
 
 #[component]
 pub fn FeaturesSection() -> impl IntoView {
@@ -14,7 +14,7 @@ pub fn FeaturesSection() -> impl IntoView {
                 <p class="text-center text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
                     {move || tr!("features-section-description")}
                 </p>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* 特性卡片 1 */}
                     <div class="card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-shadow p-6 border-t-4 border-pink-500">
@@ -30,7 +30,7 @@ pub fn FeaturesSection() -> impl IntoView {
                             {move || tr!("features-high-performance-description")}
                         </p>
                     </div>
-                    
+
                     {/* 特性卡片 2 */}
                     <div class="card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-shadow p-6 border-t-4 border-purple-600">
                         <div class="flex items-center mb-4">
@@ -45,7 +45,7 @@ pub fn FeaturesSection() -> impl IntoView {
                             {move || tr!("features-type-safe-description")}
                         </p>
                     </div>
-                    
+
                     {/* 特性卡片 3 */}
                     <div class="card bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-shadow p-6 border-t-4 border-blue-500">
                         <div class="flex items-center mb-4">
@@ -108,8 +108,8 @@ pub fn FeaturesSection() -> impl IntoView {
                 </div>
 
                 <div class="mt-16 text-center">
-                    <a 
-                        href="https://crates.io/crates/osynic_osuapi" 
+                    <a
+                        href="https://crates.io/crates/osynic_osuapi"
                         class="inline-block px-8 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1"
                     >
                         {move || tr!("features-cta-button")}
@@ -117,6 +117,6 @@ pub fn FeaturesSection() -> impl IntoView {
                 </div>
             </div>
         </section>
-        
+
     }
 }
