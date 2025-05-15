@@ -2,6 +2,15 @@
 name = "leptos_osuapi_playground"
 version = "0.1.0"
 edition = "2024"
+authors = ["Hako Chest <zoneherobrine@gmail.com>"]
+rust-version = "1.85.0"
+description = "High performance, well-structured, extensible Rust osu! API client. Supports both WASM and native environments."
+keywords = ["osynic", "osu", "osu!api", "wasm"]
+categories = ["games", "api-bindings"]
+license = "MIT"
+documentation = "https://osynic-osuapi.deno.dev"
+repository = "https://github.com/osynicite/leptos_osuapi_playground"
+
 
 [dependencies]
 leptos = { version = "0.8.2", features = ["csr"] }
@@ -25,5 +34,4 @@ lucide-leptos = "1.2.0"
 leptos-fluent = "0.2"
 fluent-templates = "0.13"
 
-osynic_osuapi = { path="../osynic_osuapi",default-features = false,features = ["v1","wasm"] }
-# osynic_osuapi = { version="0.1.0",default-features = false,features = ["v1","wasm"] }
+osynic_osuapi = { version="0.1.0",default-features = false,features = ["v1","wasm"] }

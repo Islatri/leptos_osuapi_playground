@@ -97,11 +97,16 @@ pub fn HeroSection() -> impl IntoView {
                             <div class="absolute -inset-8 bg-pink-500/10 dark:bg-pink-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
 
                             // Logo
-                            <img
-                                src="/public/Osu!_Logo_2016.svg"
-                                alt="osu! logo"
-                                class="w-full h-full relative z-10 drop-shadow-[0_0_15px_rgba(236,72,153,0.6)] dark:drop-shadow-[0_0_20px_rgba(236,72,153,0.7)] hover:scale-105 transition-transform duration-300"
-                            />
+                            <a href="https://osu.ppy.sh" 
+                                target="_blank"
+                                class="w-full h-full relative z-10"
+                                >
+                                <img
+                                    src="/public/Osu!_Logo_2016.svg"
+                                    alt="osu! logo"
+                                    class="w-full h-full relative z-10 drop-shadow-[0_0_15px_rgba(236,72,153,0.6)] dark:drop-shadow-[0_0_20px_rgba(236,72,153,0.7)] hover:scale-105 transition-transform duration-300"
+                                />
+                            </a>
 
                             // 装饰元素
                             <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-purple-500/30 dark:bg-purple-500/40 rounded-full blur-md animate-pulse-slow"></div>
