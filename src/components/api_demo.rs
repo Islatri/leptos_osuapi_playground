@@ -17,25 +17,26 @@ pub fn ApiDemo() -> impl IntoView {
     let loading_text = Memo::new(move |_| tr!("api-demo-loading-text"));
     let no_beatmap_found = Memo::new(move |_| tr!("api-demo-no-beatmap-found"));
     let no_user_found = Memo::new(move |_| tr!("api-demo-no-user-found"));
-    let error_prefix = Memo::new(move |_| tr!("api-demo-error")); // 移除空参数
+    // 需要提供参数
+    let error_prefix = Memo::new(move |_| tr!("api-demo-error", {"error" => ""}));
 
-    // Beatmap result templates - 不在初始化时提供替换值
-    let beatmap_number_tpl = Memo::new(move |_| tr!("api-demo-beatmap-number"));
-    let title_tpl = Memo::new(move |_| tr!("api-demo-title"));
-    let artist_tpl = Memo::new(move |_| tr!("api-demo-artist"));
-    let version_tpl = Memo::new(move |_| tr!("api-demo-version"));
-    let bpm_tpl = Memo::new(move |_| tr!("api-demo-bpm"));
-    let stars_tpl = Memo::new(move |_| tr!("api-demo-stars"));
+    // Beatmap result templates - 需要提供所有参数
+    let beatmap_number_tpl = Memo::new(move |_| tr!("api-demo-beatmap-number", {"number" => "{$number}"}));
+    let title_tpl = Memo::new(move |_| tr!("api-demo-title", {"title" => "{$title}"}));
+    let artist_tpl = Memo::new(move |_| tr!("api-demo-artist", {"artist" => "{$artist}"}));
+    let version_tpl = Memo::new(move |_| tr!("api-demo-version", {"version" => "{$version}"}));
+    let bpm_tpl = Memo::new(move |_| tr!("api-demo-bpm", {"bpm" => "{$bpm}"}));
+    let stars_tpl = Memo::new(move |_| tr!("api-demo-stars", {"stars" => "{$stars}"}));
 
-    // User result templates - 不在初始化时提供替换值
-    let username_tpl = Memo::new(move |_| tr!("api-demo-username"));
-    let user_id_tpl = Memo::new(move |_| tr!("api-demo-user-id"));
-    let country_tpl = Memo::new(move |_| tr!("api-demo-country"));
-    let pp_tpl = Memo::new(move |_| tr!("api-demo-pp"));
-    let accuracy_tpl = Memo::new(move |_| tr!("api-demo-accuracy"));
-    let global_rank_tpl = Memo::new(move |_| tr!("api-demo-global-rank"));
-    let country_rank_tpl = Memo::new(move |_| tr!("api-demo-country-rank"));
-    let playcount_tpl = Memo::new(move |_| tr!("api-demo-playcount"));
+    // User result templates - 需要提供所有参数
+    let username_tpl = Memo::new(move |_| tr!("api-demo-username", {"username" => "{$username}"}));
+    let user_id_tpl = Memo::new(move |_| tr!("api-demo-user-id", {"id" => "{$id}"}));
+    let country_tpl = Memo::new(move |_| tr!("api-demo-country", {"country" => "{$country}"}));
+    let pp_tpl = Memo::new(move |_| tr!("api-demo-pp", {"pp" => "{$pp}"}));
+    let accuracy_tpl = Memo::new(move |_| tr!("api-demo-accuracy", {"accuracy" => "{$accuracy}"}));
+    let global_rank_tpl = Memo::new(move |_| tr!("api-demo-global-rank", {"rank" => "{$rank}"}));
+    let country_rank_tpl = Memo::new(move |_| tr!("api-demo-country-rank", {"country_rank" => "{$country_rank}"}));
+    let playcount_tpl = Memo::new(move |_| tr!("api-demo-playcount", {"count" => "{$count}"}));
 
     // State variables
     let (api_key, set_api_key) = signal("".to_string());
