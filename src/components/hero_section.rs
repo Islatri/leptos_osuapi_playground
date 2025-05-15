@@ -97,7 +97,7 @@ pub fn HeroSection() -> impl IntoView {
                             <div class="absolute -inset-8 bg-pink-500/10 dark:bg-pink-500/20 rounded-full blur-2xl animate-pulse-slow"></div>
 
                             // Logo
-                            <a href="https://osu.ppy.sh" 
+                            <a href="https://osu.ppy.sh"
                                 target="_blank"
                                 class="w-full h-full relative z-10"
                                 >

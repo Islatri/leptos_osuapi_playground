@@ -17,25 +17,25 @@ pub fn ApiDemo() -> impl IntoView {
     let loading_text = Memo::new(move |_| tr!("api-demo-loading-text"));
     let no_beatmap_found = Memo::new(move |_| tr!("api-demo-no-beatmap-found"));
     let no_user_found = Memo::new(move |_| tr!("api-demo-no-user-found"));
-    let error_prefix = Memo::new(move |_| tr!("api-demo-error", {"error" => ""}));
+    let error_prefix = Memo::new(move |_| tr!("api-demo-error")); // 移除空参数
 
-    // Beatmap result templates
-    let beatmap_number_tpl = Memo::new(move |_| tr!("api-demo-beatmap-number", {"number" => 0}));
-    let title_tpl = Memo::new(move |_| tr!("api-demo-title", {"title" => ""}));
-    let artist_tpl = Memo::new(move |_| tr!("api-demo-artist", {"artist" => ""}));
-    let version_tpl = Memo::new(move |_| tr!("api-demo-version", {"version" => ""}));
-    let bpm_tpl = Memo::new(move |_| tr!("api-demo-bpm", {"bpm" => ""}));
-    let stars_tpl = Memo::new(move |_| tr!("api-demo-stars", {"stars" => ""}));
+    // Beatmap result templates - 不在初始化时提供替换值
+    let beatmap_number_tpl = Memo::new(move |_| tr!("api-demo-beatmap-number"));
+    let title_tpl = Memo::new(move |_| tr!("api-demo-title"));
+    let artist_tpl = Memo::new(move |_| tr!("api-demo-artist"));
+    let version_tpl = Memo::new(move |_| tr!("api-demo-version"));
+    let bpm_tpl = Memo::new(move |_| tr!("api-demo-bpm"));
+    let stars_tpl = Memo::new(move |_| tr!("api-demo-stars"));
 
-    // User result templates
-    let username_tpl = Memo::new(move |_| tr!("api-demo-username", {"username" => ""}));
-    let user_id_tpl = Memo::new(move |_| tr!("api-demo-user-id", {"id" => ""}));
-    let country_tpl = Memo::new(move |_| tr!("api-demo-country", {"country" => ""}));
-    let pp_tpl = Memo::new(move |_| tr!("api-demo-pp", {"pp" => ""}));
-    let accuracy_tpl = Memo::new(move |_| tr!("api-demo-accuracy", {"accuracy" => ""}));
-    let global_rank_tpl = Memo::new(move |_| tr!("api-demo-global-rank", {"rank" => ""}));
-    let country_rank_tpl = Memo::new(move |_| tr!("api-demo-country-rank", {"country_rank" => ""}));
-    let playcount_tpl = Memo::new(move |_| tr!("api-demo-playcount", {"count" => ""}));
+    // User result templates - 不在初始化时提供替换值
+    let username_tpl = Memo::new(move |_| tr!("api-demo-username"));
+    let user_id_tpl = Memo::new(move |_| tr!("api-demo-user-id"));
+    let country_tpl = Memo::new(move |_| tr!("api-demo-country"));
+    let pp_tpl = Memo::new(move |_| tr!("api-demo-pp"));
+    let accuracy_tpl = Memo::new(move |_| tr!("api-demo-accuracy"));
+    let global_rank_tpl = Memo::new(move |_| tr!("api-demo-global-rank"));
+    let country_rank_tpl = Memo::new(move |_| tr!("api-demo-country-rank"));
+    let playcount_tpl = Memo::new(move |_| tr!("api-demo-playcount"));
 
     // State variables
     let (api_key, set_api_key) = signal("".to_string());
@@ -86,24 +86,29 @@ pub fn ApiDemo() -> impl IntoView {
                     } else {
                         let mut result_str = String::new();
                         for (i, beatmap) in beatmaps.iter().enumerate() {
-                            // Replace the number placeholder with the actual number
+                            // 修复：正确替换占位符
                             let beatmap_num =
-                                beatmap_number_template.replace("0", &(i + 1).to_string());
+                                beatmap_number_template.replace("{$number}", &(i + 1).to_string());
                             result_str.push_str(&beatmap_num);
                             result_str.push_str("\n");
 
-                            // Replace placeholders with actual values
-                            result_str.push_str(&title_template.replace("", &beatmap.title));
+                            // 修复：正确替换占位符
+                            result_str
+                                .push_str(&title_template.replace("{$title}", &beatmap.title));
                             result_str.push_str("\n");
-                            result_str.push_str(&artist_template.replace("", &beatmap.artist));
+                            result_str
+                                .push_str(&artist_template.replace("{$artist}", &beatmap.artist));
                             result_str.push_str("\n");
-                            result_str.push_str(&version_template.replace("", &beatmap.version));
+                            result_str.push_str(
+                                &version_template.replace("{$version}", &beatmap.version),
+                            );
                             result_str.push_str("\n");
-                            result_str.push_str(&bpm_template.replace("", &beatmap.bpm));
+                            result_str.push_str(&bpm_template.replace("{$bpm}", &beatmap.bpm));
                             result_str.push_str("\n");
 
                             let stars_formatted = format!("{:.2}", beatmap.difficultyrating);
-                            result_str.push_str(&stars_template.replace("", &stars_formatted));
+                            result_str
+                                .push_str(&stars_template.replace("{$stars}", &stars_formatted));
                             result_str.push_str("\n\n");
                         }
                         set_result.set(result_str);
@@ -163,28 +168,35 @@ pub fn ApiDemo() -> impl IntoView {
                         let user = &users[0];
                         let mut result_str = String::new();
 
-                        // Replace placeholders with actual values
-                        result_str.push_str(&username_template.replace("", &user.username));
+                        // 修复：正确替换占位符
+                        result_str
+                            .push_str(&username_template.replace("{$username}", &user.username));
                         result_str.push_str("\n");
-                        result_str.push_str(&user_id_template.replace("", &user.user_id));
+                        result_str.push_str(&user_id_template.replace("{$id}", &user.user_id));
                         result_str.push_str("\n");
-                        result_str.push_str(&country_template.replace("", &user.country));
+                        result_str.push_str(&country_template.replace("{$country}", &user.country));
                         result_str.push_str("\n");
 
                         let pp_formatted = format!("{:.2}", user.pp_raw);
-                        result_str.push_str(&pp_template.replace("", &pp_formatted));
+                        result_str.push_str(&pp_template.replace("{$pp}", &pp_formatted));
                         result_str.push_str("\n");
 
                         let accuracy_formatted = format!("{:.2}", user.accuracy);
-                        result_str.push_str(&accuracy_template.replace("", &accuracy_formatted));
+                        result_str.push_str(
+                            &accuracy_template.replace("{$accuracy}", &accuracy_formatted),
+                        );
                         result_str.push_str("\n");
 
-                        result_str.push_str(&global_rank_template.replace("", &user.pp_rank));
+                        result_str
+                            .push_str(&global_rank_template.replace("{$rank}", &user.pp_rank));
+                        result_str.push_str("\n");
+                        result_str.push_str(
+                            &country_rank_template
+                                .replace("{$country_rank}", &user.pp_country_rank),
+                        );
                         result_str.push_str("\n");
                         result_str
-                            .push_str(&country_rank_template.replace("", &user.pp_country_rank));
-                        result_str.push_str("\n");
-                        result_str.push_str(&playcount_template.replace("", &user.playcount));
+                            .push_str(&playcount_template.replace("{$count}", &user.playcount));
 
                         set_result.set(result_str);
                     }
@@ -376,7 +388,7 @@ pub fn ApiDemo() -> impl IntoView {
                                 // 右侧 - 原始 JSON
                                 <div class="result-container">
                                     <div class="p-2 bg-gray-200 dark:bg-gray-700 text-xs text-gray-600 dark:text-gray-300 rounded-t-lg">
-                                        {move || tr!("api-demo-formatted-results")}
+                                        {move || tr!("api-demo-raw-json")}
                                     </div>
                                     <pre class="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4 overflow-x-auto text-sm h-[280px] font-mono border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200">
                                         {raw_json}

@@ -1,7 +1,5 @@
 <!-- markdownlint-disable MD033 MD041 MD045 MD026 -->
-<p align="center" dir="auto">
-    <img style="height:720px;width:581px" src="https://s2.loli.net/2025/05/15/Ww1hovEL4PmKdD6.png" alt="Logo逃走啦~"/>
-</p>
+[![OsynicOsuapiCN.png](https://s2.loli.net/2025/05/15/Ww1hovEL4PmKdD6.png)](https://osynic-osuapi.deno.dev/)
 
 <h1 align="center" tabindex="-1" class="heading-element" dir="auto">LeptosOsuapiPlayground</h1>
 
