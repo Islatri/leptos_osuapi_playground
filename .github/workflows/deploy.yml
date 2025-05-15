@@ -29,7 +29,7 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cargo install trunk"
+        run: " rustup target add wasm32-unknown-unknown && cargo install trunk"
 
       - name: Build step
         run: "trunk build"
@@ -37,7 +37,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "osuapi-playground-57"
+          project: "osynic-osuapi"
           entrypoint: "dist/index.html"
           root: ""
           
