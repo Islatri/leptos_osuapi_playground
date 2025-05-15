@@ -117,7 +117,7 @@ quick-start-view-examples = View Examples
 
 
 # API Demo Section
-api-demo-title = Try osu! API V1 (WASM)
+api-demo-title-1 = Try osu! API V1 (WASM)
 api-demo-description-1 = Enter your osu! API key to try OsynicOsuapi in the browser.
 api-demo-description-2 = If you don't have an API key, you can get one in your
 api-demo-account-settings = osu! account settings
@@ -130,7 +130,9 @@ api-demo-key-security = The key is only used in your browser and is not transmit
 # API Demo Additional Elements
 api-demo-beatmap-query = Beatmap Query
 api-demo-user-query = User Query
-api-demo-input-beatmap-placeholder = Enter beatmap set ID
+api-demo-input-beatmap-label = Beatmapset ID
+api-demo-input-beatmap-placeholder = Enter beatmapset ID
+api-demo-input-user-label = Username or user ID
 api-demo-input-user-placeholder = Enter username or user ID
 api-demo-loading = Loading
 api-demo-search = Search
@@ -143,3 +145,26 @@ api-demo-description-wasm = This demo uses OsynicOsuapi to run directly in your 
 api-demo-view-github = View GitHub Project
 api-demo-current-date = Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted):
 api-demo-current-user = Current User's Login:
+
+# API Demo Code Logic
+api-demo-result-placeholder = // Results will be displayed here
+api-demo-raw-json-placeholder = // API raw JSON will be displayed here
+api-demo-enter-api-key = Please enter an API key
+api-demo-loading-text = Loading...
+api-demo-no-beatmap-found = No beatmap found
+api-demo-beatmap-number = --- Beatmap #{$number} ---
+api-demo-title = Title: {$title}
+api-demo-artist = Artist: {$artist}
+api-demo-version = Difficulty Name: {$version}
+api-demo-bpm = BPM: {$bpm}
+api-demo-stars = Stars: {$stars}
+api-demo-error = Error: {$error}
+api-demo-no-user-found = No user found
+api-demo-username = Username: {$username}
+api-demo-user-id = User ID: {$id}
+api-demo-country = Country: {$country}
+api-demo-pp = PP: {$pp}
+api-demo-accuracy = Accuracy: {$accuracy}%
+api-demo-global-rank = Global Rank: #{$rank}
+api-demo-country-rank = Country Rank: #{$country_rank}
+api-demo-playcount = Play Count: {$count}

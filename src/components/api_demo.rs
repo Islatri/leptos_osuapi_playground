@@ -7,134 +7,212 @@ use osynic_osuapi::v1::model::beatmap::GetBeatmapsParams;
 use osynic_osuapi::v1::model::user::GetUserParams;
 use osynic_osuapi::v1::interface::beatmap::IBeatmap;
 use osynic_osuapi::v1::interface::user::IUser;
-use lucide_leptos::{Github, Search, Music, User, Loader};
+use lucide_leptos::{ Github, Search, Music, User, Loader };
 use leptos_fluent::tr;
 
 #[component]
 pub fn ApiDemo() -> impl IntoView {
-    // 状态变量
+    // Static strings for internationalization
+    let enter_api_key = Memo::new(move |_| tr!("api-demo-enter-api-key"));
+    let loading_text = Memo::new(move |_| tr!("api-demo-loading-text"));
+    let no_beatmap_found = Memo::new(move |_| tr!("api-demo-no-beatmap-found"));
+    let no_user_found = Memo::new(move |_| tr!("api-demo-no-user-found"));
+    let error_prefix = Memo::new(move |_| tr!("api-demo-error", {"error" => ""}));
+
+    // Beatmap result templates
+    let beatmap_number_tpl = Memo::new(move |_| tr!("api-demo-beatmap-number", {"number" => 0}));
+    let title_tpl = Memo::new(move |_| tr!("api-demo-title", {"title" => ""}));
+    let artist_tpl = Memo::new(move |_| tr!("api-demo-artist", {"artist" => ""}));
+    let version_tpl = Memo::new(move |_| tr!("api-demo-version", {"version" => ""}));
+    let bpm_tpl = Memo::new(move |_| tr!("api-demo-bpm", {"bpm" => ""}));
+    let stars_tpl = Memo::new(move |_| tr!("api-demo-stars", {"stars" => ""}));
+
+    // User result templates
+    let username_tpl = Memo::new(move |_| tr!("api-demo-username", {"username" => ""}));
+    let user_id_tpl = Memo::new(move |_| tr!("api-demo-user-id", {"id" => ""}));
+    let country_tpl = Memo::new(move |_| tr!("api-demo-country", {"country" => ""}));
+    let pp_tpl = Memo::new(move |_| tr!("api-demo-pp", {"pp" => ""}));
+    let accuracy_tpl = Memo::new(move |_| tr!("api-demo-accuracy", {"accuracy" => ""}));
+    let global_rank_tpl = Memo::new(move |_| tr!("api-demo-global-rank", {"rank" => ""}));
+    let country_rank_tpl = Memo::new(move |_| tr!("api-demo-country-rank", {"country_rank" => ""}));
+    let playcount_tpl = Memo::new(move |_| tr!("api-demo-playcount", {"count" => ""}));
+
+    // State variables
     let (api_key, set_api_key) = signal("".to_string());
     let (active_tab, set_active_tab) = signal("beatmaps");
     let (beatmap_id, set_beatmap_id) = signal("114514".to_string());
     let (username, set_username) = signal("peppy".to_string());
-    let (result, set_result) = signal("// 结果将显示在这里".to_string());
-    let (raw_json, set_raw_json) = signal("// API 原始 JSON 将显示在这里".to_string());
+    let (result, set_result) = signal(tr!("api-demo-result-placeholder").to_string());
+    let (raw_json, set_raw_json) = signal(tr!("api-demo-raw-json-placeholder").to_string());
     let (is_loading, set_is_loading) = signal(false);
-    
-    // API 请求：谱面
+
+    // API Request: Beatmaps
     let fetch_beatmap = move |_| {
         if api_key.get().is_empty() {
-            set_result.set("请输入 API 密钥".to_string());
-            set_raw_json.set("请输入 API 密钥".to_string());
+            set_result.set(enter_api_key.get());
+            set_raw_json.set(enter_api_key.get());
             return;
         }
-        
+
         set_is_loading.set(true);
-        set_result.set("正在加载...".to_string());
-        set_raw_json.set("正在加载...".to_string());
-        
+        set_result.set(loading_text.get());
+        set_raw_json.set(loading_text.get());
+
         let key = api_key.get();
         let id = beatmap_id.get();
-        
+
+        // Capture template strings for async context
+        let no_beatmap_found_str = no_beatmap_found.get();
+        let beatmap_number_template = beatmap_number_tpl.get();
+        let title_template = title_tpl.get();
+        let artist_template = artist_tpl.get();
+        let version_template = version_tpl.get();
+        let bpm_template = bpm_tpl.get();
+        let stars_template = stars_tpl.get();
+        let error_prefix_str = error_prefix.get();
+
         spawn_local(async move {
             let client = OsynicOsuApiV1GlooClient::new(key);
             client.set_proxy_url("https://osynic-cors.deno.dev/".to_string());
             let params = GetBeatmapsParams::default().sid(id);
-            
+
             match client.beatmap.get_beatmaps(params).await {
                 Ok(beatmaps) => {
-                    // 设置原始JSON
+                    // Set raw JSON
                     set_raw_json.set(format!("{:#?}", beatmaps));
-                    
+
                     if beatmaps.is_empty() {
-                        set_result.set("未找到谱面".to_string());
+                        set_result.set(no_beatmap_found_str);
                     } else {
                         let mut result_str = String::new();
                         for (i, beatmap) in beatmaps.iter().enumerate() {
-                            result_str.push_str(&format!("--- 谱面 #{} ---\n", i + 1));
-                            result_str.push_str(&format!("标题: {}\n", beatmap.title));
-                            result_str.push_str(&format!("艺术家: {}\n", beatmap.artist));
-                            result_str.push_str(&format!("难度名: {}\n", beatmap.version));
-                            result_str.push_str(&format!("BPM: {}\n", beatmap.bpm));
-                            result_str.push_str(&format!("星级: {:.2}\n", beatmap.difficultyrating));
+                            // Replace the number placeholder with the actual number
+                            let beatmap_num = beatmap_number_template.replace(
+                                "0",
+                                &(i + 1).to_string()
+                            );
+                            result_str.push_str(&beatmap_num);
                             result_str.push_str("\n");
+
+                            // Replace placeholders with actual values
+                            result_str.push_str(&title_template.replace("", &beatmap.title));
+                            result_str.push_str("\n");
+                            result_str.push_str(&artist_template.replace("", &beatmap.artist));
+                            result_str.push_str("\n");
+                            result_str.push_str(&version_template.replace("", &beatmap.version));
+                            result_str.push_str("\n");
+                            result_str.push_str(&bpm_template.replace("", &beatmap.bpm));
+                            result_str.push_str("\n");
+
+                            let stars_formatted = format!("{:.2}", beatmap.difficultyrating);
+                            result_str.push_str(&stars_template.replace("", &stars_formatted));
+                            result_str.push_str("\n\n");
                         }
                         set_result.set(result_str);
                     }
-                },
+                }
                 Err(e) => {
-                    let error_msg = format!("错误: {:?}", e);
+                    let error_msg = error_prefix_str + &format!("{:?}", e);
                     set_result.set(error_msg.clone());
                     set_raw_json.set(error_msg);
                 }
             }
-            
+
             set_is_loading.set(false);
         });
     };
-    
-    // API 请求：用户
+
+    // API Request: User
     let fetch_user = move |_| {
         if api_key.get().is_empty() {
-            set_result.set("请输入 API 密钥".to_string());
-            set_raw_json.set("请输入 API 密钥".to_string());
+            set_result.set(enter_api_key.get());
+            set_raw_json.set(enter_api_key.get());
             return;
         }
-        
+
         set_is_loading.set(true);
-        set_result.set("正在加载...".to_string());
-        set_raw_json.set("正在加载...".to_string());
-        
+        set_result.set(loading_text.get());
+        set_raw_json.set(loading_text.get());
+
         let key = api_key.get();
-        let username = username.get();
-        
+        let user = username.get();
+
+        // Capture template strings for async context
+        let no_user_found_str = no_user_found.get();
+        let username_template = username_tpl.get();
+        let user_id_template = user_id_tpl.get();
+        let country_template = country_tpl.get();
+        let pp_template = pp_tpl.get();
+        let accuracy_template = accuracy_tpl.get();
+        let global_rank_template = global_rank_tpl.get();
+        let country_rank_template = country_rank_tpl.get();
+        let playcount_template = playcount_tpl.get();
+        let error_prefix_str = error_prefix.get();
+
         spawn_local(async move {
             let client = OsynicOsuApiV1GlooClient::new(key);
             client.set_proxy_url("https://osynic-cors.deno.dev/".to_string());
-            let params = GetUserParams::default().user(username);
-            
+            let params = GetUserParams::default().user(user);
+
             match client.user.get_user(params).await {
                 Ok(users) => {
-                    // 设置原始JSON
+                    // Set raw JSON
                     set_raw_json.set(format!("{:#?}", users));
-                    
+
                     if users.is_empty() {
-                        set_result.set("未找到用户".to_string());
+                        set_result.set(no_user_found_str);
                     } else {
                         let user = &users[0];
                         let mut result_str = String::new();
-                        result_str.push_str(&format!("用户名: {}\n", user.username));
-                        result_str.push_str(&format!("用户 ID: {}\n", user.user_id));
-                        result_str.push_str(&format!("国家: {}\n", user.country));
-                        result_str.push_str(&format!("PP: {:.2}\n", user.pp_raw));
-                        result_str.push_str(&format!("准确度: {:.2}%\n", user.accuracy));
-                        result_str.push_str(&format!("全球排名: #{}\n", user.pp_rank));
-                        result_str.push_str(&format!("国家排名: #{}\n", user.pp_country_rank));
-                        result_str.push_str(&format!("游戏次数: {}\n", user.playcount));
+
+                        // Replace placeholders with actual values
+                        result_str.push_str(&username_template.replace("", &user.username));
+                        result_str.push_str("\n");
+                        result_str.push_str(&user_id_template.replace("", &user.user_id));
+                        result_str.push_str("\n");
+                        result_str.push_str(&country_template.replace("", &user.country));
+                        result_str.push_str("\n");
+
+                        let pp_formatted = format!("{:.2}", user.pp_raw);
+                        result_str.push_str(&pp_template.replace("", &pp_formatted));
+                        result_str.push_str("\n");
+
+                        let accuracy_formatted = format!("{:.2}", user.accuracy);
+                        result_str.push_str(&accuracy_template.replace("", &accuracy_formatted));
+                        result_str.push_str("\n");
+
+                        result_str.push_str(&global_rank_template.replace("", &user.pp_rank));
+                        result_str.push_str("\n");
+                        result_str.push_str(
+                            &country_rank_template.replace("", &user.pp_country_rank)
+                        );
+                        result_str.push_str("\n");
+                        result_str.push_str(&playcount_template.replace("", &user.playcount));
+
                         set_result.set(result_str);
                     }
-                },
+                }
                 Err(e) => {
-                    let error_msg = format!("错误: {:?}", e);
+                    let error_msg = error_prefix_str + &format!("{:?}", e);
                     set_result.set(error_msg.clone());
                     set_raw_json.set(error_msg);
                 }
             }
-            
+
             set_is_loading.set(false);
         });
     };
-    
+
     let handle_api_key_input = move |ev| {
         let input_element = event_target::<HtmlInputElement>(&ev);
         set_api_key.set(input_element.value());
     };
-    
+
     let handle_beatmap_id_input = move |ev| {
         let input_element = event_target::<HtmlInputElement>(&ev);
         set_beatmap_id.set(input_element.value());
     };
-    
+
     let handle_username_input = move |ev| {
         let input_element = event_target::<HtmlInputElement>(&ev);
         set_username.set(input_element.value());
@@ -144,7 +222,7 @@ pub fn ApiDemo() -> impl IntoView {
         <section id="demo" class="py-16 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-4 text-pink-600 dark:text-pink-400">
-                    {move || tr!("api-demo-title")}
+                    {move || tr!("api-demo-title-1")}
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-2">
                     {move || tr!("api-demo-description-1")}
@@ -217,7 +295,7 @@ pub fn ApiDemo() -> impl IntoView {
                         
                         // 谱面查询表单
                         <div class="mb-6" class:hidden=move || active_tab.get() != "beatmaps">
-                            <label for="beatmap_id" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">谱面 ID</label>
+                            <label for="beatmap_id" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">{move || tr!("api-demo-input-beatmap-label")}</label>
                             <div class="flex">
                                 <input 
                                     type="text" 
@@ -248,7 +326,7 @@ pub fn ApiDemo() -> impl IntoView {
                         
                         // 用户查询表单
                         <div class="mb-6" class:hidden=move || active_tab.get() != "users">
-                            <label for="username" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">用户名或用户ID</label>
+                            <label for="username" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">{move || tr!("api-demo-input-user-label")}</label>
                             <div class="flex">
                                 <input 
                                     type="text" 
@@ -280,7 +358,7 @@ pub fn ApiDemo() -> impl IntoView {
                         // 双面板结果显示
                         <div>
                             <div class="flex flex-col md:flex-row gap-4 mb-2">
-                                <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">查询结果</h3>
+                                <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">{move || tr!("api-demo-search-result")}</h3>
                                 <div class="ml-auto text-sm text-gray-500 dark:text-gray-400 flex items-center">
                                     <span class="mr-2">{move || tr!("api-demo-left-formatted")}</span>
                                     <span>{move || tr!("api-demo-right-raw")}</span>

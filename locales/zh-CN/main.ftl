@@ -119,7 +119,7 @@ quick-start-view-examples = 查看示例代码
 
 
 # API Demo Section
-api-demo-title = osu! API V1 (WASM) 体验使用
+api-demo-title-1 = osu! API V1 (WASM) 体验使用
 api-demo-description-1 = 输入您的 osu! API 密钥, 尝试在浏览器中使用 OsynicOsuapi.
 api-demo-description-2 = 如果您没有 API 密钥, 直接去自己的
 api-demo-account-settings = osu! 个人设置页
@@ -132,7 +132,9 @@ api-demo-key-security = 密钥只在您的浏览器中使用, 不会传输到其
 # API Demo Additional Elements
 api-demo-beatmap-query = 谱面查询
 api-demo-user-query = 用户查询
+api-demo-input-beatmap-label = 谱面集 ID
 api-demo-input-beatmap-placeholder = 输入谱面集 ID
+api-demo-input-user-label = 用户名或用户 ID
 api-demo-input-user-placeholder = 输入用户名或用户 ID
 api-demo-loading = 加载中
 api-demo-search = 查询
@@ -145,3 +147,26 @@ api-demo-description-wasm = 这个演示使用 OsynicOsuapi 通过 WASM 直接�
 api-demo-view-github = 查看 GitHub 项目
 api-demo-current-date = 当前日期和时间 (UTC - YYYY-MM-DD HH:MM:SS 格式):
 api-demo-current-user = 当前用户的登录名:
+
+# API Demo Code Logic
+api-demo-result-placeholder = // 结果将显示在这里
+api-demo-raw-json-placeholder = // API 原始 JSON 将显示在这里
+api-demo-enter-api-key = 请输入 API 密钥
+api-demo-loading-text = 正在加载...
+api-demo-no-beatmap-found = 未找到谱面
+api-demo-beatmap-number = --- 谱面 #{$number} ---
+api-demo-title = 标题: {$title}
+api-demo-artist = 艺术家: {$artist}
+api-demo-version = 难度名: {$version}
+api-demo-bpm = BPM: {$bpm}
+api-demo-stars = 星级: {$stars}
+api-demo-error = 错误: {$error}
+api-demo-no-user-found = 未找到用户
+api-demo-username = 用户名: {$username}
+api-demo-user-id = 用户 ID: {$id}
+api-demo-country = 国家: {$country}
+api-demo-pp = PP: {$pp}
+api-demo-accuracy = 准确度: {$accuracy}%
+api-demo-global-rank = 全球排名: #{$rank}
+api-demo-country-rank = 国家排名: #{$country_rank}
+api-demo-playcount = 游戏次数: {$count}
