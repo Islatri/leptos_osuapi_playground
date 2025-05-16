@@ -26,7 +26,7 @@
 
 ## 📋 项目简介
 
-LeptosOsuapiPlayground 是一个基于 Rust Leptos 框架开发的现代化 Web 应用，它展示了 OsynicOsuapi 库的功能和用法。通过 WebAssembly (WASM) 技术，OsynicOsuapi 能够直接在浏览器中与 osu! API 进行交互，无需后端服务器处理请求。
+LeptosOsuapiPlayground 是一个基于 Rust Leptos 框架开发的现代化 Web 应用，它展示了 [OsynicOsuapi](https://github.com/osynicite/osynic_osuapi) 库的功能和用法。通过 WebAssembly (WASM) 技术，OsynicOsuapi 能够直接在浏览器中与 osu! API 进行交互，无需后端服务器处理请求。
 
 很显然，由于CORS的问题，不代理直接在浏览器中使用V1的API会遇到跨域问题（毕竟WASM部分是浏览器前端发的请求嘛），所以用[Deno](https://deno.dev)来搭建了一个中转服务器[osynic-cors.deno.dev](https://osynic-cors.deno.dev)，配合WASM客户端的`proxy_url`来实现代理请求；
 

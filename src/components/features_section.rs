@@ -110,6 +110,7 @@ pub fn FeaturesSection() -> impl IntoView {
                 <div class="mt-16 text-center">
                     <a
                         href="https://crates.io/crates/osynic_osuapi"
+                        target="_blank"
                         class="inline-block px-8 py-3 bg-pink-500 hover:bg-pink-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1"
                     >
                         {move || tr!("features-cta-button")}
