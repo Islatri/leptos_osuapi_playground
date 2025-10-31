@@ -170,3 +170,41 @@ api-demo-accuracy = 정확도: {$accuracy}%
 api-demo-global-rank = 전체 순위: #{$rank}
 api-demo-country-rank = 국가 순위: #{$country_rank}
 api-demo-playcount = 플레이 횟수: {$count}
+
+# 사용자 최근 플레이 데모 번역
+api-demo-no-recent-found = 이 사용자의 최근 플레이를 찾을 수 없습니다
+api-demo-mode-label = 게임 모드
+api-demo-mode-osu = osu! (스탠다드)
+api-demo-mode-taiko = 태고
+api-demo-mode-ctb = 캐치 더 비트
+api-demo-mode-mania = osu!mania
+api-demo-limit-label = 결과 제한 (1-50)
+api-demo-limit-placeholder = 결과 수 입력 (기본값: 10)
+api-demo-search-recent = 최근 플레이 검색
+
+# 최근 플레이 결과 표시
+api-demo-recent-play = 플레이 #{$index}
+api-demo-beatmap-id = 비트맵 ID: {$id}
+api-demo-score = 점수: {$score}
+api-demo-combo = 최대 콤보: {$combo}x
+api-demo-accuracy-hits = 히트: {$c300}×300 / {$c100}×100 / {$c50}×50 / {$miss}×미스
+api-demo-rank = 랭크: {$rank}
+api-demo-mods = 모드: {$mods}
+api-demo-date = 날짜: {$date}
+api-demo-perfect = 풀 콤보: {$perfect}
+api-demo-user-recent-query = 사용자 최근 플레이 조회
+
+# 사용자 최고 기록 조회
+api-demo-best-play = 사용자 최고 기록
+api-demo-no-best-found = 해당 사용자의 최고 기록을 찾을 수 없습니다
+api-demo-user-best-query = 사용자 최고 기록 조회
+
+# Scores Demo
+api-demo-scores-query = 점수 조회
+api-demo-no-scores-found = 이 비트맵의 점수를 찾을 수 없습니다
+api-demo-score-number = 점수 #{$number}
+api-demo-replay = 리플레이: {$replay}
+api-demo-input-user-label-optional = 사용자 이름 (선택사항)
+api-demo-input-user-placeholder-optional = 비워두면 모든 점수를 가져옵니다
+
+api-docs-label = osu! API 문서

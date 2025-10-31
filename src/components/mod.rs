@@ -5,3 +5,4 @@ pub mod features_section;
 pub mod hero_section;
 pub mod theme_toggle;
 pub mod usage_section;
+pub mod api_docs_button;

@@ -170,3 +170,41 @@ api-demo-accuracy = 精度: {$accuracy}%
 api-demo-global-rank = 世界ランク: #{$rank}
 api-demo-country-rank = 国内ランク: #{$country_rank}
 api-demo-playcount = プレイ回数: {$count}
+
+# ユーザー最近のプレイデモ翻訳
+api-demo-no-recent-found = このユーザーの最近のプレイが見つかりませんでした
+api-demo-mode-label = ゲームモード
+api-demo-mode-osu = osu! (スタンダード)
+api-demo-mode-taiko = 太鼓
+api-demo-mode-ctb = キャッチザビート
+api-demo-mode-mania = osu!mania
+api-demo-limit-label = 結果数制限 (1-50)
+api-demo-limit-placeholder = 結果数を入力（デフォルト：10）
+api-demo-search-recent = 最近のプレイを検索
+
+# 最近のプレイ結果表示
+api-demo-recent-play = プレイ #{$index}
+api-demo-beatmap-id = ビートマップID：{$id}
+api-demo-score = スコア：{$score}
+api-demo-combo = 最大コンボ：{$combo}x
+api-demo-accuracy-hits = ヒット：{$c300}×300 / {$c100}×100 / {$c50}×50 / {$miss}×ミス
+api-demo-rank = ランク：{$rank}
+api-demo-mods = Mods：{$mods}
+api-demo-date = 日付：{$date}
+api-demo-perfect = フルコンボ：{$perfect}
+api-demo-user-recent-query = ユーザーの最近のプレイを検索
+
+# ユーザーのベストプレイを検索
+api-demo-best-play = ユーザーのベストプレイ
+api-demo-no-best-found = このユーザーのベストプレイは見つかりませんでした
+api-demo-user-best-query = ユーザーのベストプレイを検索
+
+# Scores Demo
+api-demo-scores-query = スコアクエリ
+api-demo-no-scores-found = この譜面のスコアが見つかりませんでした
+api-demo-score-number = スコア #{$number}
+api-demo-replay = リプレイ: {$replay}
+api-demo-input-user-label-optional = ユーザー名（オプション）
+api-demo-input-user-placeholder-optional = 空欄にすると全スコアを取得します
+
+api-docs-label = osu! API ドキュメント

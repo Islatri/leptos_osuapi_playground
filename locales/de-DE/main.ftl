@@ -170,3 +170,41 @@ api-demo-accuracy = Genauigkeit: {$accuracy}%
 api-demo-global-rank = Weltweiter Rang: #{$rank}
 api-demo-country-rank = Landesrang: #{$country_rank}
 api-demo-playcount = Spielanzahl: {$count}
+
+# Benutzer kürzliche Spiele Demo Übersetzungen
+api-demo-no-recent-found = Keine kürzlichen Spiele für diesen Benutzer gefunden
+api-demo-mode-label = Spielmodus
+api-demo-mode-osu = osu! (Standard)
+api-demo-mode-taiko = Taiko
+api-demo-mode-ctb = Catch the Beat
+api-demo-mode-mania = osu!mania
+api-demo-limit-label = Ergebnislimit (1-50)
+api-demo-limit-placeholder = Anzahl der Ergebnisse eingeben (Standard: 10)
+api-demo-search-recent = Kürzliche Spiele suchen
+
+# Kürzliche Spiele Ergebnisanzeige
+api-demo-recent-play = Spiel #{$index}
+api-demo-beatmap-id = Beatmap-ID: {$id}
+api-demo-score = Punktzahl: {$score}
+api-demo-combo = Max Combo: {$combo}x
+api-demo-accuracy-hits = Treffer: {$c300}×300 / {$c100}×100 / {$c50}×50 / {$miss}×Miss
+api-demo-rank = Rang: {$rank}
+api-demo-mods = Mods: {$mods}
+api-demo-date = Datum: {$date}
+api-demo-perfect = Perfect Combo: {$perfect}
+api-demo-user-recent-query = Benutzer kürzliche Spiele Abfrage
+
+# Benutzer bester Spiel Abfrage
+api-demo-best-play = Benutzer bester Spiel
+api-demo-no-best-found = Kein bester Spiel für diesen Benutzer gefunden
+api-demo-user-best-query = Benutzer beste Spiele Abfrage
+
+# Scores Demo
+api-demo-scores-query = Punkte-Abfrage
+api-demo-no-scores-found = Keine Punkte für diese Beatmap gefunden
+api-demo-score-number = Punktzahl #{$number}
+api-demo-replay = Wiederholung: {$replay}
+api-demo-input-user-label-optional = Benutzername (Optional)
+api-demo-input-user-placeholder-optional = Leer lassen, um alle Punkte zu erhalten
+
+api-docs-label = osu! API Docs

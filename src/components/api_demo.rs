@@ -6,6 +6,9 @@ use web_sys::HtmlInputElement;
 
 use crate::components::demo::beatmap_demo::BeatmapDemo;
 use crate::components::demo::user_demo::UserDemo;
+use crate::components::demo::user_recent_demo::UserRecentDemo;
+use crate::components::demo::user_best_demo::UserBestDemo;
+use crate::components::demo::scores_demo::ScoresDemo;
 
 #[component]
 pub fn ApiDemo() -> impl IntoView {
@@ -94,6 +97,63 @@ pub fn ApiDemo() -> impl IntoView {
                                         <span class="ml-2">{move || tr!("api-demo-user-query")}</span>
                                     </button>
                                 </li>
+                                <li class="mr-2">
+                                    <button
+                                        class=move || {
+                                            let base_classes = "flex py-2 px-4 border-b-2 rounded-t-lg transition-all duration-200 items-center";
+
+                                            let active_class = if active_tab.get() == "user_recents" {
+                                                "border-pink-500 text-pink-600 dark:text-pink-400"
+                                            } else {
+                                                "border-transparent hover:border-gray-300 hover:text-pink-500 text-gray-800 dark:text-gray-200"
+                                            };
+
+                                            format!("{} {}", base_classes, active_class)
+                                        }
+                                        on:click=move |_| set_active_tab.set("user_recents")
+                                    >
+                                        <User />
+                                        <span class="ml-2">{move || tr!("api-demo-user-recent-query")}</span>
+                                    </button>
+                                </li>
+                                <li class="mr-2">
+                                    <button
+                                        class=move || {
+                                            let base_classes = "flex py-2 px-4 border-b-2 rounded-t-lg transition-all duration-200 items-center";
+
+                                            let active_class = if active_tab.get() == "user_bests" {
+                                                "border-pink-500 text-pink-600 dark:text-pink-400"
+                                            } else {
+                                                "border-transparent hover:border-gray-300 hover:text-pink-500 text-gray-800 dark:text-gray-200"
+                                            };
+
+                                            format!("{} {}", base_classes, active_class)
+                                        }
+                                        on:click=move |_| set_active_tab.set("user_bests")
+                                    >
+                                        <User />
+                                        <span class="ml-2">{move || tr!("api-demo-user-best-query")}</span>
+                                    </button>
+                                </li>
+                                <li class="mr-2">
+                                    <button
+                                        class=move || {
+                                            let base_classes = "flex py-2 px-4 border-b-2 rounded-t-lg transition-all duration-200 items-center";
+
+                                            let active_class = if active_tab.get() == "scores" {
+                                                "border-pink-500 text-pink-600 dark:text-pink-400"
+                                            } else {
+                                                "border-transparent hover:border-gray-300 hover:text-pink-500 text-gray-800 dark:text-gray-200"
+                                            };
+
+                                            format!("{} {}", base_classes, active_class)
+                                        }
+                                        on:click=move |_| set_active_tab.set("scores")
+                                    >
+                                        <User />
+                                        <span class="ml-2">{move || tr!("api-demo-scores-query")}</span>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
 
@@ -111,6 +171,39 @@ pub fn ApiDemo() -> impl IntoView {
                         // 用户查询表单
                         <div class:hidden=move || active_tab.get() != "users">
                             <UserDemo
+                                api_key=api_key
+                                set_result=set_result
+                                set_raw_json=set_raw_json
+                                is_loading=is_loading
+                                set_is_loading=set_is_loading
+                            />
+                        </div>
+
+                        // 用户最近游玩查询表单
+                        <div class:hidden=move || active_tab.get() != "user_recents">
+                            <UserRecentDemo
+                                api_key=api_key
+                                set_result=set_result
+                                set_raw_json=set_raw_json
+                                is_loading=is_loading
+                                set_is_loading=set_is_loading
+                            />
+                        </div>
+
+                        // 用户最佳成绩查询表单
+                        <div class:hidden=move || active_tab.get() != "user_bests">
+                            <UserBestDemo
+                                api_key=api_key
+                                set_result=set_result
+                                set_raw_json=set_raw_json
+                                is_loading=is_loading
+                                set_is_loading=set_is_loading
+                            />
+                        </div>
+
+                        // 成绩查询表单
+                        <div class:hidden=move || active_tab.get() != "scores">
+                            <ScoresDemo
                                 api_key=api_key
                                 set_result=set_result
                                 set_raw_json=set_raw_json

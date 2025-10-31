@@ -2,6 +2,7 @@ use leptos::prelude::{ClassAttribute, ElementChild};
 use leptos::*;
 use leptos_fluent::tr;
 use lucide_leptos::{BookOpen, Globe, Package, Play, ShieldCheck};
+use crate::components::api_docs_button::ApiDocsButton;
 
 #[component]
 pub fn HeroSection() -> impl IntoView {
@@ -66,6 +67,8 @@ pub fn HeroSection() -> impl IntoView {
                                 </div>
                                 <span>{move || tr!("hero-button-demo")}</span>
                             </a>
+                            // 新添加的 API 文档按钮
+                            <ApiDocsButton />
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm text-gray-300 dark:text-gray-200">

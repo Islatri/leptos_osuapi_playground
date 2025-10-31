@@ -170,3 +170,41 @@ api-demo-accuracy = 准确度: {$accuracy}%
 api-demo-global-rank = 全球排名: #{$rank}
 api-demo-country-rank = 国家排名: #{$country_rank}
 api-demo-playcount = 游戏次数: {$count}
+
+# 用户最近成绩演示翻译
+api-demo-no-recent-found = 未找到该用户的最近游玩记录
+api-demo-mode-label = 游戏模式
+api-demo-mode-osu = osu! (标准模式)
+api-demo-mode-taiko = 太鼓模式
+api-demo-mode-ctb = 接水果模式
+api-demo-mode-mania = osu!mania (下落式)
+api-demo-limit-label = 结果数量限制 (1-50)
+api-demo-limit-placeholder = 输入结果数量（默认：10）
+api-demo-search-recent = 搜索最近成绩
+
+# 最近游玩结果显示
+api-demo-recent-play = 第 {$index} 个成绩
+api-demo-beatmap-id = 谱面 ID：{$id}
+api-demo-score = 得分：{$score}
+api-demo-combo = 最大连击：{$combo}x
+api-demo-accuracy-hits = 命中：{$c300}×300 / {$c100}×100 / {$c50}×50 / {$miss}×Miss
+api-demo-rank = 评级：{$rank}
+api-demo-mods = 模组：{$mods}
+api-demo-date = 日期：{$date}
+api-demo-perfect = 全连击：{$perfect}
+api-demo-user-recent-query = 用户最近成绩查询
+
+# 用户最佳成绩查询
+api-demo-best-play = 用户最佳成绩
+api-demo-no-best-found = 未找到该用户的最佳成绩
+api-demo-user-best-query = 用户最佳成绩查询
+
+# Scores Demo
+api-demo-scores-query = 分数查询
+api-demo-no-scores-found = 未找到此谱面的分数记录
+api-demo-score-number = 分数 #{$number}
+api-demo-replay = 回放: {$replay}
+api-demo-input-user-label-optional = 用户名（可选）
+api-demo-input-user-placeholder-optional = 留空以获取所有分数
+
+api-docs-label = osu! API 文档

@@ -170,3 +170,41 @@ api-demo-accuracy = Точность: {$accuracy}%
 api-demo-global-rank = Мировой ранг: #{$rank}
 api-demo-country-rank = Ранг в стране: #{$country_rank}
 api-demo-playcount = Количество игр: {$count}
+
+# Переводы демо недавних игр пользователя
+api-demo-no-recent-found = Недавние игры для этого пользователя не найдены
+api-demo-mode-label = Игровой режим
+api-demo-mode-osu = osu! (Стандарт)
+api-demo-mode-taiko = Тайко
+api-demo-mode-ctb = Catch the Beat
+api-demo-mode-mania = osu!mania
+api-demo-limit-label = Лимит результатов (1-50)
+api-demo-limit-placeholder = Введите количество результатов (по умолчанию: 10)
+api-demo-search-recent = Искать недавние игры
+
+# Отображение результатов недавних игр
+api-demo-recent-play = Игра #{$index}
+api-demo-beatmap-id = ID карты: {$id}
+api-demo-score = Счёт: {$score}
+api-demo-combo = Макс. комбо: {$combo}x
+api-demo-accuracy-hits = Попадания: {$c300}×300 / {$c100}×100 / {$c50}×50 / {$miss}×Промах
+api-demo-rank = Ранг: {$rank}
+api-demo-mods = Моды: {$mods}
+api-demo-date = Дата: {$date}
+api-demo-perfect = Идеальное комбо: {$perfect}
+api-demo-user-recent-query = Поиск недавних игр пользователя
+
+# Переводы демо лучших игр пользователя
+api-demo-best-play = Пользовательский лучший результат
+api-demo-no-best-found = Лучший результат для этого пользователя не найден
+api-demo-user-best-query = Поиск лучших игр пользователя
+
+# Scores Demo
+api-demo-scores-query = Запрос очков
+api-demo-no-scores-found = Очки для этой битмапы не найдены
+api-demo-score-number = Счёт #{$number}
+api-demo-replay = Повтор: {$replay}
+api-demo-input-user-label-optional = Имя пользователя (Необязательно)
+api-demo-input-user-placeholder-optional = Оставьте пустым для получения всех очков
+
+api-docs-label = osu! API Докс
