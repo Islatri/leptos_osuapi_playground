@@ -1,3 +1,4 @@
+pub mod demo;
 pub mod api_demo;
 pub mod api_section;
 pub mod features_section;

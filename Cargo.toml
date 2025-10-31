@@ -8,30 +8,32 @@ description = "High performance, well-structured, extensible Rust osu! API clien
 keywords = ["osynic", "osu", "osu!api", "wasm"]
 categories = ["games", "api-bindings"]
 license = "MIT"
+homepage = "https://osynic-osuapi.deno.dev"
 documentation = "https://osynic-osuapi.deno.dev"
 repository = "https://github.com/osynicite/leptos_osuapi_playground"
 
 
 [dependencies]
-leptos = { version = "0.8.2", features = ["csr"] }
-leptos_router = "0.8.2"
-reactive_stores = "0.2.2"
-reactive_stores_macro = "0.2.2"
-wasm-bindgen = "0.2.100"
-wasm-bindgen-futures = "0.4.50"
-js-sys = "0.3.77"
-web-sys = "0.3.77"
-serde = { version = "1.0.219", features = ["derive"] }
-serde_json = "1.0.140"
+leptos = { version = "0.8.12", features = ["csr"] }
+leptos_router = "0.8.9"
+reactive_stores = "0.3.0"
+reactive_stores_macro = "0.2.6"
+wasm-bindgen = "0.2.105"
+wasm-bindgen-futures = "0.4.55"
+js-sys = "0.3.82"
+web-sys = "0.3.82"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.145"
 console_log = { version = "1", features = ["color"] }
-log = "0.4.27"
-serde-wasm-bindgen = "0.6"
+log = "0.4.28"
+serde-wasm-bindgen = "0.6.5"
 console_error_panic_hook = "0.1.7"
-leptos-use = "0.15.7"
-uuid = { version = "1.16.0", features = ["v4","js"] }
-lucide-leptos = "1.2.0"
+leptos-use = "0.16.3"
+uuid = { version = "1.18.1", features = ["v4","js"] }
+lucide-leptos = { version = "2.38.0", features = ["accessibility","account","arrows","buildings","charts","communication","design","development","files","gaming","navigation","security","social","time","transportation","text"] }
 
-leptos-fluent = "0.2"
-fluent-templates = "0.13"
+# leptos-fluent = "0.2.19"
+leptos-fluent = { git = "https://github.com/mondeja/leptos-fluent", branch = "master" }
+fluent-templates = "0.13.2"
 
-osynic_osuapi = { version="0.1.0",default-features = false,features = ["v1","wasm"] }
+osynic_osuapi = { version="0.1.1",default-features = false,features = ["v1","wasm"] }

@@ -1,6 +1,8 @@
 use fluent_templates::static_loader;
-use leptos::prelude::*;
-use leptos_fluent::{expect_i18n, leptos_fluent};
+use leptos::{IntoView, component, view};
+use leptos::children::Children;
+use leptos::prelude::{Get, Set,Update,RwSignal,ElementChild,ClassAttribute,OnAttribute,CustomAttribute,expect_context};
+use leptos_fluent::{I18n, leptos_fluent};
 
 static_loader! {
     static TRANSLATIONS = {
@@ -10,25 +12,25 @@ static_loader! {
 }
 
 #[component]
-pub fn I18n(children: Children) -> impl IntoView {
+pub fn FluentI18n(children: Children) -> impl IntoView {
     leptos_fluent! {
         children: children(),
         locales: "./locales",
         translations: [TRANSLATIONS],
 
-        set_language_to_localstorage: true,
-        initial_language_from_localstorage: true,
+        set_language_to_local_storage: true,
+        initial_language_from_local_storage: true,
         initial_language_from_navigator: true,
-        initial_language_from_navigator_to_localstorage: true,
+        initial_language_from_navigator_to_local_storage: true,
         initial_language_from_url_param: true,
-        initial_language_from_url_param_to_localstorage: true,
-        localstorage_key: "lang",
+        initial_language_from_url_param_to_local_storage: true,
+        local_storage_key: "lang",
     }
 }
 
 #[component]
 pub fn LanguageSelector() -> impl IntoView {
-    let i18n = expect_i18n();
+    let i18n = expect_context::<I18n>();
     let is_open = RwSignal::new(false);
 
     let close_dropdown = move |_| {
@@ -37,10 +39,10 @@ pub fn LanguageSelector() -> impl IntoView {
 
     // 获取当前激活的语言
     let current_language = move || {
-        expect_i18n()
+        expect_context::<I18n>()
             .languages
             .iter()
-            .find(|lang| lang.is_active())
+            .find(|lang| &i18n.language.get() == *lang)
             .map(|lang| lang.name)
             .unwrap_or_else(|| "选择语言")
     };
@@ -69,8 +71,8 @@ pub fn LanguageSelector() -> impl IntoView {
             >
                 <div class="py-1 max-h-60 overflow-auto">
                     {
-                        move || expect_i18n().languages.iter().map(|lang| {
-                            let is_active = lang.is_active();
+                        move || expect_context::<I18n>().languages.iter().map(|lang| {
+                            let is_active = &i18n.language.get() == lang;
                             view! {
                                 <button
                                     type="button"

@@ -8,14 +8,14 @@ use crate::components::{
 
 use crate::layouts::{footer::Footer, header::Header};
 
-use crate::i18n::I18n;
+use crate::i18n::FluentI18n;
 use crate::stores::settings_store::SettingsProvider;
 
 #[component]
 pub fn App() -> impl IntoView {
     view! {
         <SettingsProvider>
-            <I18n>
+            <FluentI18n>
                 <div class="min-h-screen flex flex-col">
                     <Header />
 
@@ -25,7 +25,7 @@ pub fn App() -> impl IntoView {
 
                     <Footer />
                 </div>
-            </I18n>
+            </FluentI18n>
         </SettingsProvider>
     }
 }
