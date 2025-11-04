@@ -1474,19 +1474,22 @@ checksum = "8c04f5d74368e4d0dfe06c45c8627c81bd7c317d52762d118fb9b3076f6420fd"
 
 [[package]]
 name = "osynic_osuapi"
-version = "0.1.1"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cdec69b28a78293dfc78b4574de32fc58d79a667046004b5f4bde1648eebd973"
+checksum = "290c02e10ec5fd69443a43212eb8a0a963e44276c36fc54fee4a97eb5ecd2353"
 dependencies = [
  "bitflags",
  "chrono",
+ "console_error_panic_hook",
  "gloo-net",
+ "js-sys",
  "serde",
  "serde-wasm-bindgen",
  "serde_json",
  "serde_urlencoded",
  "urlencoding",
  "wasm-bindgen",
+ "wasm-bindgen-futures",
  "web-sys",
 ]
 
