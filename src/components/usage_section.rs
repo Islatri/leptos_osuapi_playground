@@ -46,10 +46,10 @@ pub fn UsageSection() -> impl IntoView {
                             <pre class="overflow-x-auto p-5 text-sm text-gray-300">
                                 <code>
                                     {r#"# V2 API
-                                    CLIENT_ID="your client_id"
-                                    CLIENT_SECRET="your client_secret"
-                                    REDIRECT_URI="your redirect_uri"
-                                    CODE="your code" # Authorization Code Grant"#}
+CLIENT_ID="your client_id"
+CLIENT_SECRET="your client_secret"
+REDIRECT_URI="your redirect_uri"
+CODE="your code" # Authorization Code Grant"#}
                                 </code>
                             </pre>
                         </div>
@@ -73,8 +73,8 @@ pub fn UsageSection() -> impl IntoView {
                             <pre class="overflow-x-auto p-5 text-sm text-gray-300">
                                 <code>
                                     {r#"[dependencies]
-                                    osynic_osuapi = "0.1.0"
-                                    # Default features are ["v1", "v2", "not-wasm"]"#}
+osynic_osuapi = "0.1.0"
+# Default features are ["v1", "v2", "not-wasm"]"#}
                                 </code>
                             </pre>
                         </div>
@@ -98,34 +98,33 @@ pub fn UsageSection() -> impl IntoView {
                             <pre class="overflow-x-auto p-5 text-sm text-gray-300 min-h-[280px]">
                                 <code>
                                     {r#"// Client Credentials Grant and Get Peppy's User Info
-                                    use osynic_osuapi::error::Result;
-                                    use osynic_osuapi::v2::client::request::client::OsynicOsuApiV2Client;
-                                    use osynic_osuapi::v2::interface::oauth::IOauth;
-                                    use osynic_osuapi::v2::interface::users::IUsers;
-                                    
-                                    // You can also import all the client and interface modules by prelude
-                                    // use osynic_osuapi::prelude::*;
-                                    
-                                    #[tokio::main]
-                                    async fn main() -> Result<()> {
-                                    dotenvy::dotenv().ok();
-                                    let client_id = std::env::var("CLIENT_ID").expect("CLIENT_ID not set");
-                                    let client_secret = std::env::var("CLIENT_SECRET").expect("CLIENT_SECRET not set");
-                                    let client = OsynicOsuApiV2Client::default();
-                                    let token = client
-                                    .oauth
-                                    .get_token_without_code(client_id.parse()?, &client_secret)
-                                    .await?;
-                                    println!("{:?}", token);
-                                    
-                                    let peppy = client
-                                    .users
-                                    .get_user_by_username("peppy", None, None)
-                                    .await?;
-                                    println!("{:?}", peppy);
-                                    
-                                    Ok(())
-                                    }"#}
+use osynic_osuapi::error::Result;
+use osynic_osuapi::v2::client::request::client::OsynicOsuApiV2Client;
+use osynic_osuapi::v2::interface::oauth::IOauth;
+use osynic_osuapi::v2::interface::users::IUsers;
+    
+// You can also import all the client and interface modules by prelude
+// use osynic_osuapi::prelude::*;
+    
+#[tokio::main]
+async fn main() -> Result<()> {
+    dotenvy::dotenv().ok();
+    let client_id = std::env::var("CLIENT_ID").expect("CLIENT_ID not set");
+    let client_secret = std::env::var("CLIENT_SECRET").expect("CLIENT_SECRET not set");
+    let client = OsynicOsuApiV2Client::default();
+    let token = client
+        .oauth
+        .get_token_without_code(client_id.parse()?, &client_secret)
+        .await?;
+    println!("{:?}", token);
+
+    let peppy = client
+        .users
+        .get_user_by_username("peppy", None, None)
+        .await?;
+    println!("{:?}", peppy);
+    Ok(())
+}"#}
                                 </code>
                             </pre>
                         </div>
@@ -148,18 +147,17 @@ pub fn UsageSection() -> impl IntoView {
                                     <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                                     <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                                 </div>
-                                <p class="ml-4 font-mono text-sm text-gray-300">bash</p>
+                                <p class="ml-4 font-mono text-sm text-gray-300">npm</p>
                                 <div class="ml-auto">
                                     <span class="py-1 px-2 text-xs text-gray-300 bg-pink-700 rounded-md">
-                                        {move || tr!("quick-start-npm-install")}
+                                        {move || tr!("quick-start-install")}
                                     </span>
                                 </div>
                             </div>
 
                             <pre class="overflow-x-auto p-5 text-sm text-gray-300 min-h-[80px]">
                                 <code>
-                                    {r#"npm install @osynicite/osynic-osuapi vite-plugin-wasm vite-plugin-top-level-await
-                                    "#}
+                                    {r#"npm install @osynicite/osynic-osuapi vite-plugin-wasm vite-plugin-top-level-await"#}
                                 </code>
                             </pre>
                         </div>
@@ -183,19 +181,18 @@ pub fn UsageSection() -> impl IntoView {
                             <pre class="overflow-x-auto p-5 text-sm text-gray-300 min-h-[80px]">
                                 <code>
                                     {r#"import { defineConfig } from 'vite'
-                                    import wasm from 'vite-plugin-wasm'
-                                    import topLevelAwait from 'vite-plugin-top-level-await'
-                                    import vue from '@vitejs/plugin-vue'
-                                    
-                                    // https://vite.dev/config/
-                                    export default defineConfig({
-                                      plugins: [
-                                          vue(),
-                                          wasm(),
-                                          topLevelAwait()
-                                      ],
-                                    })
-                                    
+import wasm from 'vite-plugin-wasm'
+import topLevelAwait from 'vite-plugin-top-level-await'
+import vue from '@vitejs/plugin-vue'
+
+// https://vite.dev/config/
+export default defineConfig({
+    plugins: [
+        vue(),
+        wasm(),
+        topLevelAwait()
+    ],
+})
                                     "#}
                                 </code>
                             </pre>
@@ -219,75 +216,73 @@ pub fn UsageSection() -> impl IntoView {
 
                             <pre class="overflow-x-auto p-5 text-sm text-gray-300 min-h-[280px]">
                                 <code>
-                                    {r#"
-                                       <template>
-                                           <div class="p-6 bg-gray-900 text-white min-h-screen">
-                                               <div class="max-w-2xl mx-auto space-y-4">
-                                                   <div class="space-y-2">
-                                                       <input v-model="query.bid" type="text" placeholder="谱面ID"
-                                                           class="w-full px-3 py-2 bg-gray-800 rounded border border-gray-700" />
-                                                       <input v-model="query.sid" type="text" placeholder="谱面集ID"
-                                                           class="w-full px-3 py-2 bg-gray-800 rounded border border-gray-700" />
-                                                       <select v-model="query.mode" class="w-full px-3 py-2 bg-gray-800 rounded border border-gray-700">
-                                                           <option value="">所有模式</option>
-                                                           <option value="0">标准</option>
-                                                           <option value="1">太鼓</option>
-                                                           <option value="2">接水果</option>
-                                                           <option value="3">mania</option>
-                                                       </select>
-                                                       <button @click="search" :disabled="loading"
-                                                           class="w-full px-3 py-2 bg-blue-600 hover:bg-blue-700 rounded disabled:opacity-50">
-                                                           {{ loading ? '加载中...' : '搜索' }}
-                                                       </button>
-                                                   </div>
-                                                   <div v-if="error" class="text-red-400">{{ error }}</div>
-                                                   <div v-if="beatmaps.length" class="space-y-2">
-                                                       <div v-for="m in beatmaps" :key="m.beatmap_id" class="bg-gray-800 p-3 rounded text-sm">
-                                                           <div class="font-bold text-blue-300">{{ m.title }} [{{ m.version }}]</div>
-                                                           <div class="text-gray-400">★{{ parseFloat(m.difficultyrating).toFixed(2) }} | {{ m.artist }}</div>
-                                                           <div class="text-gray-500 text-xs mt-1">
-                                                               {{ formatTime(m.total_length) }} | BPM {{ parseInt(m.bpm) }} | {{ calcPassRate(m.playcount,
-                                                               m.passcount) }}% 通过率
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                               </div>
-                                           </div>
-                                       </template>
-                                    
-                                       <script setup lang="ts">
-                                       import { ref, reactive } from 'vue';
-                                       import { OsynicOsuApiV1GlooClient } from '@osynicite/osynic-osuapi';
-                                    
-                                       const client = new OsynicOsuApiV1GlooClient("YOUR_API_KEY_HERE_AND_PLS_NOT_SHARE_IT_IN_YOUR_CONCRETE_PROJECT");
-                                       client.setProxyUrl("YOUR_PROXY_URL_HERE_BECAUSE_CORS"); // Like https://github.com/Islatri/deno_osynic_cors
-                                    
-                                       const query = reactive({ bid: '', sid: '', mode: '' });
-                                       const beatmaps = ref([]);
-                                       const loading = ref(false);
-                                       const error = ref('');
-                                    
-                                       const search = async () => {
-                                           loading.value = true;
-                                           error.value = '';
-                                           try {
-                                               const params = Object.fromEntries(Object.entries(query).filter(([, v]) => v));
-                                               beatmaps.value = await client.getBeatmaps(params).then(r => Array.isArray(r) ? r : [r]);
-                                           } catch (err: any) {
-                                               error.value = err?.message || '查询失败';
-                                           } finally {
-                                               loading.value = false;
-                                           }
-                                       };
-                                    
-                                       const formatTime = (s: string) => {
-                                           const t = parseInt(s);
-                                           return `${Math.floor(t / 60)}:${(t % 60).toString().padStart(2, '0')}`;
-                                       };
-                                    
-                                       const calcPassRate = (p: string, pa: string) => ((parseInt(pa) / parseInt(p)) * 100).toFixed(1);
-                                       </script>
-                                    "#}
+                                    {r#"<template>
+    <div class="p-6 bg-gray-900 text-white min-h-screen">
+        <div class="max-w-2xl mx-auto space-y-4">
+            <div class="space-y-2">
+                <input v-model="query.bid" type="text" placeholder="谱面ID"
+                    class="w-full px-3 py-2 bg-gray-800 rounded border border-gray-700" />
+                <input v-model="query.sid" type="text" placeholder="谱面集ID"
+                    class="w-full px-3 py-2 bg-gray-800 rounded border border-gray-700" />
+                <select v-model="query.mode" class="w-full px-3 py-2 bg-gray-800 rounded border border-gray-700">
+                    <option value="">所有模式</option>
+                    <option value="0">标准</option>
+                    <option value="1">太鼓</option>
+                    <option value="2">接水果</option>
+                    <option value="3">mania</option>
+                </select>
+                <button @click="search" :disabled="loading"
+                    class="w-full px-3 py-2 bg-blue-600 hover:bg-blue-700 rounded disabled:opacity-50">
+                    {{ loading ? '加载中...' : '搜索' }}
+                </button>
+            </div>
+            <div v-if="error" class="text-red-400">{{ error }}</div>
+            <div v-if="beatmaps.length" class="space-y-2">
+                <div v-for="m in beatmaps" :key="m.beatmap_id" class="bg-gray-800 p-3 rounded text-sm">
+                    <div class="font-bold text-blue-300">{{ m.title }} [{{ m.version }}]</div>
+                    <div class="text-gray-400">★{{ parseFloat(m.difficultyrating).toFixed(2) }} | {{ m.artist }}</div>
+                    <div class="text-gray-500 text-xs mt-1">
+                        {{ formatTime(m.total_length) }} | BPM {{ parseInt(m.bpm) }} | {{ calcPassRate(m.playcount,
+                        m.passcount) }}% 通过率
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { ref, reactive } from 'vue';
+import { OsynicOsuApiV1GlooClient } from '@osynicite/osynic-osuapi';
+
+const client = new OsynicOsuApiV1GlooClient("YOUR_API_KEY_HERE_AND_PLS_NOT_SHARE_IT_IN_YOUR_CONCRETE_PROJECT");
+client.setProxyUrl("YOUR_PROXY_URL_HERE_BECAUSE_CORS"); // Like https://github.com/Islatri/deno_osynic_cors
+
+const query = reactive({ bid: '', sid: '', mode: '' });
+const beatmaps = ref([]);
+const loading = ref(false);
+const error = ref('');
+
+const search = async () => {
+    loading.value = true;
+    error.value = '';
+    try {
+        const params = Object.fromEntries(Object.entries(query).filter(([, v]) => v));
+        beatmaps.value = await client.getBeatmaps(params).then(r => Array.isArray(r) ? r : [r]);
+    } catch (err: any) {
+        error.value = err?.message || '查询失败';
+    } finally {
+        loading.value = false;
+    }
+};
+
+const formatTime = (s: string) => {
+    const t = parseInt(s);
+    return `${Math.floor(t / 60)}:${(t % 60).toString().padStart(2, '0')}`;
+};
+
+const calcPassRate = (p: string, pa: string) => ((parseInt(pa) / parseInt(p)) * 100).toFixed(1);
+</script>"#}
                                 </code>
                             </pre>
                         </div>
