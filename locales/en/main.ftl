@@ -49,6 +49,12 @@ api-multiplayer-description = Get multiplayer room information, game records, an
 
 # V2 API
 api-v2-title = API v2
+api-v2-demo-title-1 = osu! API V2 (WASM) Demo
+api-v2-demo-description-1 = We have provided the Client ID, Redirect URI, and Proxy URL corresponding to this website.
+api-v2-demo-description-2 = You can directly click the authentication button to experience how OsynicOsuapi performs in the browser.
+api-v2-demo-description-3 = If you want to deploy locally and use your own Client, go to your
+api-v2-demo-api-section = and scroll down to apply for an OAuth below.
+api-v2-demo-description-4 = Due to CORS restrictions, you need to set up a Proxy server to forward requests. For implementation and deployment details, please refer to
 
 # V2 API Cards
 api-oauth-title = OAuth API
@@ -103,7 +109,7 @@ features-flexible-extension-description = The client part aggregates interface i
 features-rich-examples-title = Rich Examples
 features-rich-examples-description = Complete example support provided. Run `cargo run --example example_name` to see returned data, quickly learn and get started with examples. Learning from example code is the best way to master this library.
 features-cta-button = View OsynicOsuapi on crates.io
-
+features-cta-button-npm = View OsynicOsuapi on npm
 
 # Quick Start Section
 quick-start-title = Quick Start

@@ -1,7 +1,7 @@
 use leptos::prelude::{ClassAttribute, ElementChild};
 use leptos::*;
 use leptos_fluent::tr;
-use lucide_leptos::{BookOpen, CodeXml, Globe, Layers, Sailboat, Server};
+use lucide_leptos::{BookOpen, CodeXml, Globe, Layers, Sailboat, Server, Package, Hexagon};
 
 #[component]
 pub fn FeaturesSection() -> impl IntoView {
@@ -96,15 +96,26 @@ pub fn FeaturesSection() -> impl IntoView {
                         </p>
                     </div>
                 </div>
-
-                <div class="mt-16 text-center">
-                    <a
-                        href="https://crates.io/crates/osynic_osuapi"
-                        target="_blank"
-                        class="inline-block py-3 px-8 font-semibold text-white bg-pink-500 rounded-lg shadow-md transition-all transform hover:bg-pink-600 hover:shadow-lg hover:-translate-y-1"
-                    >
-                        {move || tr!("features-cta-button")}
-                    </a>
+                
+                <div class="mt-16">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+                        <a
+                            href="https://crates.io/crates/osynic_osuapi"
+                            target="_blank"
+                            class="w-full sm:w-auto inline-flex gap-2 items-center justify-center py-3 px-6 font-medium text-white bg-amber-600 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-amber-700 active:scale-95"
+                        >
+                            <Package />
+                            <span>{move || tr!("features-cta-button")}</span>
+                        </a>
+                        <a
+                            href="https://www.npmjs.com/package/@osynicite/osynic-osuapi"
+                            target="_blank"
+                            class="w-full sm:w-auto inline-flex gap-2 items-center justify-center py-3 px-6 font-medium text-white bg-green-600 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-green-700 active:scale-95"
+                        >
+                            <Hexagon />
+                            <span>{move || tr!("features-cta-button-npm")}</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

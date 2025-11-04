@@ -36,7 +36,7 @@ pub fn ApiV1Demo() -> impl IntoView {
                 <p class="mx-auto mb-2 max-w-2xl text-center text-gray-600 dark:text-gray-300">
                     {move || tr!("api-demo-description-1")}
                 </p>
-                <p class="mx-auto mb-12 max-w-2xl text-center text-gray-600 dark:text-gray-300">
+                <p class="mx-auto mb-12 max-w-3xl text-center text-gray-600 dark:text-gray-300">
                     {move || tr!("api-demo-description-2")}
                     <a
                         href="https://osu.ppy.sh/home/account/edit"

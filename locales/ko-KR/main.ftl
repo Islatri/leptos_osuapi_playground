@@ -51,6 +51,12 @@ api-multiplayer-description = 멀티플레이어 방 정보, 게임 기록 및 �
 
 # V2 API
 api-v2-title = API v2
+api-v2-demo-title-1 = osu! API V2 (WASM) 데모 체험
+api-v2-demo-description-1 = 이 웹사이트에 해당하는 클라이언트 ID, 리다이렉트 URI 및 프록시 URL을 제공했습니다.
+api-v2-demo-description-2 = 인증 버튼을 직접 클릭하여 OsynicOsuapi가 브라우저에서 어떻게 작동하는지 체험할 수 있습니다.
+api-v2-demo-description-3 = 로컬에 배포하고 자신의 클라이언트를 사용하려면 다음으로 이동하세요.
+api-v2-demo-api-section = 아래 OAuth 신청을 참조하세요.
+api-v2-demo-description-4 = CORS 제한으로 인해 요청을 전달하기 위한 프록시 서버를 설정해야 합니다. 구현 및 배포 세부 사항은 다음을 참조하세요.
 
 # V2 API Cards
 api-oauth-title = OAuth API
@@ -105,7 +111,7 @@ features-flexible-extension-description = 클라이언트 부분이 인터페이
 features-rich-examples-title = 풍부한 예제
 features-rich-examples-description = 완전한 예제 지원을 제공합니다. `cargo run --example 예제명`을 실행하여 반환 데이터를 확인하고 예제를 통해 빠르게 학습하고 시작할 수 있습니다. 예제 코드에서 배우는 것이 이 라이브러리를 마스터하는 가장 좋은 방법입니다.
 features-cta-button = OsynicOsuapi의 crates.io 페이지 보기
-
+features-cta-button-npm = OsynicOsuapi의 npm 페이지 보기
 
 # Quick Start Section
 quick-start-title = 빠른 시작

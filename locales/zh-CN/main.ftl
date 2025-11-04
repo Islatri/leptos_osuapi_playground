@@ -51,6 +51,12 @@ api-multiplayer-description = 获取多人游戏房间信息, 游戏记录和参
 
 # V2 API
 api-v2-title = API v2
+api-v2-demo-title-1 = osu! API V2 (WASM) 体验使用
+api-v2-demo-description-1 = 在这里已经为大家提供了本网站所对应的 Client ID 、 Redirect URI 与 Proxy URL, 
+api-v2-demo-description-2 = 您可以直接点击认证按钮来体验 OsynicOsuapi 在浏览器中的表现.
+api-v2-demo-description-3 = 如果您想本地部署并使用自己的 Client，直接去自己的
+api-v2-demo-api-section = 翻到下面的 OAuth 申请一个即可.
+api-v2-demo-description-4 = 由于 CORS 限制，您需要设置一个 Proxy 服务器来中转请求，具体实现与部署可以参考
 
 # V2 API Cards
 api-oauth-title = OAuth API
@@ -105,7 +111,7 @@ features-flexible-extension-description = client 部分聚合 interface 接口�
 features-rich-examples-title = 丰富示例
 features-rich-examples-description = 提供完整的示例支持。运行 `cargo run --example 示例名` 查看返回数据，通过示例快速学习和上手。从示例代码中学习是掌握本库的最佳方式。
 features-cta-button = 查看OsynicOsuapi的crates.io页面
-
+features-cta-button-npm = 查看OsynicOsuapi的npm页面
 
 # Quick Start Section
 quick-start-title = 快速开始

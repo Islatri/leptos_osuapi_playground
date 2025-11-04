@@ -19,7 +19,7 @@ pub fn UsageSection() -> impl IntoView {
                     {}
                     <div class="flex flex-col space-y-6 transition-transform duration-300 transform hover:-translate-y-1">
                         <h3 class="flex gap-2 justify-center items-center mb-2 text-2xl font-semibold text-center">
-                            <span class="inline-block p-1.5 bg-blue-100 rounded-full dark:bg-amber-900">
+                            <span class="inline-block p-1.5 bg-amber-100 rounded-full dark:bg-amber-900">
                                 <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
                             </span>
                             <span class="text-gray-800 dark:text-gray-200">
@@ -89,7 +89,7 @@ osynic_osuapi = "0.1.0"
                                 </div>
                                 <p class="ml-4 font-mono text-sm text-gray-300">main.rs</p>
                                 <div class="ml-auto">
-                                    <span class="py-1 px-2 text-xs text-white bg-blue-600 rounded-md">
+                                    <span class="py-1 px-2 text-xs text-white bg-amber-600 rounded-md">
                                         {move || tr!("quick-start-example-code")}
                                     </span>
                                 </div>
@@ -131,7 +131,7 @@ async fn main() -> Result<()> {
                     </div> {}
                     <div class="flex flex-col space-y-6 transition-transform duration-300 transform hover:-translate-y-1">
                         <h3 class="flex gap-2 justify-center items-center mb-2 text-2xl font-semibold text-center">
-                            <span class="inline-block p-1.5 bg-purple-100 rounded-full dark:bg-green-900">
+                            <span class="inline-block p-1.5 bg-green-100 rounded-full dark:bg-green-900">
                                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                             </span>
                             <span class="text-gray-800 dark:text-gray-200">
@@ -149,7 +149,7 @@ async fn main() -> Result<()> {
                                 </div>
                                 <p class="ml-4 font-mono text-sm text-gray-300">npm</p>
                                 <div class="ml-auto">
-                                    <span class="py-1 px-2 text-xs text-gray-300 bg-cyan-700 rounded-md">
+                                    <span class="py-1 px-2 text-xs text-gray-300 bg-red-500 rounded-md">
                                         {move || tr!("quick-start-install")}
                                     </span>
                                 </div>
@@ -172,7 +172,7 @@ async fn main() -> Result<()> {
                                 </div>
                                 <p class="ml-4 font-mono text-sm text-gray-300">vite.config.ts</p>
                                 <div class="ml-auto">
-                                    <span class="py-1 px-2 text-xs text-gray-300 bg-pink-700 rounded-md">
+                                    <span class="py-1 px-2 text-xs text-gray-300 bg-yellow-400 rounded-md">
                                         {move || tr!("quick-start-vite-config")}
                                     </span>
                                 </div>
@@ -207,7 +207,7 @@ export default defineConfig({
                                 </div>
                                 <p class="ml-4 font-mono text-sm text-gray-300">App.vue</p>
                                 <div class="ml-auto">
-                                    <span class="py-1 px-2 text-xs text-white bg-blue-600 rounded-md">
+                                    <span class="py-1 px-2 text-xs text-white bg-green-600 rounded-md">
                                         {move || tr!("quick-start-example-code")}
                                     </span>
                                 </div>
@@ -288,15 +288,25 @@ const calcPassRate = (p: string, pa: string) => ((parseInt(pa) / parseInt(p)) * 
                     </div>
                 </div>
 
-                <div class="mt-14 text-center">
-                    <a
-                        href="https://github.com/Osynicite/osynic_osuapi/tree/master/examples"
-                        target="_blank"
-                        class="inline-flex gap-2 items-center py-3 px-6 font-medium text-white bg-pink-600 rounded-md shadow-lg transition-all duration-300 transform hover:shadow-xl hover:-translate-y-0.5"
-                    >
-                        <Book />
-                        <span>{move || tr!("quick-start-view-examples")}</span>
-                    </a>
+                <div class="mt-14">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+                        <a
+                            href="https://github.com/Osynicite/osynic_osuapi/tree/master/examples"
+                            target="_blank"
+                            class="w-full sm:w-auto inline-flex gap-2 items-center justify-center py-3 px-6 font-medium text-white bg-amber-600 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-amber-700 active:scale-95"
+                        >
+                            <Book />
+                            <span>{move || tr!("quick-start-view-examples")} "(Rust)"</span>
+                        </a>
+                        <a
+                            href="https://github.com/Osynicite/osynic_osuapi/tree/master/src/wasm/examples"
+                            target="_blank"
+                            class="w-full sm:w-auto inline-flex gap-2 items-center justify-center py-3 px-6 font-medium text-white bg-green-600 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-green-700 active:scale-95"
+                        >
+                            <Book />
+                            <span>{move || tr!("quick-start-view-examples")} "(Vue)"</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

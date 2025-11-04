@@ -1,9 +1,10 @@
 use leptos::prelude::*;
 use leptos::*;
-use lucide_leptos::{ExternalLink, LogIn, LogOut, RefreshCw};
+use lucide_leptos::{ExternalLink, LogIn, LogOut, RefreshCw, Star};
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 use web_sys::{HtmlInputElement, window};
+use leptos_fluent::tr;
 
 use osynic_osuapi::v2::model::oauth::structs::o_token::OToken;
 
@@ -24,10 +25,10 @@ pub fn OAuthPanel(
     // Wrap callback in Arc for multiple usage
     let on_token_changed = Arc::new(on_token_changed);
     // State variables
-    let (client_id, set_client_id) = signal("".to_string());
-    let (client_secret, set_client_secret) = signal("".to_string());
-    let (redirect_uri, set_redirect_uri) = signal("http://localhost:4000/callback".to_string());
-    let (proxy_url, set_proxy_url) = signal("http://localhost:8000/".to_string());
+    let (client_id, set_client_id) = signal("45458".to_string());
+    let (client_secret, set_client_secret) = signal("PLS_KEEP_YOUR_CLIENT_SECRET_SAFE_AND_DO_NOT_SHARE_IT_IN_FRONTEND_CODE".to_string());
+    let (redirect_uri, set_redirect_uri) = signal("https://osynic-oauth.deno.dev/callback".to_string());
+    let (proxy_url, set_proxy_url) = signal("https://osynic-cors.deno.dev/".to_string());
     let (_token, set_token) = signal::<Option<OToken>>(None);
     let (loading, set_loading) = signal(false);
     let (error, set_error) = signal("".to_string());
@@ -188,31 +189,25 @@ pub fn OAuthPanel(
     };
 
     view! {
-        <div class="overflow-x-hidden min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100">
+        <div class="overflow-x-hidden h-full bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-gray-900 dark:text-slate-100">
             // Background accent
             <div class="overflow-hidden fixed inset-0 pointer-events-none">
-                <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-cyan-500/5 blur-3xl"></div>
-                <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-cyan-500/5 blur-3xl"></div>
+                <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-pink-500/5 dark:bg-cyan-500/5 blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-pink-500/5 dark:bg-cyan-500/5 blur-3xl"></div>
             </div>
 
             <div class="relative z-10">
                 // Header
-                <div class="sticky top-0 z-40 border-b border-slate-800/50 bg-slate-900/50 backdrop-blur-sm">
+                <div class="mb-4">
                     <div class="py-4 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         <div class="flex justify-between items-center">
                             <div class="flex gap-3 items-center">
-                                <div class="flex justify-center items-center w-10 h-10 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg">
-                                    <svg
-                                        class="w-5 h-5 text-white"
-                                        fill="white"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                    </svg>
+                                <div class="flex justify-center items-center w-10 h-10 bg-gradient-to-br from-pink-400 dark:from-pink-300 to-pink-600 dark:to-pink-500 rounded-lg">
+                                    <Star size=20 color="white" />
                                 </div>
                                 <div>
-                                    <h1 class="text-xl font-bold text-white">"osu! OAuth Panel"</h1>
-                                    <p class="text-xs text-slate-400">
+                                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">"osu!api V2 OAuth Panel"</h1>
+                                    <p class="text-xs text-gray-600 dark:text-slate-400">
                                         "Authentication & Configuration"
                                     </p>
                                 </div>
@@ -221,7 +216,7 @@ pub fn OAuthPanel(
                                 when=move || is_authenticated.get()
                                 fallback=|| view! { <div></div> }
                             >
-                                <div class="py-2 px-4 text-sm rounded border bg-slate-800 border-slate-700 text-slate-300">
+                                <div class="py-2 px-4 text-sm rounded border bg-green-100 dark:bg-green-800 border-green-300 dark:border-green-700 text-green-700 dark:text-green-300">
                                     "Authenticated"
                                 </div>
                             </Show>
@@ -229,75 +224,112 @@ pub fn OAuthPanel(
                     </div>
                 </div>
 
+                <h2 class="mb-4 text-3xl font-bold text-center text-pink-600 dark:text-pink-400">
+                    {move || tr!("api-v2-demo-title-1")}
+                </h2>
+                <p class="mx-auto mb-2 max-w-2xl text-center text-gray-600 dark:text-gray-300">
+                    {move || tr!("api-v2-demo-description-1")}
+                </p>
+                <p class="mx-auto mb-2 max-w-2xl text-center text-gray-600 dark:text-gray-300">
+                    {move || tr!("api-v2-demo-description-2")}
+                </p>
+                <p class="mx-auto mb-2 max-w-3xl text-center text-gray-600 dark:text-gray-300">
+                    {move || tr!("api-v2-demo-description-3")}
+                    <a
+                        href="https://osu.ppy.sh/home/account/edit"
+                        target="_blank"
+                        class="font-medium text-pink-600 transition-all duration-200 hover:text-pink-700"
+                    >
+                        {move || tr!("api-demo-account-settings")}
+                    </a> {move || tr!("api-v2-demo-api-section")}
+                </p>
+                <p class="mx-auto mb-2 max-w-3xl text-center text-gray-600 dark:text-gray-300">
+                    {move || tr!("api-v2-demo-description-4")}
+                    <a
+                        href="https://osynic-oauth.deno.dev"
+                        target="_blank"
+                        class="font-medium text-pink-600 transition-all duration-200 hover:text-pink-700"
+                    >
+                        "osynic-oauth.deno.dev"
+                    </a> 
+                </p>
                 <div class="py-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     // Error Alert
                     <Show when=move || !error.get().is_empty()>
-                        <div class="p-4 mb-6 text-sm text-red-300 rounded-lg border bg-red-950/30 border-red-900/50">
+                        <div class="p-4 mb-6 text-sm text-red-700 dark:text-red-300 rounded-lg border bg-red-100 dark:bg-red-950/30 border-red-300 dark:border-red-900/50">
                             {error}
                         </div>
                     </Show>
 
                     // OAuth Configuration Card
-                    <div class="p-6 rounded-lg border bg-slate-800/50 border-slate-700/50">
-                        <h2 class="flex gap-3 items-center mb-6 text-lg font-semibold text-white">
+                    <div class="p-6 rounded-lg border bg-white dark:bg-slate-800/50 border-gray-200 dark:border-slate-700/50">
+                        <h2 class="flex gap-3 items-center mb-2 text-lg font-semibold text-gray-900 dark:text-white">
                             <LogIn size=20 />
                             "OAuth Configuration"
                         </h2>
 
-                        <div class="mb-8 space-y-4">
+                        <p class="mb-4 text-sm text-gray-600 dark:text-slate-400">
+                            "Inputs are disabled because they are constants FOR this website. Just click the authorize button below."
+                        </p>
+
+                        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                             // Client ID
                             <div>
-                                <label class="block mb-2 text-sm font-medium text-slate-300">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-slate-300">
                                     "Client ID"
                                 </label>
                                 <input
                                     type="text"
+                                    disabled
                                     placeholder="Enter your client ID"
                                     value=move || client_id.get()
                                     on:input=handle_client_id_input
-                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-cyan-500 focus:outline-none bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500"
+                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-pink-500 dark:focus:border-cyan-500 focus:outline-none bg-white dark:bg-slate-900 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-500 disabled:bg-gray-100 dark:disabled:bg-slate-800 disabled:text-gray-500 dark:disabled:text-slate-500"
                                 />
                             </div>
 
                             // Client Secret
                             <div>
-                                <label class="block mb-2 text-sm font-medium text-slate-300">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-slate-300">
                                     "Client Secret"
                                 </label>
                                 <input
                                     type="password"
+                                    disabled
                                     placeholder="Enter your client secret"
                                     value=move || client_secret.get()
                                     on:input=handle_client_secret_input
-                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-cyan-500 focus:outline-none bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500"
+                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-pink-500 dark:focus:border-cyan-500 focus:outline-none bg-white dark:bg-slate-900 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-500 disabled:bg-gray-100 dark:disabled:bg-slate-800 disabled:text-gray-500 dark:disabled:text-slate-500"
                                 />
                             </div>
 
                             // Redirect URI
                             <div>
-                                <label class="block mb-2 text-sm font-medium text-slate-300">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-slate-300">
                                     "Redirect URI"
                                 </label>
                                 <input
                                     type="text"
+                                    disabled
                                     placeholder="http://localhost:4000/callback"
                                     value=move || redirect_uri.get()
                                     on:input=handle_redirect_uri_input
-                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-cyan-500 focus:outline-none bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500"
+                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-pink-500 dark:focus:border-cyan-500 focus:outline-none bg-white dark:bg-slate-900 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-500 disabled:bg-gray-100 dark:disabled:bg-slate-800 disabled:text-gray-500 dark:disabled:text-slate-500"
                                 />
                             </div>
 
                             // Proxy URL
                             <div>
-                                <label class="block mb-2 text-sm font-medium text-slate-300">
-                                    "Proxy URL " <span class="text-slate-500">"(Optional)"</span>
+                                <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-slate-300">
+                                    "Proxy URL " <span class="text-gray-500 dark:text-slate-500">"(Optional)"</span>
                                 </label>
                                 <input
                                     type="text"
+                                    disabled
                                     placeholder="http://localhost:8000/"
                                     value=move || proxy_url.get()
                                     on:input=handle_proxy_url_input
-                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-cyan-500 focus:outline-none bg-slate-900 border-slate-700 text-slate-100 placeholder-slate-500"
+                                    class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-pink-500 dark:focus:border-cyan-500 focus:outline-none bg-white dark:bg-slate-900 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-500 disabled:bg-gray-100 dark:disabled:bg-slate-800 disabled:text-gray-500 dark:disabled:text-slate-500"
                                 />
                             </div>
                         </div>
@@ -311,12 +343,12 @@ pub fn OAuthPanel(
                                         <button
                                             on:click=handle_auth
                                             disabled=move || auth_url().is_empty()
-                                            class="flex flex-1 gap-2 justify-center items-center py-3 font-medium text-white bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-lg transition-all hover:from-cyan-600 hover:to-cyan-700 disabled:cursor-not-allowed disabled:from-slate-600 disabled:to-slate-600"
+                                            class="flex flex-1 gap-2 justify-center items-center py-3 font-medium text-white bg-gradient-to-r from-pink-500 to-pink-600 dark:from-pink-400 dark:to-pink-500 rounded-lg transition-all hover:from-pink-600 hover:to-pink-700 dark:hover:from-pink-500 dark:hover:to-pink-600 disabled:cursor-not-allowed disabled:from-gray-400 dark:disabled:from-slate-600 disabled:to-gray-400 dark:disabled:to-slate-600"
                                         >
                                             <ExternalLink size=16 />
                                             "Authorize with osu!"
                                         </button>
-                                        <p class="mt-3 text-xs text-center text-slate-400">
+                                        <p class="mt-3 text-xs text-center text-gray-600 dark:text-slate-400">
                                             "Click to authenticate. You'll be redirected back automatically."
                                         </p>
                                     }
@@ -328,7 +360,7 @@ pub fn OAuthPanel(
                                             set_loading.set(true);
                                         }
                                         disabled=move || loading.get()
-                                        class="flex flex-1 gap-2 justify-center items-center py-3 text-sm rounded-lg transition-all bg-slate-700 text-slate-300 hover:bg-slate-600 disabled:bg-slate-700"
+                                        class="flex flex-1 gap-2 justify-center items-center py-3 text-sm rounded-lg transition-all bg-gray-200 dark:bg-green-700 text-gray-700 dark:text-slate-300 hover:bg-green-300 dark:hover:bg-green-600 disabled:bg-gray-200 dark:disabled:bg-slate-700"
                                     >
                                         <RefreshCw size=16 />
                                         "Refresh Token"
@@ -344,7 +376,7 @@ pub fn OAuthPanel(
                                                 on_token_changed(None);
                                             }
                                         }
-                                        class="flex flex-1 gap-2 justify-center items-center py-3 text-sm text-red-300 rounded-lg transition-all bg-red-900/30 hover:bg-red-900/50"
+                                        class="flex flex-1 gap-2 justify-center items-center py-3 text-sm text-red-700 dark:text-red-300 rounded-lg transition-all bg-red-100 dark:bg-red-900/30 hover:bg-red-200 dark:hover:bg-red-900/50"
                                     >
                                         <LogOut size=16 />
                                         "Logout"
@@ -354,7 +386,7 @@ pub fn OAuthPanel(
                         </div>
 
                         <Show when=move || is_authenticated.get()>
-                            <p class="mt-3 text-xs text-center text-slate-400">
+                            <p class="mt-3 text-xs text-center text-gray-600 dark:text-slate-400">
                                 "You are authenticated and can now query user data."
                             </p>
                         </Show>

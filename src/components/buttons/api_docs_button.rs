@@ -6,7 +6,7 @@ use lucide_leptos::BookOpen;
 #[component]
 pub fn ApiDocsButton() -> impl IntoView {
     view! {
-        <div class="inline-flex items-center p-1.5 font-medium text-white bg-gradient-to-l from-purple-500 to-pink-500 rounded-lg shadow-lg transition-all duration-300 transform cursor-pointer hover:from-purple-600 hover:to-pink-700 hover:shadow-2xl hover:scale-105 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none shadow-purple-500/25">
+        <div class="inline-flex items-center p-1.5 font-medium text-white bg-gradient-to-l from-purple-500 to-pink-500 rounded-lg shadow-lg transition-all duration-300 transform cursor-pointer hover:from-purple-600 hover:to-pink-600 hover:shadow-2xl hover:scale-105 focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none shadow-purple-500/25">
             // 左侧标签部分
             <div class="flex gap-2 items-center py-2.5 px-3 mr-2 font-medium text-white whitespace-nowrap">
                 <div class="flex-shrink-0 w-6 h-6">

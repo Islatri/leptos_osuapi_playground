@@ -30,7 +30,7 @@ serde-wasm-bindgen = "0.6.5"
 console_error_panic_hook = "0.1.7"
 leptos-use = "0.16.3"
 uuid = { version = "1.18.1", features = ["v4","js"] }
-lucide-leptos = { version = "2.38.0", features = ["accessibility","account","arrows","buildings","charts","communication","design","development","files","gaming","navigation","security","social","time","transportation","text"] }
+lucide-leptos = { version = "2.38.0", features = ["accessibility","account","arrows","buildings","charts","communication","connectivity","design","development","files","gaming","navigation","security","social","time","transportation","text"] }
 
 # leptos-fluent = "0.2.19"
 leptos-fluent = { git = "https://github.com/mondeja/leptos-fluent", branch = "master" }
