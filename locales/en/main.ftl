@@ -108,13 +108,15 @@ features-cta-button = View OsynicOsuapi on crates.io
 # Quick Start Section
 quick-start-title = Quick Start
 quick-start-description = Simple configuration steps to quickly connect to the osu! API
-quick-start-reqwest-client = Reqwest Client
+quick-start-reqwest-client = Reqwest Client (Rust)
 quick-start-env-var = Environment Variables
 quick-start-config-file = Configuration File
 quick-start-example-code = Example Code
 quick-start-wasm-client = WASM Client
 quick-start-view-examples = View Examples
-
+quick-start-vue-client = Vue Client (Typescript/Javascript)
+quick-start-vite-config = Vite Configuration
+quick-start-install = Dependency Installation
 
 # API Demo Section
 api-demo-title-1 = Try osu! API V1 (WASM)

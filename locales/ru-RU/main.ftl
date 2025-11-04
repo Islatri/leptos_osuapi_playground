@@ -110,13 +110,15 @@ features-cta-button = Просмотреть страницу OsynicOsuapi на 
 # Quick Start Section
 quick-start-title = Быстрый старт
 quick-start-description = Всего несколько шагов для настройки и быстрого доступа к osu! API
-quick-start-reqwest-client = Клиент Reqwest
+quick-start-reqwest-client = Клиент Reqwest (Rust)
 quick-start-env-var = Переменные окружения
 quick-start-config-file = Файл конфигурации
 quick-start-example-code = Пример кода
 quick-start-wasm-client = WASM клиент
 quick-start-view-examples = Просмотреть примеры кода
-
+quick-start-vue-client = Vue клиент (Typescript/Javascript)
+quick-start-vite-config = Vite конфигурация
+quick-start-install = Установка зависимостей
 
 # API Demo Section
 api-demo-title-1 = Демонстрация osu! API V1 (WASM)

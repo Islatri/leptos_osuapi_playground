@@ -29,8 +29,7 @@ pub fn FeaturesSection() -> impl IntoView {
                         <p class="text-gray-600 dark:text-gray-300">
                             {move || tr!("features-high-performance-description")}
                         </p>
-                    </div>
-                    {}
+                    </div> {}
                     <div class="p-6 bg-white rounded-xl border-t-4 border-purple-600 shadow-lg transition-shadow dark:bg-gray-700 hover:shadow-xl card">
                         <div class="flex items-center mb-4">
                             <span class="p-3 mr-3 text-2xl text-purple-600 bg-purple-50 rounded-lg dark:bg-purple-900/30">
@@ -43,8 +42,7 @@ pub fn FeaturesSection() -> impl IntoView {
                         <p class="text-gray-600 dark:text-gray-300">
                             {move || tr!("features-type-safe-description")}
                         </p>
-                    </div>
-                    {}
+                    </div> {}
                     <div class="p-6 bg-white rounded-xl border-t-4 border-blue-500 shadow-lg transition-shadow dark:bg-gray-700 hover:shadow-xl card">
                         <div class="flex items-center mb-4">
                             <span class="p-3 mr-3 text-2xl text-blue-500 bg-blue-50 rounded-lg dark:bg-blue-900/30">
@@ -57,8 +55,7 @@ pub fn FeaturesSection() -> impl IntoView {
                         <p class="text-gray-600 dark:text-gray-300">
                             {move || tr!("features-multi-platform-description")}
                         </p>
-                    </div>
-                    {}
+                    </div> {}
                     <div class="p-6 bg-white rounded-xl border-t-4 border-green-500 shadow-lg transition-shadow dark:bg-gray-700 hover:shadow-xl card">
                         <div class="flex items-center mb-4">
                             <span class="p-3 mr-3 text-2xl text-green-500 bg-green-50 rounded-lg dark:bg-green-900/30">
@@ -71,8 +68,7 @@ pub fn FeaturesSection() -> impl IntoView {
                         <p class="text-gray-600 dark:text-gray-300">
                             {move || tr!("features-api-support-description")}
                         </p>
-                    </div>
-                    {}
+                    </div> {}
                     <div class="p-6 bg-white rounded-xl border-t-4 border-amber-500 shadow-lg transition-shadow dark:bg-gray-700 hover:shadow-xl card">
                         <div class="flex items-center mb-4">
                             <span class="p-3 mr-3 text-2xl text-amber-500 bg-amber-50 rounded-lg dark:bg-amber-900/30">
@@ -85,8 +81,7 @@ pub fn FeaturesSection() -> impl IntoView {
                         <p class="text-gray-600 dark:text-gray-300">
                             {move || tr!("features-flexible-extension-description")}
                         </p>
-                    </div>
-                    {}
+                    </div> {}
                     <div class="p-6 bg-white rounded-xl border-t-4 border-yellow-500 shadow-lg transition-shadow dark:bg-gray-700 hover:shadow-xl card">
                         <div class="flex items-center mb-4">
                             <span class="p-3 mr-3 text-2xl text-yellow-500 bg-yellow-50 rounded-lg dark:bg-yellow-900/30">

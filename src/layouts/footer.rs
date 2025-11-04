@@ -52,8 +52,7 @@ pub fn Footer() -> impl IntoView {
                                 <Discord />
                             </a>
                         </div>
-                    </div>
-                    {} <div>
+                    </div> {} <div>
                         <h3 class="mb-4 text-lg font-semibold">
                             {move || tr!("footer-docs-heading")}
                         </h3>
@@ -82,8 +81,7 @@ pub fn Footer() -> impl IntoView {
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                    {} <div>
+                    </div> {} <div>
                         <h3 class="mb-4 text-lg font-semibold">
                             {move || tr!("footer-resources-heading")}
                         </h3>

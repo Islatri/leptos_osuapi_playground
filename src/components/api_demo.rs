@@ -66,9 +66,8 @@ pub fn ApiDemo() -> impl IntoView {
                             <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
                                 {move || tr!("api-demo-key-security")}
                             </p>
-                        </div>
                         // 选项卡导航
-                        <div class="mb-6 border-b border-gray-200 dark:border-gray-700">
+                        </div> <div class="mb-6 border-b border-gray-200 dark:border-gray-700">
                             <ul class="flex flex-wrap -mb-px">
                                 <li class="mr-2">
                                     <button
@@ -166,9 +165,8 @@ pub fn ApiDemo() -> impl IntoView {
                                     </button>
                                 </li>
                             </ul>
-                        </div>
                         // 谱面查询表单
-                        <div class:hidden=move || active_tab.get() != "beatmaps">
+                        </div> <div class:hidden=move || active_tab.get() != "beatmaps">
                             <BeatmapDemo
                                 api_key=api_key
                                 set_result=set_result
@@ -176,9 +174,8 @@ pub fn ApiDemo() -> impl IntoView {
                                 is_loading=is_loading
                                 set_is_loading=set_is_loading
                             />
-                        </div>
                         // 用户查询表单
-                        <div class:hidden=move || active_tab.get() != "users">
+                        </div> <div class:hidden=move || active_tab.get() != "users">
                             <UserDemo
                                 api_key=api_key
                                 set_result=set_result
@@ -186,9 +183,8 @@ pub fn ApiDemo() -> impl IntoView {
                                 is_loading=is_loading
                                 set_is_loading=set_is_loading
                             />
-                        </div>
                         // 用户最近游玩查询表单
-                        <div class:hidden=move || active_tab.get() != "user_recents">
+                        </div> <div class:hidden=move || active_tab.get() != "user_recents">
                             <UserRecentDemo
                                 api_key=api_key
                                 set_result=set_result
@@ -196,9 +192,8 @@ pub fn ApiDemo() -> impl IntoView {
                                 is_loading=is_loading
                                 set_is_loading=set_is_loading
                             />
-                        </div>
                         // 用户最佳成绩查询表单
-                        <div class:hidden=move || active_tab.get() != "user_bests">
+                        </div> <div class:hidden=move || active_tab.get() != "user_bests">
                             <UserBestDemo
                                 api_key=api_key
                                 set_result=set_result
@@ -206,9 +201,8 @@ pub fn ApiDemo() -> impl IntoView {
                                 is_loading=is_loading
                                 set_is_loading=set_is_loading
                             />
-                        </div>
                         // 成绩查询表单
-                        <div class:hidden=move || active_tab.get() != "scores">
+                        </div> <div class:hidden=move || active_tab.get() != "scores">
                             <ScoresDemo
                                 api_key=api_key
                                 set_result=set_result
@@ -216,9 +210,8 @@ pub fn ApiDemo() -> impl IntoView {
                                 is_loading=is_loading
                                 set_is_loading=set_is_loading
                             />
-                        </div>
                         // 双面板结果显示
-                        <div>
+                        </div> <div>
                             <div class="flex flex-col gap-4 mb-2 md:flex-row">
                                 <h3 class="text-lg font-medium text-gray-800 dark:text-gray-200">
                                     {move || tr!("api-demo-search-result")}

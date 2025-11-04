@@ -53,8 +53,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_beatmaps
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-6 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-20 h-20 bg-purple-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-purple-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-4">
@@ -79,8 +78,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_user_recent
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-6 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-20 h-20 bg-indigo-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-indigo-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-4">
@@ -99,8 +97,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_scores
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-6 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-20 h-20 bg-blue-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-blue-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-4">
@@ -119,8 +116,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_replay
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-6 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-20 h-20 bg-green-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-green-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-4">
@@ -184,8 +180,7 @@ pub fn ApiSection() -> impl IntoView {
                                     revoke_current_token
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-pink-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-pink-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -231,8 +226,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_user_scores
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-fuchsia-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-fuchsia-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -269,8 +263,7 @@ pub fn ApiSection() -> impl IntoView {
                                     download
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-indigo-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-indigo-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -295,8 +288,7 @@ pub fn ApiSection() -> impl IntoView {
                                     lookup_changelog_build
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-blue-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-blue-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -345,8 +337,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_channel
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-cyan-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-cyan-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -383,8 +374,7 @@ pub fn ApiSection() -> impl IntoView {
                                     remove_comment_vote
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-green-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-green-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -403,8 +393,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_events
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-amber-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-amber-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -444,8 +433,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_forum_and_topic
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-orange-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-orange-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -464,8 +452,7 @@ pub fn ApiSection() -> impl IntoView {
                                     search
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-rose-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-rose-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -487,8 +474,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_match
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-emerald-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-emerald-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -516,8 +502,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_multiplayer_rooms
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-blue-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-blue-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -539,8 +524,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_news_post
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-violet-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-violet-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -562,8 +546,7 @@ pub fn ApiSection() -> impl IntoView {
                                     mark_notifications_as_read
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-yellow-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-yellow-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -588,8 +571,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_spotlight
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-red-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-red-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -608,8 +590,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_scores
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-purple-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-purple-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
@@ -646,8 +627,7 @@ pub fn ApiSection() -> impl IntoView {
                                     get_users
                                 </div>
                             </div>
-                        </div>
-                        {}
+                        </div> {}
                         <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
                             <div class="absolute top-0 right-0 w-16 h-16 bg-teal-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-teal-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
