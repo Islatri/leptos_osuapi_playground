@@ -311,7 +311,7 @@ pub fn OAuthPanel(
                                 <input
                                     type="text"
                                     disabled
-                                    placeholder="http://localhost:4000/callback"
+                                    placeholder="Enter your redirect URI"
                                     value=move || redirect_uri.get()
                                     on:input=handle_redirect_uri_input
                                     class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-pink-500 dark:focus:border-cyan-500 focus:outline-none bg-white dark:bg-slate-900 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-500 disabled:bg-gray-100 dark:disabled:bg-slate-800 disabled:text-gray-500 dark:disabled:text-slate-500"
@@ -326,7 +326,7 @@ pub fn OAuthPanel(
                                 <input
                                     type="text"
                                     disabled
-                                    placeholder="http://localhost:8000/"
+                                    placeholder="Enter your proxy URL"
                                     value=move || proxy_url.get()
                                     on:input=handle_proxy_url_input
                                     class="py-2.5 px-4 w-full rounded-lg border transition-all focus:border-pink-500 dark:focus:border-cyan-500 focus:outline-none bg-white dark:bg-slate-900 border-gray-300 dark:border-slate-700 text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-500 disabled:bg-gray-100 dark:disabled:bg-slate-800 disabled:text-gray-500 dark:disabled:text-slate-500"

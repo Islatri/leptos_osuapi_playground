@@ -45,7 +45,7 @@ pub fn MeDemo(
             };
 
             let client = OsynicOsuApiV2GlooClient::new(v2_token);
-            client.set_proxy_url("http://localhost:8000/".to_string());
+            client.set_proxy_url("http://https://osynic-cors.deno.dev/".to_string());
 
             match client.users.get_own_data(Some(mode), None).await {
                 Ok(user) => {
@@ -748,7 +748,7 @@ pub fn MeDemo(
                     <li>"• Uses the /me endpoint with your OAuth token"</li>
                     <li>"• Returns your profile information including statistics"</li>
                     <li>"• Displays profile header, rankings, grades, and hit distribution"</li>
-                    <li>"• CORS proxy is used: localhost:8000"</li>
+                    <li>"• CORS proxy is used: https://osynic-cors.deno.dev"</li>
                 </ul>
             </div>
         </div>

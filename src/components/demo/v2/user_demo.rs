@@ -75,7 +75,7 @@ pub fn UserDemo(
             };
 
             let client = OsynicOsuApiV2GlooClient::new(v2_token);
-            client.set_proxy_url("http://localhost:8000/".to_string());
+            client.set_proxy_url("http://https://osynic-cors.deno.dev/".to_string());
 
             let result = if !query_id.is_empty() {
                 // Search by ID
@@ -828,7 +828,7 @@ pub fn UserDemo(
                     <li>"• When one search field is filled, the other is automatically disabled"</li>
                     <li>"• Displays comprehensive profile information and statistics"</li>
                     <li>"• Shows rankings, grades, hit distribution, and more"</li>
-                    <li>"• CORS proxy is used: localhost:8000"</li>
+                    <li>"• CORS proxy is used: https://osynic-cors.deno.dev"</li>
                 </ul>
             </div>
         </div>

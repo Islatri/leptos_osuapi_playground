@@ -9,7 +9,7 @@ use osynic_osuapi::v2::model::oauth::structs::o_token::OToken;
 pub fn ApiV2Demo() -> impl IntoView {
     // State
     let (token, set_token) = signal::<Option<OToken>>(None);
-    let (active_tab, set_active_tab) = signal("user");
+    let (active_tab, set_active_tab) = signal("me");
     let (_search_result, set_search_result) = signal("".to_string());
     let (raw_json, set_raw_json) = signal("".to_string());
     let (is_loading, set_is_loading) = signal(false);
