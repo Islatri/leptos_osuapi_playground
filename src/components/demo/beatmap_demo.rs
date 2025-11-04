@@ -117,32 +117,37 @@ pub fn BeatmapDemo(
 
     view! {
         <div class="mb-6">
-            <label for="beatmap_id" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">
+            <label
+                for="beatmap_id"
+                class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200"
+            >
                 {move || tr!("api-demo-input-beatmap-label")}
             </label>
             <div class="flex">
                 <input
                     type="text"
                     id="beatmap_id"
-                    class="w-full px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
-                    placeholder={move || tr!("api-demo-input-beatmap-placeholder")}
+                    class="py-2 px-4 w-full text-gray-800 bg-white rounded-l-lg border border-gray-300 transition-all duration-200 dark:text-gray-100 dark:bg-gray-700 dark:border-gray-600 focus:border-transparent focus:ring-2 focus:ring-pink-500"
+                    placeholder=move || tr!("api-demo-input-beatmap-placeholder")
                     value=beatmap_id
                     on:input=handle_beatmap_id_input
                 />
                 <button
-                    class="flex px-6 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-r-lg transition-all duration-200 items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    class="flex justify-center items-center py-2 px-6 text-white bg-pink-600 rounded-r-lg transition-all duration-200 hover:bg-pink-700 disabled:opacity-50 disabled:cursor-not-allowed"
                     on:click=fetch_beatmap
                     disabled=is_loading
                 >
                     <Show
                         when=move || !is_loading.get()
-                        fallback=|| view! {
-                            <Loader />
-                            <span class="mr-2">{move || tr!("api-demo-loading")}</span>
+                        fallback=|| {
+                            view! {
+                                <Loader />
+                                <span class="mr-2">{move || tr!("api-demo-loading")}</span>
+                            }
                         }
                     >
                         <Search />
-                        <span class="mr-2 whitespace-nowrap inline-block w-full">
+                        <span class="inline-block mr-2 w-full whitespace-nowrap">
                             {move || tr!("api-demo-search")}
                         </span>
                     </Show>

@@ -48,59 +48,76 @@ pub fn LanguageSelector() -> impl IntoView {
     };
 
     view! {
-        <div class="relative inline-block text-left w-32">
+        <div class="inline-block relative w-32 text-left">
             // 点击展开/收起的按钮
             <div>
                 <button
                     type="button"
-                    class="inline-flex justify-between items-center w-full rounded-md border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    class="inline-flex justify-between items-center py-2 px-4 w-full text-sm font-medium text-gray-700 bg-white rounded-md border border-gray-300 shadow-sm dark:text-gray-200 dark:bg-gray-800 dark:border-gray-600 hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:hover:bg-gray-700"
                     on:click=move |_| is_open.update(|open| *open = !*open)
                 >
                     <span>{current_language}</span>
-                    <svg class="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    <svg
+                        class="ml-2 -mr-1 w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"
+                        />
                     </svg>
                 </button>
             </div>
 
             // 下拉菜单部分
             <div
-                class="transition-all duration-200 ease-in-out origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 dark:divide-gray-700 z-30"
+                class="absolute right-0 z-30 mt-2 w-full bg-white rounded-md divide-y divide-gray-100 ring-1 ring-black ring-opacity-5 shadow-lg transition-all duration-200 ease-in-out origin-top-right dark:bg-gray-800 dark:divide-gray-700"
                 class:hidden=move || !is_open.get()
                 class:block=move || is_open.get()
             >
-                <div class="py-1 max-h-60 overflow-auto">
-                    {
-                        move || expect_context::<I18n>().languages.iter().map(|lang| {
-                            let is_active = &i18n.language.get() == lang;
-                            view! {
-                                <button
-                                    type="button"
-                                    class="group flex items-center w-full px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-left"
-                                    class:dark:text-gray-200=move || !is_active
-                                    class:text-gray-700=move || !is_active
-                                    class:text-blue-600=move || is_active
-                                    class:font-medium=move || is_active
-                                    on:click=move |ev| {
-                                        i18n.language.set(lang);
-                                        close_dropdown(ev);
-                                    }
-                                >
-                                    <span class="flex-grow"
-                                    >{lang.name}</span>
-                                    <svg
-                                        class="h-5 w-5 text-blue-600"
-                                        class:hidden=move || !is_active
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
+                <div class="overflow-auto py-1 max-h-60">
+                    {move || {
+                        expect_context::<I18n>()
+                            .languages
+                            .iter()
+                            .map(|lang| {
+                                let is_active = &i18n.language.get() == lang;
+                                view! {
+                                    <button
+                                        type="button"
+                                        class="flex items-center py-2 px-4 w-full text-sm text-left hover:bg-gray-100 group dark:hover:bg-gray-700"
+                                        class:dark:text-gray-200=move || !is_active
+                                        class:text-gray-700=move || !is_active
+                                        class:text-blue-600=move || is_active
+                                        class:font-medium=move || is_active
+                                        on:click=move |ev| {
+                                            i18n.language.set(lang);
+                                            close_dropdown(ev);
+                                        }
                                     >
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </button>
-                            }
-                        }).collect::<Vec<_>>()
-                    }
+                                        <span class="flex-grow">{lang.name}</span>
+                                        <svg
+                                            class="w-5 h-5 text-blue-600"
+                                            class:hidden=move || !is_active
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+                                }
+                            })
+                            .collect::<Vec<_>>()
+                    }}
                 </div>
             </div>
 

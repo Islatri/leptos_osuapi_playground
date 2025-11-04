@@ -181,32 +181,37 @@ pub fn UserBestDemo(
         <div class="mb-6 space-y-4">
             // Username Input with Search Button
             <div>
-                <label for="username-best" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">
+                <label
+                    for="username-best"
+                    class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200"
+                >
                     {move || tr!("api-demo-input-user-label")}
                 </label>
                 <div class="flex">
                     <input
                         type="text"
                         id="username-best"
-                        class="w-full px-4 py-2 rounded-l-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
-                        placeholder={move || tr!("api-demo-input-user-placeholder")}
+                        class="py-2 px-4 w-full text-gray-800 bg-white rounded-l-lg border border-gray-300 transition-all duration-200 dark:text-gray-100 dark:bg-gray-700 dark:border-gray-600 focus:border-transparent focus:ring-2 focus:ring-pink-500"
+                        placeholder=move || tr!("api-demo-input-user-placeholder")
                         value=username
                         on:input=handle_username_input
                     />
                     <button
-                        class="flex px-6 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-r-lg transition-all duration-200 items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                        class="flex justify-center items-center py-2 px-6 text-white bg-pink-600 rounded-r-lg transition-all duration-200 hover:bg-pink-700 disabled:opacity-50 disabled:cursor-not-allowed"
                         on:click=fetch_user_best
                         disabled=is_loading
                     >
                         <Show
                             when=move || !is_loading.get()
-                            fallback=|| view! {
-                                <Loader />
-                                <span class="mr-2">{move || tr!("api-demo-loading")}</span>
+                            fallback=|| {
+                                view! {
+                                    <Loader />
+                                    <span class="mr-2">{move || tr!("api-demo-loading")}</span>
+                                }
                             }
                         >
                             <Search />
-                            <span class="mr-2 whitespace-nowrap inline-block w-full">
+                            <span class="inline-block mr-2 w-full whitespace-nowrap">
                                 {move || tr!("api-demo-search")}
                             </span>
                         </Show>
@@ -215,15 +220,18 @@ pub fn UserBestDemo(
             </div>
 
             // Mode and Limit in a grid
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 // Mode Select
                 <div>
-                    <label for="mode-best" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">
+                    <label
+                        for="mode-best"
+                        class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >
                         {move || tr!("api-demo-mode-label")}
                     </label>
                     <select
                         id="mode-best"
-                        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
+                        class="py-2 px-4 w-full text-gray-800 bg-white rounded-lg border border-gray-300 transition-all duration-200 dark:text-gray-100 dark:bg-gray-700 dark:border-gray-600 focus:border-transparent focus:ring-2 focus:ring-pink-500"
                         on:change=handle_mode_change
                     >
                         <option value="0" selected=move || mode.get() == 0>
@@ -243,7 +251,10 @@ pub fn UserBestDemo(
 
                 // Limit Input
                 <div>
-                    <label for="limit-best" class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-200">
+                    <label
+                        for="limit-best"
+                        class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200"
+                    >
                         {move || tr!("api-demo-limit-label")}
                     </label>
                     <input
@@ -251,8 +262,8 @@ pub fn UserBestDemo(
                         id="limit-best"
                         min="1"
                         max="100"
-                        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
-                        placeholder={move || tr!("api-demo-limit-placeholder")}
+                        class="py-2 px-4 w-full text-gray-800 bg-white rounded-lg border border-gray-300 transition-all duration-200 dark:text-gray-100 dark:bg-gray-700 dark:border-gray-600 focus:border-transparent focus:ring-2 focus:ring-pink-500"
+                        placeholder=move || tr!("api-demo-limit-placeholder")
                         value=limit
                         on:input=handle_limit_change
                     />

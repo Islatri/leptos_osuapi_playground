@@ -14,28 +14,42 @@ pub fn Header() -> impl IntoView {
     };
 
     view! {
-        <header class="bg-white/50 dark:bg-gray-900/50 shadow-sm z-40 fixed top-0 left-0 right-0 backdrop-blur-md">
-            <div class="container mx-auto px-4">
+        <header class="fixed top-0 right-0 left-0 z-40 shadow-sm bg-white/50 backdrop-blur-md dark:bg-gray-900/50">
+            <div class="container px-4 mx-auto">
                 <div class="flex justify-between items-center py-4">
                     // Logo 部分
                     <div class="flex items-center">
-                        <img src="/public/osynic.png" alt="osynic Logo" class="h-10 w-10 mr-3" />
-                        <span class="font-bold text-xl lg:text-3xl text-pink-600">
-                            <a href="https://github.com/osynicite/osynic_osuapi"
-                                target="_blank">
+                        <img src="/public/osynic.png" alt="osynic Logo" class="mr-3 w-10 h-10" />
+                        <span class="text-xl font-bold text-pink-600 lg:text-3xl">
+                            <a href="https://github.com/osynicite/osynic_osuapi" target="_blank">
                                 OsynicOsuapi
                             </a>
                         </span>
                     </div>
                     <div class="flex justify-end items-center space-x-2">
                         // 导航链接 - 桌面版
-                        <nav class="hidden md:flex items-center space-x-8 mr-2">
-                            <a href="#api" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition flex items-center"><CodeXml size={20}/>API</a>
-                            <a href="#demo" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center"><SquareMousePointer size={20}/>{move || tr!("demo")}</a>
-                            <a href="https://github.com/osynicite/osynic_osuapi"
+                        <nav class="hidden items-center mr-2 space-x-8 md:flex">
+                            <a
+                                href="#api"
+                                class="flex items-center font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <CodeXml size=20 />
+                                API
+                            </a>
+                            <a
+                                href="#demo"
+                                class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <SquareMousePointer size=20 />
+                                {move || tr!("demo")}
+                            </a>
+                            <a
+                                href="https://github.com/osynicite/osynic_osuapi"
                                 target="_blank"
-                            class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition flex items-center">
-                                <Github size={20}/> GitHub
+                                class="flex items-center font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <Github size=20 />
+                                GitHub
                             </a>
                         </nav>
 
@@ -45,39 +59,45 @@ pub fn Header() -> impl IntoView {
                         <ThemeToggle />
 
                         <button
-                            class="md:hidden flex items-center dark:text-gray-200 text-gray-600 p-2 rounded-lg transition-colors duration-200
-                                hover:bg-gray-100 dark:hover:bg-gray-700"
+                            class="flex items-center p-2 text-gray-600 rounded-lg transition-colors duration-200 md:hidden dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                             on:click=toggle_menu
                         >
-                            <Menu size={20}/>
+                            <Menu size=20 />
                         </button>
                     </div>
                 </div>
 
                 // 移动版导航菜单
-                <div
-                    class=move || {
-                        let base_classes = "md:hidden bg-white/50 dark:bg-gray-900/50 absolute z-40 /
+                <div class=move || {
+                    let base_classes = "md:hidden bg-white/50 dark:bg-gray-900/50 absolute z-40 /
                                             left-0 right-0 backdrop-blur-md transition-transform duration-300 /
                                             transform origin-top";
-
-                        let scale_class = if is_menu_open.get() {
-                            "scale-y-100"
-                        } else {
-                            "scale-y-0"
-                        };
-
-                        format!("{} {}", base_classes, scale_class)
-                    }
-                >
-                    <div class="container mx-auto px-4 py-3">
+                    let scale_class = if is_menu_open.get() { "scale-y-100" } else { "scale-y-0" };
+                    format!("{} {}", base_classes, scale_class)
+                }>
+                    <div class="container py-3 px-4 mx-auto">
                         <div class="flex flex-col space-y-3">
-                            <a href="#api" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center"><CodeXml size={20}/>API</a>
-                            <a href="#demo" class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center"><SquareMousePointer size={20}/>{move || tr!("demo")}</a>
-                            <a href="https://github.com/osynicite/osynic_osuapi"
-                            target="_blank"
-                              class="font-medium hover:text-pink-600 dark:hover:text-pink-400 dark:text-gray-200 transition py-2 flex items-center">
-                                <Github size={20}/> GitHub
+                            <a
+                                href="#api"
+                                class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <CodeXml size=20 />
+                                API
+                            </a>
+                            <a
+                                href="#demo"
+                                class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <SquareMousePointer size=20 />
+                                {move || tr!("demo")}
+                            </a>
+                            <a
+                                href="https://github.com/osynicite/osynic_osuapi"
+                                target="_blank"
+                                class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <Github size=20 />
+                                GitHub
                             </a>
                         </div>
                     </div>

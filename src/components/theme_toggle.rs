@@ -38,17 +38,12 @@ pub fn ThemeToggle() -> impl IntoView {
 
     view! {
         <button
-                    class="p-2 rounded-lg transition-colors duration-200
-                           hover:bg-gray-100 dark:hover:bg-gray-700
-                           text-gray-600 dark:text-gray-300"
-                    on:click=handle_theme_toggle
-                >
-                    <Show
-                        when=move || theme.dark_mode().get()
-                        fallback=|| view! { <Sun size={20} /> }
-                    >
-                        <Moon size={20} />
-                    </Show>
-                </button>
+            class="p-2 text-gray-600 rounded-lg transition-colors duration-200 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            on:click=handle_theme_toggle
+        >
+            <Show when=move || theme.dark_mode().get() fallback=|| view! { <Sun size=20 /> }>
+                <Moon size=20 />
+            </Show>
+        </button>
     }
 }

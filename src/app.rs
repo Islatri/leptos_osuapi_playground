@@ -16,7 +16,7 @@ pub fn App() -> impl IntoView {
     view! {
         <SettingsProvider>
             <FluentI18n>
-                <div class="min-h-screen flex flex-col">
+                <div class="flex flex-col min-h-screen">
                     <Header />
 
                     <main class="flex-grow">
