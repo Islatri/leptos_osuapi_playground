@@ -29,7 +29,8 @@ pub fn UserDemo(
     let pp_tpl = Memo::new(move |_| tr!("api-demo-pp", {"pp" => "{$pp}"}));
     let accuracy_tpl = Memo::new(move |_| tr!("api-demo-accuracy", {"accuracy" => "{$accuracy}"}));
     let global_rank_tpl = Memo::new(move |_| tr!("api-demo-global-rank", {"rank" => "{$rank}"}));
-    let country_rank_tpl = Memo::new(move |_| tr!("api-demo-country-rank", {"country_rank" => "{$country_rank}"}));
+    let country_rank_tpl =
+        Memo::new(move |_| tr!("api-demo-country-rank", {"country_rank" => "{$country_rank}"}));
     let playcount_tpl = Memo::new(move |_| tr!("api-demo-playcount", {"count" => "{$count}"}));
 
     // State

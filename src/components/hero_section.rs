@@ -1,8 +1,10 @@
+use crate::components::buttons::api_demo_button::ApiDemoButton;
+use crate::components::buttons::api_docs_button::ApiDocsButton;
+use crate::components::buttons::osuapi_docs_button::OsuapiDocsButton;
 use leptos::prelude::{ClassAttribute, ElementChild};
 use leptos::*;
 use leptos_fluent::tr;
-use lucide_leptos::{BookOpen, Globe, Package, Play, ShieldCheck};
-use crate::components::api_docs_button::ApiDocsButton;
+use lucide_leptos::{Globe, Package, ShieldCheck};
 
 #[component]
 pub fn HeroSection() -> impl IntoView {
@@ -54,29 +56,12 @@ pub fn HeroSection() -> impl IntoView {
                         <p class="mb-8 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-xl dark:text-gray-300">
                             {move || tr!("hero-description")}
                         </p>
-
                         <div class="flex flex-wrap gap-4 mb-10">
-                            <a
-                                href="https://docs.rs/osynic_osuapi"
-                                target="_blank"
-                                class="inline-flex items-center py-3 px-6 font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg shadow-lg transition-all duration-300 transform cursor-pointer hover:from-pink-600 hover:to-purple-700 hover:scale-105 focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none btn-primary shadow-pink-500/20 dark:shadow-pink-700/30"
-                            >
-                                <div class="mr-2 group-hover:animate-bounce-subtle">
-                                    <BookOpen size=20 />
-                                </div>
-                                <span>{move || tr!("hero-button-docs")}</span>
-                            </a>
-                            <a
-                                href="#demo"
-                                class="inline-flex items-center py-3 px-6 font-medium text-white rounded-lg border border-gray-700 shadow-lg transition-all duration-300 transform cursor-pointer dark:border-gray-600 hover:bg-gray-700 hover:scale-105 focus:ring-2 focus:ring-gray-400 focus:outline-none btn-secondary bg-gray-800/80 backdrop-blur-sm shadow-gray-900/20 dark:bg-gray-800/50 dark:hover:bg-gray-700/70"
-                            >
-                                <div class="mr-2 group-hover:animate-bounce-subtle">
-                                    <Play size=20 />
-                                </div>
-                                <span>{move || tr!("hero-button-demo")}</span>
-                            </a>
-                            // 新添加的 API 文档按钮
                             <ApiDocsButton />
+                            <div class="flex flex-wrap gap-4">
+                                <ApiDemoButton />
+                                <OsuapiDocsButton />
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-1 gap-3 text-sm text-gray-300 sm:grid-cols-2 md:grid-cols-3 dark:text-gray-200">

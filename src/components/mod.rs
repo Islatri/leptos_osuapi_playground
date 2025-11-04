@@ -1,8 +1,10 @@
-pub mod demo;
-pub mod api_demo;
 pub mod api_section;
+pub mod api_v1_demo;
+pub mod api_v2_demo;
+pub mod buttons;
+pub mod demo;
 pub mod features_section;
 pub mod hero_section;
+pub mod oauth_panel;
 pub mod theme_toggle;
 pub mod usage_section;
-pub mod api_docs_button;

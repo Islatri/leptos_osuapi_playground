@@ -1,7 +1,10 @@
 use fluent_templates::static_loader;
-use leptos::{IntoView, component, view};
 use leptos::children::Children;
-use leptos::prelude::{Get, Set,Update,RwSignal,ElementChild,ClassAttribute,OnAttribute,CustomAttribute,expect_context};
+use leptos::prelude::{
+    ClassAttribute, CustomAttribute, ElementChild, Get, OnAttribute, RwSignal, Set, Update,
+    expect_context,
+};
+use leptos::{IntoView, component, view};
 use leptos_fluent::{I18n, leptos_fluent};
 
 static_loader! {

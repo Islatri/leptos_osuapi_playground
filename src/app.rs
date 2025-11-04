@@ -2,8 +2,8 @@ use leptos::prelude::{ClassAttribute, ElementChild};
 use leptos::*;
 
 use crate::components::{
-    api_demo::ApiDemo, api_section::ApiSection, features_section::FeaturesSection,
-    hero_section::HeroSection, usage_section::UsageSection,
+    api_section::ApiSection, api_v1_demo::ApiV1Demo, api_v2_demo::ApiV2Demo,
+    features_section::FeaturesSection, hero_section::HeroSection, usage_section::UsageSection,
 };
 
 use crate::layouts::{footer::Footer, header::Header};
@@ -36,7 +36,8 @@ fn HomePage() -> impl IntoView {
         // <div class="h-[72px]"></div>
         <HeroSection />
         <ApiSection />
-        <ApiDemo />
+        <ApiV1Demo />
+        <ApiV2Demo />
         <FeaturesSection />
         <UsageSection />
     }

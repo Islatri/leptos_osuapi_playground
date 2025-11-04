@@ -19,8 +19,8 @@ pub fn UsageSection() -> impl IntoView {
                     {}
                     <div class="flex flex-col space-y-6 transition-transform duration-300 transform hover:-translate-y-1">
                         <h3 class="flex gap-2 justify-center items-center mb-2 text-2xl font-semibold text-center">
-                            <span class="inline-block p-1.5 bg-blue-100 rounded-full dark:bg-blue-900">
-                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                            <span class="inline-block p-1.5 bg-blue-100 rounded-full dark:bg-amber-900">
+                                <div class="w-3 h-3 bg-amber-500 rounded-full"></div>
                             </span>
                             <span class="text-gray-800 dark:text-gray-200">
                                 {move || tr!("quick-start-reqwest-client")}
@@ -149,13 +149,13 @@ async fn main() -> Result<()> {
                                 </div>
                                 <p class="ml-4 font-mono text-sm text-gray-300">npm</p>
                                 <div class="ml-auto">
-                                    <span class="py-1 px-2 text-xs text-gray-300 bg-pink-700 rounded-md">
+                                    <span class="py-1 px-2 text-xs text-gray-300 bg-cyan-700 rounded-md">
                                         {move || tr!("quick-start-install")}
                                     </span>
                                 </div>
                             </div>
 
-                            <pre class="overflow-x-auto p-5 text-sm text-gray-300 min-h-[80px]">
+                            <pre class="overflow-x-auto p-5 text-sm text-gray-300 min-h-[64px]">
                                 <code>
                                     {r#"npm install @osynicite/osynic-osuapi vite-plugin-wasm vite-plugin-top-level-await"#}
                                 </code>
@@ -192,8 +192,7 @@ export default defineConfig({
         wasm(),
         topLevelAwait()
     ],
-})
-                                    "#}
+})"#}
                                 </code>
                             </pre>
                         </div>
@@ -256,7 +255,7 @@ import { ref, reactive } from 'vue';
 import { OsynicOsuApiV1GlooClient } from '@osynicite/osynic-osuapi';
 
 const client = new OsynicOsuApiV1GlooClient("YOUR_API_KEY_HERE_AND_PLS_NOT_SHARE_IT_IN_YOUR_CONCRETE_PROJECT");
-client.setProxyUrl("YOUR_PROXY_URL_HERE_BECAUSE_CORS"); // Like https://github.com/Islatri/deno_osynic_cors
+client.setProxyUrl("YOUR_PROXY_URL_HERE_BECAUSE_CORS"); // // You can see https://github.com/Islatri/deno_osynic_cors
 
 const query = reactive({ bid: '', sid: '', mode: '' });
 const beatmaps = ref([]);

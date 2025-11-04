@@ -23,7 +23,8 @@ pub fn BeatmapDemo(
     let error_prefix = Memo::new(move |_| tr!("api-demo-error", {"error" => ""}));
 
     // Beatmap result templates
-    let beatmap_number_tpl = Memo::new(move |_| tr!("api-demo-beatmap-number", {"number" => "{$number}"}));
+    let beatmap_number_tpl =
+        Memo::new(move |_| tr!("api-demo-beatmap-number", {"number" => "{$number}"}));
     let title_tpl = Memo::new(move |_| tr!("api-demo-title", {"title" => "{$title}"}));
     let artist_tpl = Memo::new(move |_| tr!("api-demo-artist", {"artist" => "{$artist}"}));
     let version_tpl = Memo::new(move |_| tr!("api-demo-version", {"version" => "{$version}"}));

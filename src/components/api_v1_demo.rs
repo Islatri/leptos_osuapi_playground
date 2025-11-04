@@ -4,14 +4,14 @@ use leptos_fluent::tr;
 use lucide_leptos::{Github, Music, User};
 use web_sys::HtmlInputElement;
 
-use crate::components::demo::beatmap_demo::BeatmapDemo;
-use crate::components::demo::user_demo::UserDemo;
-use crate::components::demo::user_recent_demo::UserRecentDemo;
-use crate::components::demo::user_best_demo::UserBestDemo;
-use crate::components::demo::scores_demo::ScoresDemo;
+use crate::components::demo::v1::beatmap_demo::BeatmapDemo;
+use crate::components::demo::v1::scores_demo::ScoresDemo;
+use crate::components::demo::v1::user_best_demo::UserBestDemo;
+use crate::components::demo::v1::user_demo::UserDemo;
+use crate::components::demo::v1::user_recent_demo::UserRecentDemo;
 
 #[component]
-pub fn ApiDemo() -> impl IntoView {
+pub fn ApiV1Demo() -> impl IntoView {
     // State variables
     let (api_key, set_api_key) = signal("".to_string());
     let (active_tab, set_active_tab) = signal("beatmaps");
@@ -26,7 +26,7 @@ pub fn ApiDemo() -> impl IntoView {
 
     view! {
         <section
-            id="demo"
+            id="v1-demo"
             class="py-16 bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
         >
             <div class="container px-4 mx-auto">

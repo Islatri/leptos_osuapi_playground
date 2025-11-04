@@ -37,10 +37,19 @@ pub fn Header() -> impl IntoView {
                                 API
                             </a>
                             <a
-                                href="#demo"
+                                href="#v1-demo"
                                 class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
                             >
                                 <SquareMousePointer size=20 />
+                                V1
+                                {move || tr!("demo")}
+                            </a>
+                            <a
+                                href="#v2-demo"
+                                class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <SquareMousePointer size=20 />
+                                V2
                                 {move || tr!("demo")}
                             </a>
                             <a
@@ -49,7 +58,6 @@ pub fn Header() -> impl IntoView {
                                 class="flex items-center font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
                             >
                                 <Github size=20 />
-                                GitHub
                             </a>
                         </nav>
 
@@ -85,10 +93,19 @@ pub fn Header() -> impl IntoView {
                                 API
                             </a>
                             <a
-                                href="#demo"
+                                href="#v1-demo"
                                 class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
                             >
                                 <SquareMousePointer size=20 />
+                                V1
+                                {move || tr!("demo")}
+                            </a>
+                            <a
+                                href="#v2-demo"
+                                class="flex items-center py-2 font-medium transition dark:text-gray-200 hover:text-pink-600 dark:hover:text-pink-400"
+                            >
+                                <SquareMousePointer size=20 />
+                                V2
                                 {move || tr!("demo")}
                             </a>
                             <a

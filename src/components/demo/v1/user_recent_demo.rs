@@ -27,7 +27,9 @@ pub fn UserRecentDemo(
     let beatmap_id_tpl = Memo::new(move |_| tr!("api-demo-beatmap-id", {"id" => "{$id}"}));
     let score_tpl = Memo::new(move |_| tr!("api-demo-score", {"score" => "{$score}"}));
     let combo_tpl = Memo::new(move |_| tr!("api-demo-combo", {"combo" => "{$combo}"}));
-    let accuracy_hits_tpl = Memo::new(move |_| tr!("api-demo-accuracy-hits", {"c300" => "{$c300}", "c100" => "{$c100}", "c50" => "{$c50}", "miss" => "{$miss}"}));
+    let accuracy_hits_tpl = Memo::new(
+        move |_| tr!("api-demo-accuracy-hits", {"c300" => "{$c300}", "c100" => "{$c100}", "c50" => "{$c50}", "miss" => "{$miss}"}),
+    );
     let rank_tpl = Memo::new(move |_| tr!("api-demo-rank", {"rank" => "{$rank}"}));
     let mods_tpl = Memo::new(move |_| tr!("api-demo-mods", {"mods" => "{$mods}"}));
     let date_tpl = Memo::new(move |_| tr!("api-demo-date", {"date" => "{$date}"}));
@@ -108,7 +110,8 @@ pub fn UserRecentDemo(
                             result_str.push_str("\n");
 
                             // Combo
-                            result_str.push_str(&combo_template.replace("{$combo}", &recent.maxcombo));
+                            result_str
+                                .push_str(&combo_template.replace("{$combo}", &recent.maxcombo));
                             result_str.push_str("\n");
 
                             // Accuracy hits
@@ -125,7 +128,8 @@ pub fn UserRecentDemo(
                             result_str.push_str("\n");
 
                             // Mods
-                            result_str.push_str(&mods_template.replace("{$mods}", &recent.enabled_mods));
+                            result_str
+                                .push_str(&mods_template.replace("{$mods}", &recent.enabled_mods));
                             result_str.push_str("\n");
 
                             // Date
@@ -134,7 +138,8 @@ pub fn UserRecentDemo(
 
                             // Perfect combo
                             let perfect_status = if recent.perfect == "1" { "Yes" } else { "No" };
-                            result_str.push_str(&perfect_template.replace("{$perfect}", perfect_status));
+                            result_str
+                                .push_str(&perfect_template.replace("{$perfect}", perfect_status));
                         }
 
                         set_result.set(result_str);
