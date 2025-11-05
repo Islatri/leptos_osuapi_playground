@@ -36,4 +36,4 @@ lucide-leptos = { version = "2.38.0", features = ["accessibility","account","arr
 leptos-fluent = { git = "https://github.com/mondeja/leptos-fluent", branch = "master" }
 fluent-templates = "0.13.2"
 
-osynic_osuapi = { version="0.1.5",default-features = false,features = ["v1","v2","wasm"] }
+osynic_osuapi = { version="0.1.6",default-features = false,features = ["v1","v2","wasm"] }

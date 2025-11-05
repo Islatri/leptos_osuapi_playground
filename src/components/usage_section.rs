@@ -73,7 +73,7 @@ CODE="your code" # Authorization Code Grant"#}
                             <pre class="overflow-x-auto p-5 text-sm text-gray-300">
                                 <code>
                                     {r#"[dependencies]
-osynic_osuapi = "0.1.5"
+osynic_osuapi = "0.1.6"
 # Default features are ["v1", "v2", "not-wasm"]"#}
                                 </code>
                             </pre>
