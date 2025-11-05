@@ -657,10 +657,10 @@ pub fn ApiSection() -> impl IntoView {
                                 <h3 class="ml-3 text-lg font-semibold dark:text-gray-200">
                                     {move || tr!("api-friends-title")}
                                 </h3>
-                                <p class="ml-3 text-sm text-gray-600 dark:text-gray-300">
-                                    {move || tr!("api-friends-description")}
-                                </p>
                             </div>
+                            <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">
+                                {move || tr!("api-friends-description")}
+                            </p>
                             <div class="grid grid-cols-2 gap-1.5 font-mono text-xs">
                                 <div class="py-1 px-2 bg-gray-100 rounded-md transition-colors dark:text-gray-200 dark:bg-gray-700 hover:bg-pink-100 dark:hover:bg-pink-900">
                                     get_friends
