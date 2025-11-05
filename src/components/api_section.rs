@@ -3,7 +3,7 @@ use leptos::*;
 use leptos_fluent::tr;
 use lucide_leptos::{
     Award, Bell, BookCopy, Calendar, ChartBarBig, FileText, History, House, Layers, Lock,
-    MessageSquare, MessageSquareText, Music, Newspaper, Star, Trophy, User, Users, UserCheck, Users,
+    MessageSquare, MessageSquareText, Music, Newspaper, Star, Trophy, User, Users, UserCheck, UsersRound,
 };
 
 #[component]
@@ -652,7 +652,7 @@ pub fn ApiSection() -> impl IntoView {
                             <div class="absolute top-0 right-0 w-16 h-16 bg-pink-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-pink-900 group-hover:scale-150"></div>
                             <div class="flex items-center mb-3">
                                 <div class="flex justify-center items-center w-12 h-12 text-xl text-pink-600 bg-pink-100 rounded-full dark:bg-pink-900 drop-shadow-md">
-                                    <Users />
+                                    <UsersRound />
                                 </div>
                                 <h3 class="ml-3 text-lg font-semibold dark:text-gray-200">
                                     {move || tr!("api-friends-title")}
