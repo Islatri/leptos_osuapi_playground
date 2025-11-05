@@ -93,7 +93,8 @@ api-v2-users-title = Benutzer API
 api-v2-users-description = Abrufen detaillierter Benutzerinformationen.
 api-wiki-title = Wiki API
 api-wiki-description = Abrufen von Wiki-Seiteninhalten.
-
+api-friends-title = Freunde API
+api-friends-description = Abrufen und Verwalten von Freundeslisten.
 
 # Features Section
 features-section-title = Warum OsynicOsuapi wählen?

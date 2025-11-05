@@ -91,7 +91,8 @@ api-v2-users-title = Users API
 api-v2-users-description = Get detailed user information.
 api-wiki-title = Wiki API
 api-wiki-description = Get wiki page content.
-
+api-friends-title = Friends API
+api-friends-description = Get and manage friend lists.
 
 # Features Section
 features-section-title = Why Choose OsynicOsuapi?

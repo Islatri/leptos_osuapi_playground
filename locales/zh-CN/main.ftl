@@ -93,7 +93,8 @@ api-v2-users-title = 用户 API
 api-v2-users-description = 获取用户详细信息.
 api-wiki-title = 维基 API
 api-wiki-description = 获取维基页面内容.
-
+api-friends-title = 好友 API
+api-friends-description = 获取和管理好友列表.
 
 # Features Section
 features-section-title = 为什么选择 OsynicOsuapi?

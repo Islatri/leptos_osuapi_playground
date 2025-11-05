@@ -93,7 +93,8 @@ api-v2-users-title = API пользователей
 api-v2-users-description = Получение подробной информации о пользователях.
 api-wiki-title = API вики
 api-wiki-description = Получение содержимого страниц вики.
-
+api-friends-title = API друзей
+api-friends-description = Получение и управление списком друзей.
 
 # Features Section
 features-section-title = Почему стоит выбрать OsynicOsuapi?

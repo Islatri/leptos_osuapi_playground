@@ -3,7 +3,7 @@ use leptos::*;
 use leptos_fluent::tr;
 use lucide_leptos::{
     Award, Bell, BookCopy, Calendar, ChartBarBig, FileText, History, House, Layers, Lock,
-    MessageSquare, MessageSquareText, Music, Newspaper, Star, Trophy, User, UserCheck, Users,
+    MessageSquare, MessageSquareText, Music, Newspaper, Star, Trophy, User, Users, UserCheck, Users,
 };
 
 #[component]
@@ -644,6 +644,29 @@ pub fn ApiSection() -> impl IntoView {
                             <div class="grid grid-cols-2 gap-1.5 font-mono text-xs">
                                 <div class="py-1 px-2 bg-gray-100 rounded-md transition-colors dark:text-gray-200 dark:bg-gray-700 hover:bg-teal-100 dark:hover:bg-teal-900">
                                     get_wiki_page
+                                </div>
+                            </div>
+                        </div> {}
+                        // Friends
+                        <div class="overflow-hidden relative p-5 bg-white rounded-xl border border-gray-100 transition duration-300 dark:bg-gray-800 dark:border-gray-700 hover:shadow-xl card group">
+                            <div class="absolute top-0 right-0 w-16 h-16 bg-pink-100 rounded-bl-full opacity-20 transition-transform duration-300 transform dark:bg-pink-900 group-hover:scale-150"></div>
+                            <div class="flex items-center mb-3">
+                                <div class="flex justify-center items-center w-12 h-12 text-xl text-pink-600 bg-pink-100 rounded-full dark:bg-pink-900 drop-shadow-md">
+                                    <Users />
+                                </div>
+                                <h3 class="ml-3 text-lg font-semibold dark:text-gray-200">
+                                    {move || tr!("api-friends-title")}
+                                </h3>
+                                <p class="ml-3 text-sm text-gray-600 dark:text-gray-300">
+                                    {move || tr!("api-friends-description")}
+                                </p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-1.5 font-mono text-xs">
+                                <div class="py-1 px-2 bg-gray-100 rounded-md transition-colors dark:text-gray-200 dark:bg-gray-700 hover:bg-pink-100 dark:hover:bg-pink-900">
+                                    get_friends
+                                </div>
+                                <div class="py-1 px-2 bg-gray-100 rounded-md transition-colors dark:text-gray-200 dark:bg-gray-700 hover:bg-pink-100 dark:hover:bg-pink-900">
+                                    get_friends_x_api_version
                                 </div>
                             </div>
                         </div>

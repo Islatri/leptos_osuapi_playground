@@ -93,7 +93,8 @@ api-v2-users-title = ユーザーAPI
 api-v2-users-description = ユーザーの詳細情報を取得。
 api-wiki-title = WikiAPI
 api-wiki-description = Wikiページのコンテンツを取得。
-
+api-friends-title = フレンドAPI
+api-friends-description = フレンドリストの取得と管理。
 
 # Features Section
 features-section-title = なぜOsynicOsuapiを選ぶのか？

@@ -93,7 +93,8 @@ api-v2-users-title = 사용자 API
 api-v2-users-description = 사용자 상세 정보를 조회합니다.
 api-wiki-title = 위키 API
 api-wiki-description = 위키 페이지 내용을 조회합니다.
-
+api-friends-title = 친구 API
+api-friends-description = 친구 목록을 조회하고 관리합니다.
 
 # Features Section
 features-section-title = OsynicOsuapi를 선택하는 이유?
