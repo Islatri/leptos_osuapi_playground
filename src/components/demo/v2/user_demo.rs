@@ -75,7 +75,7 @@ pub fn UserDemo(
             };
 
             let client = OsynicOsuApiV2GlooClient::new(v2_token);
-            client.set_proxy_url("http://https://osynic-cors.deno.dev/".to_string());
+            client.set_proxy_url("https://osynic-cors.deno.dev/".to_string());
 
             let result = if !query_id.is_empty() {
                 // Search by ID
