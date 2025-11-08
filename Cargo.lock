@@ -1474,9 +1474,9 @@ checksum = "8c04f5d74368e4d0dfe06c45c8627c81bd7c317d52762d118fb9b3076f6420fd"
 
 [[package]]
 name = "osynic_osuapi"
-version = "0.1.5"
+version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "290c02e10ec5fd69443a43212eb8a0a963e44276c36fc54fee4a97eb5ecd2353"
+checksum = "eea6cd262b5ecf75972ffe98d9858ea869fabedc053bdb797fa37b003071b89c"
 dependencies = [
  "bitflags",
  "chrono",
